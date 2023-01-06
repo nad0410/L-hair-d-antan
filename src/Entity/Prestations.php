@@ -19,8 +19,8 @@ class Prestations
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $Time = null;
+    #[ORM\Column]
+    private ?int $Time = null;
 
     #[ORM\Column]
     private ?float $prix = null;
@@ -50,12 +50,12 @@ class Prestations
         return $this;
     }
 
-    public function getTime(): ?\DateTimeInterface
+    public function getTime(): ?int
     {
         return $this->Time;
     }
 
-    public function setTime(\DateTimeInterface $Time): self
+    public function setTime(int $Time): self
     {
         $this->Time = $Time;
 
