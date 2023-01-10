@@ -1,12 +1,26 @@
+:root{
+    --violet-claire: #8244A7;
+    --violet-fonce: #7244A7;
+    --arrier-plan: #9467cc;
+    --text_col: #C6D1EC;
+  }
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: var(--arrier-plan);
+}
 
+
+
+/* Header */
 header {
     /* padding-bottom: 200px; */
-    height: 300px;
+    height: 214px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +36,7 @@ a {
     /* border: 8px solid red; */
     justify-content: center;
     padding: 5px;
-    background-color: #804cac;
+    background-color: var(--violet-fonce);
     width: 100%;
     padding: 20px;
     font-family: 'Dancing Script', cursive;
@@ -39,8 +53,8 @@ a {
 .text_div {
     margin-top: auto;
     margin-bottom: auto;
-    color: white;
-    background-color: #8244A7;
+    color: var(--text_col);
+    background-color: var(--violet-claire);
     height: fit-content;
     font-family: 'Dancing Script', cursive;
     padding: 20px;
@@ -49,13 +63,12 @@ a {
 
 .titre_site {
     width: fit-content;
-    background-color: #8244A7;
     font-family: 'Dancing Script', cursive;
 }
 
 nav {
     border: 1.5px solid darkgray;
-    background-color: #804cac;
+    background-color: var(--violet-fonce);
     width: 100%;
     padding: 10px;
     
@@ -74,7 +87,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--text_col);
     font-size: 1.25rem;
     height: fit-content;
 }
@@ -84,4 +97,37 @@ nav ul li a {
 #calendrier{
     width: 80%;
     margin: auto;
+}
+
+/* Accueil */
+main {
+    display: flex;
+    justify-content: center;
+} 
+
+.presentation_section {
+background-color: var(--violet-fonce);
+margin-top: 5px;
+width: 80%;
+padding: 15px;
+}
+
+.presentation_div {
+    display: flex;
+    justify-content: center;
+}
+
+.presentation_div img {
+    margin-left: 30px;
+    object-fit: contain;
+}
+.presentaiton_p_div {
+    max-width: 600px;
+}
+.presentation_p {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    max-width: 100%;
+    font-size: 20px;
+    color: var(--text_col);
 }

@@ -1,7 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Hello DefaultController!
+{% endblock %}
 
 {% block body %}
-{% include "partials/_header.html.twig" %}
+	{% include "partials/_header.html.twig" %}
+	<main>
+		{# Section Presentation du salon #}
+		<section class="presentation_section">
+        
+			<div class="presentation_div">
+				<div class="presentaiton_p_div">
+					<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, veniam fugiat ut maxime necessitatibus labore consequuntur ex explicabo itaque beatae id tempora ad non repellat. Repudiandae minima iure similique consequuntur veniam. Unde sed reiciendis quas quos possimus asperiores quam incidunt eius assumenda? Distinctio accusantium nesciunt officiis delectus sequi vel!</p>
+				</div>
+				<img src="{{ asset("images/logo.jpg") }}" alt="Logo du site">
+			</div>
+		</section>
+
+
+	</main>
+
+
 {% endblock %}
