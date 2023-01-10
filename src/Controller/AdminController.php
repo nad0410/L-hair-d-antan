@@ -53,7 +53,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
-    public function majEvent($id, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    public function majEvent($id,PrestationsRepository $prestationsRepository, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
         $rdv = $rdvRepository->findOneBy(['id' => $id]);
@@ -62,6 +62,7 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // $rdvRepository->removeRdvPrestation(1, "rdv_prestation");
+            
             $entityManagerInterface->persist($rdv);
             $entityManagerInterface->flush();
         }
