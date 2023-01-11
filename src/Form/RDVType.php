@@ -26,7 +26,7 @@ class RDVType extends AbstractType
         ->add('tel', TelType::class)
         ->add('user', EntityType::class, [
             'class' => User::class,
-            'choice_label' => 'email',
+            'choice_label' => 'name',
             'label' => "Nom du Coiffeur "
         ])
         ->add("prestation", EntityType::class, [

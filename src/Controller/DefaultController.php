@@ -20,6 +20,9 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+
+    
     #[Route('/reservation', name: 'reservation')]
     public function reservation(RDVRepository $rDVRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
     {
@@ -29,8 +32,8 @@ class DefaultController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
-            dd($form->getData());
+
+            $rdv->addRdvPrestation($form->get('prestation')->getData());
             $entityManagerInterface->persist($rdv);
             $entityManagerInterface->flush();
         }

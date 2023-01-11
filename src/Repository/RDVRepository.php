@@ -39,6 +39,19 @@ class RDVRepository extends ServiceEntityRepository
         }
     }
 
+    public function removeRdvPrestation(int $rdv, $table): array
+    {
+        $query = $this->createQueryBuilder('t')
+        ->where('t.rdv_id = :rdv')
+        ->setParameter('rdv', $rdv)
+        ->from($table, "t")
+        ->delete()
+        ->getQuery();
+
+        return $query->execute();
+
+    }
+
 //    /**
 //     * @return RDV[] Returns an array of RDV objects
 //     */
