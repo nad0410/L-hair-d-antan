@@ -1,9 +1,9 @@
-:root{
+:root {
     --violet-claire: #8244A7;
     --violet-fonce: #7244A7;
     --arrier-plan: #9467cc;
     --text_col: #C6D1EC;
-  }
+}
 
 
 * {
@@ -61,27 +61,27 @@ a {
     font-family: 'Dancing Script', cursive;
 }
 
-nav {
+.nav-header {
     border: 1.5px solid darkgray;
     background-color: var(--violet-fonce);
     width: 100%;
     padding: 10px;
-    
+
 }
 
-nav ul {
+.nav-header ul {
     padding: 0;
     display: flex;
     justify-content: space-around;
 }
 
-nav ul li {
+.nav-header ul li {
     margin-right: 5px;
     font-family: 'Dancing Script', cursive;
     list-style: none;
 }
 
-nav ul li a {
+.nav-header ul li a {
     color: var(--text_col);
     font-size: 1.25rem;
     height: fit-content;
@@ -89,7 +89,7 @@ nav ul li a {
 
 /* Calendar */
 
-#calendrier{
+#calendrier {
     width: 80%;
     margin: auto;
 }
@@ -98,13 +98,13 @@ nav ul li a {
 main {
     display: flex;
     justify-content: center;
-} 
+}
 
 .presentation_section {
-background-color: var(--violet-fonce);
-margin-top: 5px;
-width: 80%;
-padding: 15px;
+    background-color: var(--violet-fonce);
+    margin-top: 5px;
+    width: 80%;
+    padding: 15px;
 }
 
 .presentation_div {
@@ -116,9 +116,11 @@ padding: 15px;
     margin-left: 30px;
     object-fit: contain;
 }
+
 .presentaiton_p_div {
     max-width: 600px;
 }
+
 .presentation_p {
     background-color: var(--violet-claire);
     padding: 15px;
@@ -126,3 +128,96 @@ padding: 15px;
     font-size: 20px;
     color: var(--text_col);
 }
+
+/* Admin Panel */
+
+.nav-admin-panel {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid darkgray;
+    width: 10%;
+    height: 900px;
+    background-color: rgb(75, 75, 75);
+    padding: 10px;
+}
+
+.div-admin-panel {
+    width: 100%;
+    height: 900px;
+    padding: 10px;
+}
+
+.div-admin-panel ul {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    color: var(--text_col);
+    list-style: none;
+}
+
+.div-admin-panel ul li a {
+    color: var(--text_col);
+}
+
+
+/* Admin Prestations */
+
+.a_button_submit {
+    margin-top: 10px;
+    background-color: var(--text_col);
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px;
+    width: 13%;
+}
+
+.admin_main_produits {
+    display: flex;
+    flex-direction: column;
+}
+
+.prestation_div  {
+    display: flex;   
+}
+.prestation_div p {
+    margin: 10px;
+}
+.prestation_div a {
+    margin: 8px;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.wrapper{
+    position: relative;
+    top: 40vh;
+  }
+  #button{
+    border: 5px solid #FFAB33;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: auto;
+    background: #FF5733;
+  }
+  
+  #button:hover{
+    background: #DFF30B;
+  }
+  
+  #message{
+    font-size: 26px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .hide{
+    visibility: hidden;
+  }
+  
+  .reveal{
+    visibility: visible;
+  }
