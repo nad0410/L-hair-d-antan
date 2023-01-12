@@ -11,81 +11,169 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-/* Header */
-header {
-    /* padding-bottom: 200px; */
-    height: 214px;
-    display: flex;
+.column {
     flex-direction: column;
-    align-items: center;
+}
+.row {
+    flex-direction: row;
 }
 
+/* ---------------------------------------------------------- */
+
+/* HEADER */
+header { 
+    /* display: flex; */
+    width: 100%;
+    height: 360px;
+}
 a {
     text-decoration: none;
     color: black;
 }
-
-.main-header {
+.logo {
+    height: 300px;
     display: flex;
     /* border: 8px solid red; */
     justify-content: center;
     padding: 5px;
     background-color: var(--violet-fonce);
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
     font-family: 'Dancing Script', cursive;
 }
-
 .img_url {
-    width: 128px;
-    height: 128px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     margin-top: auto;
     margin-bottom: auto;
 }
-
 .text_div {
     margin-top: auto;
     margin-bottom: auto;
     color: var(--text_col);
     background-color: var(--violet-claire);
-    height: fit-content;
+    height: 200px;
+    width: 900px;
     font-family: 'Dancing Script', cursive;
     padding: 20px;
     padding-right: 100px;
 }
-
-.titre_site {
-    width: fit-content;
+h1{
+    font-size: 100px;
+    padding: 20px;
+    padding-left: 60px;
     font-family: 'Dancing Script', cursive;
 }
-
-nav {
-    border: 1.5px solid darkgray;
-    background-color: var(--violet-fonce);
-    width: 100%;
-    padding: 10px;
-    
+h2{
+    font-size: 50px;
+    margin-top: auto;
 }
 
-nav ul {
-    padding: 0;
+
+
+    /* ---------- NAV DU HEADER ---------------*/
+.nav {
+    display: flex;
+    border: 1px solid rgb(68, 7, 77);
+    background-color: var(--violet-fonce);
+    width: 100%;
+    height: 60px;
+    /* padding: 10px; */
+
+}
+.nav ul {
+    padding: 3px;
     display: flex;
     justify-content: space-around;
 }
-
-nav ul li {
+.nav ul li {
     margin-right: 5px;
     font-family: 'Dancing Script', cursive;
     list-style: none;
 }
-
-nav ul li a {
+.nav ul li a {
     color: var(--text_col);
-    font-size: 1.25rem;
+    font-size: 2rem;
     height: fit-content;
 }
+
+
+
+/* ------------------------------------------------------------------------------ */
+
+/* MAIN */
+.container {
+    padding: 95px;
+    height: 100%;
+    background-color: var(--arrier-plan);
+    width: 100% ;
+} 
+.presentation_section {
+    background-color: var(--violet-fonce);
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    padding: 40px;
+    margin-top: 50px;
+    height: 500px;
+    /* display: flex; */    
+}
+.row h2 {
+    text-align: center;
+    width: 95%;
+    height: 70px;
+}
+.presentation_div {
+    display: flex;
+    justify-content: center;
+}
+.presentation_div img {
+    width: 30%;
+    /* margin-left: 30px; */
+    object-fit: contain;
+}
+.presentaiton_p_div {
+    width: 600px;
+}
+.presentation_p {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    max-width: 100%;
+    font-size: 20px;
+    color: var(--text_col);
+    /* margin-bottom: 25px; */
+}
+.categorys{
+    width: 100%;
+    height: 450px;
+    display: flex;
+}
+.category{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    margin-top: 20px;
+    padding-left: 50px;
+    margin-left: 90px;
+}
+
+        /* presentation des coiffeurs */
+    
+/* .equipe{
+    width: 100%;
+    height: 450px;
+    display: flex;
+} */
+.coiffeur{
+    width: 300px;
+    height: 50px;
+    background-color: aqua;
+    margin-top: 20px; 
+    margin-left: 150px; 
+}
+
+
 
 /* Calendar */
 
@@ -94,35 +182,3 @@ nav ul li a {
     margin: auto;
 }
 
-/* Accueil */
-main {
-    display: flex;
-    justify-content: center;
-} 
-
-.presentation_section {
-background-color: var(--violet-fonce);
-margin-top: 5px;
-width: 80%;
-padding: 15px;
-}
-
-.presentation_div {
-    display: flex;
-    justify-content: center;
-}
-
-.presentation_div img {
-    margin-left: 30px;
-    object-fit: contain;
-}
-.presentaiton_p_div {
-    max-width: 600px;
-}
-.presentation_p {
-    background-color: var(--violet-claire);
-    padding: 15px;
-    max-width: 100%;
-    font-size: 20px;
-    color: var(--text_col);
-}
