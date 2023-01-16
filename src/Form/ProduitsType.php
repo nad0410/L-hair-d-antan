@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProduitsType extends AbstractType
@@ -19,7 +20,7 @@ class ProduitsType extends AbstractType
         $builder
             ->add('name')
             ->add('marque')
-            ->add('prix')
+            ->add('prix', NumberType::class)
             ->add('description')
             ->add('img_produits', FileType::class, [
                 'label' => 'Image Produits',
