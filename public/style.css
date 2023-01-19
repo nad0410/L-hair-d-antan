@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+
 :root{
     --violet-claire: #8244A7;
     --violet-fonce: #7244A7;
@@ -10,6 +14,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Aclonica', sans-serif;
 }
 .column {
     flex-direction: column;
@@ -39,7 +44,7 @@ a {
     background-color: var(--violet-fonce);
     width: 100%;
     /* padding: 20px; */
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Aclonica', sans-serif; */
 }
 .img_url {
     width: 250px;
@@ -55,19 +60,20 @@ a {
     background-color: var(--violet-claire);
     height: 200px;
     width: 900px;
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Aclonica', sans-serif; */
     padding: 20px;
     padding-right: 100px;
 }
 h1{
-    font-size: 100px;
-    padding: 20px;
+    font-size: 70px;
+    padding: 45px;
     padding-left: 60px;
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Aclonica', sans-serif; */
 }
 h2{
     font-size: 50px;
     margin-top: auto;
+    /* font-family: 'Aclonica', sans-serif; */
 }
 
 
@@ -83,13 +89,13 @@ h2{
 
 }
 .nav ul {
-    padding: 3px;
+    padding: 12px;
     display: flex;
     justify-content: space-around;
 }
 .nav ul li {
     margin-right: 5px;
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Aclonica', sans-serif; */
     list-style: none;
 }
 .nav ul li a {
@@ -175,53 +181,55 @@ h2{
 h3 {
     width: 15px;
     height: 5px;
-    margin-right: 150px;
+    /* margin-right: 300px; */
+    font-family: 'Aclonica', sans-serif;
 }
 .center h3{
-    /* text-align: center; */
+    text-align: center;
+    width: 800px;
     /* width: 200px; */
-    margin-left: 200px;
+    /* margin-left: 200px; */
 }
-.face .column{
-    width: 400px;
-}
+/* .face .column{
+    width: 600px;
+} */
 .diapo{
     position: relative;
     overflow: hidden;
-    width: 70%;
+    width: 80%;
 }
-.nav-droite, .nav-gauche{
+#nav-droite, #nav-gauche{
     position: absolute;
-    top: 10%;
+    top: 50%;
     transform: translateY(-100%);
     color: black;
-    font-size: 1em;
+    font-size: 2em;
 }
 
-.nav-droite{
-    right: 20px;
+#nav-droite{
+    right: 50px;
 }
-.nav-gauche{
-    left: 20px;
+#nav-gauche{
+    left: 50px;
 }
 .elements{
     display: flex;
     transition: 1s linear;
+    width: 500px;
+    background-color: brown;
+    justify-items: center;
 }
 
 .element{
     flex: 1 0 90%;
     position: relative;
-    width: 70px;
-    padding-left: 50px;
+    width: 100px;
+    text-align: center;
 }
 
 .element > img{
-    width: 90%;
+    width: 50%;
 }
-
-
-
 
 
 

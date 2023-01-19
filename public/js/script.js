@@ -2,14 +2,14 @@
 const diapo = document.querySelector(".diapo")
 
 // On récupère le conteneur de tous les éléments
-elements = document.querySelector(".elements")
+elements = document.querySelectorAll(".elements")
 
 // On récupère un tableau contenant la liste des diapos
 slides = Array.from(elements.children)
 
 // On récupère les deux flèches
-let next = document.querySelector(".nav-droite")
-let prev = document.querySelector(".nav-gauche")
+let next = document.querySelector("#nav-droite")
+let prev = document.querySelector("#nav-gauche")
 
 // Variables globales
 let compteur = 0 // Compteur qui permettra de savoir sur quelle slide nous sommes
