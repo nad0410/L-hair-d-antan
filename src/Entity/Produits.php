@@ -26,6 +26,12 @@ class Produits
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?CategoryProduits $category = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $img_produits = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,4 +84,29 @@ class Produits
 
         return $this;
     }
+
+    public function getCategory(): ?CategoryProduits
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?CategoryProduits $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getImgProduits(): ?string
+    {
+        return $this->img_produits;
+    }
+
+    public function setImgProduits(string $img_produits): self
+    {
+        $this->img_produits = $img_produits;
+
+        return $this;
+    }
+
 }

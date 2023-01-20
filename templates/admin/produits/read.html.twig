@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits
+{% endblock %}
+
+{% block body %}
+	<div class="admin_main_produits">
+
+		{% for produit in produits %}
+			<div class="prestation_div">
+				<p>{{produit.name}}</p>
+				<p>{{produit.marque}}</p>
+				<p>{{produit.prix}}
+					€</p>
+				<p class="p_pro">
+					{{produit.description}}</p>
+				<p>{{produit.category.name}}</p>
+				<a href="{{path('admin_produits_edit', { 'id': produit.id }) }}">
+					Modifier</a>
+				<a id="comf_delete" href="{{path('admin_produits_delete', { 'id': produit.id }) }}">
+					Supprimer</a>
+			</div>
+		{% endfor %}
+
+		<a class="a_button_submit" href="{{path("admin_create_produits")}}">
+			Créer un nouveau produits</a>
+	</div>
+	{# {% include "partials/_left-panel-admin.html.twig" %} #}
+{% endblock %}
