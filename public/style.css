@@ -1,9 +1,9 @@
-:root{
+:root {
     --violet-claire: #8244A7;
     --violet-fonce: #7244A7;
     --arrier-plan: #9467cc;
     --text_col: #C6D1EC;
-  }
+}
 
 
 * {
@@ -12,27 +12,34 @@
     box-sizing: border-box;
     color: var(--text_col);
 }
+
 .column {
     flex-direction: column;
 }
+
 .row {
     flex-direction: row;
 }
 
-
+.hidden,
+.hidden_label {
+    display: none;
+}
 
 /* ---------------------------------------------------------- */
 
 /* HEADER */
-header { 
+header {
     /* display: flex; */
     width: 100%;
     height: 360px;
 }
+
 a {
     text-decoration: none;
     color: black;
 }
+
 .logo {
     height: 300px;
     display: flex;
@@ -44,6 +51,7 @@ a {
     /* padding: 20px; */
     font-family: 'Dancing Script', cursive;
 }
+
 .img_url {
     width: 250px;
     height: 250px;
@@ -51,6 +59,7 @@ a {
     margin-top: auto;
     margin-bottom: auto;
 }
+
 .text_div {
     margin-top: auto;
     margin-bottom: auto;
@@ -61,20 +70,22 @@ a {
     padding: 20px;
     padding-right: 100px;
 }
-h1{
+
+h1 {
     font-size: 100px;
     margin: 20px;
     margin-left: 60px;
     font-family: 'Dancing Script', cursive;
 }
-h2{
+
+h2 {
     font-size: 50px;
     margin-top: auto;
 }
 
 
 
-    /* ---------- NAV DU HEADER ---------------*/
+/* ---------- NAV DU HEADER ---------------*/
 .nav {
     display: flex;
     border: 1px solid rgb(68, 7, 77);
@@ -84,17 +95,20 @@ h2{
     /* padding: 10px; */
 
 }
+
 .nav ul {
     padding: 3px;
     display: flex;
     justify-content: space-around;
 }
+
 .nav ul li {
     margin-right: 5px;
     font-family: 'Dancing Script', cursive;
     list-style: none;
     margin-top: 8px;
 }
+
 .nav ul li a {
     color: var(--text_col);
     border-radius: 8px;
@@ -102,6 +116,7 @@ h2{
     height: fit-content;
     transition: all .2s;
 }
+
 .nav ul li a:hover {
     color: var(--text_col);
     font-size: 2.1rem;
@@ -140,12 +155,8 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: space-around;
-    
-    list-style: none;
-}
 
-.div-admin-panel ul li a {
-    
+    list-style: none;
 }
 
 
@@ -191,6 +202,7 @@ h2{
     margin-right: auto;
     margin-bottom: 5px;
 }
+
 .div-selector-category label {
     width: 200px;
 }
@@ -218,7 +230,7 @@ h2{
     font-weight: 700;
 }
 
-.choice_category_label h3{
+.choice_category_label h3 {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -255,17 +267,21 @@ h2{
     margin-top: 5px;
     transition: all .2s;
 }
+
 .div-card-produits:hover {
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(130,68,167,0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(130, 68, 167, 0);
     padding: 30px 40px 30px 40px;
     transition: all .2s;
 }
+
 .div-card-produits h2 {
     font-size: 45px;
     margin-top: 20px;
     margin-bottom: 45px;
     max-width: 400px;
     text-align: center;
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .div-card-produits h3 {
@@ -281,7 +297,6 @@ h2{
     font-size: 50px;
     max-width: 80%;
     max-height: 50%;
-    overflow: hidden;
 }
 
 .div-card-produits img {
@@ -295,6 +310,148 @@ h2{
     /* border: 1px solid red; */
 }
 
+/* Page Contact */
+.main-contact {
+    background-color: var(--arrier-plan);
+    padding: 15px;
+}
+
+.main-contact p {
+    margin-top: 9px;
+}
+
+.div-contact-info {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.div-contact-adress {
+    margin-top: 2px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+/* RESERVATION */
+.main-reservation {
+    background-color: var(--arrier-plan);
+    display: flex;
+    justify-content: center;
+}
+
+.div-reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.div-reservation form {
+    width: 80%;
+    padding-bottom: 30px;
+}
+
+.reservation-div-input {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.reservation-div-input label {
+    margin-bottom: 5px;
+    font-size: 45px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.reservation-div-input input {
+    box-shadow: 0px 10px 13px -7px var(--violet-fonce), 5px 5px 15px 5px rgba(224, 221, 226, 0);
+    width: 100%;
+    height: 50px;
+    background-color: var(--violet-fonce);
+    font-size: 20px;
+}
+
+.reservation-div-input select {
+    box-shadow: 0px 10px 13px -7px var(--violet-fonce), 5px 5px 15px 5px rgba(224, 221, 226, 0);
+    width: 100%;
+    background-color: var(--violet-fonce);
+    height: 50px;
+}
+
+.reservation-div-input input::placeholder {
+    color: var(--text_col);
+
+}
+
+#ajout_prestation {
+    padding: 1px 5px 1px 5px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.reservation-div-checkbox-cgu {
+    font-size: 20px;
+    display: flex;
+    margin: 15px;
+}
+
+.reservation-div-checkbox-cgu input {
+    width: 30px;
+}
+
+.reservation-div-checkbox-cgu p {
+    margin-left: 5px;
+}
+
+.reservation-div-checkbox-cgu a {
+    color: #3b2455;
+    text-decoration: underline;
+}
+
+.button_valide_reservation {
+    width: fit-content;
+    padding: 10px 25px 10px 25px;
+    border: 0px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--violet-fonce);
+    font-size: large;
+}
+
+.div_recaptcha {
+    width: fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+/* GESTION ERROR */
+
+.error_message {
+    position: fixed;
+    background-color: #8d0404;
+    border: 2px solid #3b2455;
+    color: red;
+    font-weight: bold;
+    width: 200px;
+    min-height: 50px;
+    border-radius: 16px;
+    padding: 15px;
+    margin: auto;
+}
+
+.error_message p {
+    width: fit-content;
+    margin: auto;
+}
+
+
+/* Responsive */
 @media only screen and (min-device-width : 767px) {
 
     .back-div-produits {
@@ -307,7 +464,7 @@ h2{
         justify-content: center;
         flex-wrap: wrap;
         /* align-content: flex-start; */
-    
+
     }
 
     #choice_category {
@@ -315,10 +472,10 @@ h2{
         font-size: 25px;
     }
 
-    .choice_category_label h3{
+    .choice_category_label h3 {
         font-size: 35px;
     }
-    
+
     .div-card-produits {
         width: 300px;
         padding: 35px;
@@ -326,21 +483,20 @@ h2{
         margin: 15px;
         margin-top: 5px;
     }
-    
+
     .div-card-produits h2 {
         font-size: 25px;
         margin-top: 20px;
         margin-bottom: 45px;
         max-width: 300px;
         max-height: 100px;
-        overflow: scroll;
     }
-    
+
     .div-card-produits h3 {
         font-size: 22px;
         max-width: 400px;
     }
-    
+
     .div-card-produits img {
         width: 180px;
     }

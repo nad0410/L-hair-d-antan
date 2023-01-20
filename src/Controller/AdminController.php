@@ -2,26 +2,35 @@
 
 namespace App\Controller;
 
-use App\Entity\CategoryProduits;
 use DateTime;
-use App\Form\RDVType;
-use App\Entity\Prestations;
-use App\Entity\Produits;
 use App\Entity\RDV;
+use App\Entity\User;
+use App\Form\RDVType;
+use App\Entity\Produits;
+use App\Form\ProduitsType;
+use App\Entity\Prestations;
 use App\Form\CTGProduitsType;
 use App\Form\PrestationsType;
-use App\Form\ProduitsType;
-use App\Repository\CategoryProduitsRepository;
+use Doctrine\DBAL\Connection;
+use App\Entity\CategoryProduits;
 use App\Repository\RDVRepository;
+use App\Repository\ProduitsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\PrestationsRepository;
-use App\Repository\ProduitsRepository;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\CategoryProduitsRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminController extends AbstractController
 {
@@ -61,17 +70,71 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
-    public function majEvent($id, PrestationsRepository $prestationsRepository, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    public function majEvent($id, PrestationsRepository $prestationsRepository, Connection $connection, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
-        $getrdv = $rdvRepository->getRdvPrestation($id);
-
         $rdv = $rdvRepository->findOneBy(['id' => $id]);
-        $form = $this->createForm(RDVType::class, $rdv);
+
+        $result = $connection->fetchAllAssociative('SELECT * FROM rdv_prestations WHERE rdv_id =' . $id);
+        // if (count($result) > 1) {
+        //     $result_prestation = $connection->fetchAllAssociative('SELECT * FROM prestations WHERE id =' . $result[1]["prestations_id"]);
+
+        // }
+
+        // dd($result_prestation); 
+        $form = $this->createFormBuilder($rdv)
+            ->add('nom', TextType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre nom'
+                ]
+            ])
+            ->add('prenom', TextType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre prenom'
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre email'
+                ]
+            ])
+            ->add('tel', TelType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre numero de téléphone'
+                ]
+            ])
+            ->add('user', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'name',
+                'label' => "Nom du Coiffeur "
+            ])
+
+            ->add('date_time', DateTimeType::class, [
+                'label' => "Date du rendez-vous",
+                'widget' => "single_text"
+            ])
+
+            ->add("submit", SubmitType::class, [
+                'label' => "Valider",
+                'attr' => ['class' => "button_valide_reservation"],
+            ])
+
+            ->getForm();
+
+        for ($i = 0; $i < count($result); $i++) {
+            $form->add("prestation$i", EntityType::class, [
+                "class" => Prestations::class,
+                'choice_label' => 'title',
+                'empty_data' => '0',
+                'mapped' => false,
+            ]);
+
+        }
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $rdvRepository->removeRdvPrestation(1, "rdv_prestation");
+
 
             $entityManagerInterface->persist($rdv);
             $entityManagerInterface->flush();

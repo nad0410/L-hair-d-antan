@@ -33,10 +33,24 @@ class DefaultController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('check_cgu')->getData() == true) {
 
-            $rdv->addRdvPrestation($form->get('prestation')->getData());
-            $entityManagerInterface->persist($rdv);
-            $entityManagerInterface->flush();
+
+                $rdv->addRdvPrestation($form->get('prestation')->getData());
+
+                if ($form->get('prestation2')->getData()) {
+                    $rdv->addRdvPrestation($form->get('prestation2')->getData());
+                };
+
+                if ($form->get('prestation3')->getData() and $form->get('prestation3')->getData() != 0) {
+                    $rdv->addRdvPrestation($form->get('prestation3')->getData());
+                };
+
+                $entityManagerInterface->persist($rdv);
+                $entityManagerInterface->flush();
+            } else {
+                $this->addFlash("error", "Merci d'accepter les CGU afin de valider votre réservation");
+            }
         }
 
         return $this->render('default/reservation.html.twig', [
@@ -71,7 +85,7 @@ class DefaultController extends AbstractController
     #[Route('/contact', name: 'contact')]
     public function contact(): Response
     {
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/contact.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
     }
