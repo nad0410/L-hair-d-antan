@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+
 :root{
     --violet-claire: #8244A7;
     --violet-fonce: #7244A7;
@@ -10,114 +14,127 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Aclonica', sans-serif;
 }
-
-/* Header */
-header {
-    /* padding-bottom: 200px; */
-    height: 214px;
-    display: flex;
+.column {
     flex-direction: column;
-    align-items: center;
+}
+.row {
+    flex-direction: row;
 }
 
+/* ---------------------------------------------------------- */
+
+/* HEADER */
+header { 
+    /* display: flex; */
+    width: 100%;
+    height: 360px;
+}
 a {
     text-decoration: none;
     color: black;
 }
-
-.main-header {
+.logo {
+    height: 300px;
     display: flex;
     /* border: 8px solid red; */
     justify-content: center;
     padding: 5px;
     background-color: var(--violet-fonce);
     width: 100%;
-    padding: 20px;
-    font-family: 'Dancing Script', cursive;
 }
-
 .img_url {
-    width: 128px;
-    height: 128px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     margin-top: auto;
     margin-bottom: auto;
 }
-
 .text_div {
     margin-top: auto;
     margin-bottom: auto;
     color: var(--text_col);
     background-color: var(--violet-claire);
-    height: fit-content;
-    font-family: 'Dancing Script', cursive;
+    height: 200px;
+    width: 900px;
     padding: 20px;
     padding-right: 100px;
 }
-
-.titre_site {
-    width: fit-content;
-    font-family: 'Dancing Script', cursive;
+h1{
+    font-size: 70px;
+    padding: 45px;
+    padding-left: 60px;
+}
+h2{
+    font-size: 50px;
+    margin-top: auto;
 }
 
-nav {
-    border: 1.5px solid darkgray;
+
+
+    /* ---------- NAV DU HEADER ---------------*/
+.nav {
+    display: flex;
+    border: 1px solid rgb(68, 7, 77);
     background-color: var(--violet-fonce);
     width: 100%;
-    padding: 10px;
+    height: 60px;
     
-}
 
-nav ul {
-    padding: 0;
+}
+.nav ul {
+    padding: 12px;
     display: flex;
     justify-content: space-around;
 }
-
-nav ul li {
+.nav ul li {
     margin-right: 5px;
-    font-family: 'Dancing Script', cursive;
     list-style: none;
 }
-
-nav ul li a {
+.nav ul li a {
     color: var(--text_col);
-    font-size: 1.25rem;
+    font-size: 2rem;
     height: fit-content;
 }
 
-/* Calendar */
 
-#calendrier{
-    width: 80%;
-    margin: auto;
-}
 
-/* Accueil */
-main {
-    display: flex;
-    justify-content: center;
+/* ------------------------------------------------------------------------------ */
+
+/* MAIN */
+.container {
+    padding: 95px;
+    height: 100%;
+    background-color: var(--arrier-plan);
+    width: 100% ;
 } 
-
 .presentation_section {
-background-color: var(--violet-fonce);
-margin-top: 5px;
-width: 80%;
-padding: 15px;
+    background-color: var(--violet-fonce);
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    padding: 40px;
+    margin-top: 50px;
+    height: 500px;
+    border: 1px solid rgb(68, 7, 77);
+    /* display: flex; */    
 }
-
+.row h2 {
+    text-align: center;
+    width: 95%;
+    height: 70px;
+}
 .presentation_div {
     display: flex;
     justify-content: center;
 }
-
 .presentation_div img {
-    margin-left: 30px;
+    width: 30%;
     object-fit: contain;
 }
 .presentaiton_p_div {
-    max-width: 600px;
+    width: 600px;
 }
 .presentation_p {
     background-color: var(--violet-claire);
@@ -126,3 +143,92 @@ padding: 15px;
     font-size: 20px;
     color: var(--text_col);
 }
+.categorys{
+    width: 100%;
+    height: 450px;
+    display: flex;
+}
+.category{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    margin-top: 20px;
+    padding-left: 50px;
+    margin-left: 90px;
+}
+
+        /* presentation des coiffeurs */
+    
+.coiffeur{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(94, 60, 22);
+    margin-top: 20px; 
+    margin-left: 50px; 
+    padding-left: 50px;
+    margin-left: 90px;
+}
+
+------------------------/* carrousel */----------------------
+h3 {
+    width: 15px;
+    height: 5px;
+    
+}
+.center h3{
+    text-align: center;
+    width: 800px;
+}
+
+.diapo{
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+}
+#nav-droite, #nav-gauche{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    color: black;
+    font-size: 2em;
+}
+
+#nav-droite{
+    right: 50px;
+}
+#nav-gauche{
+    left: 50px;
+}
+.elements{
+    display: flex;
+    transition: 1s linear;
+    width: 500px;
+    background-color: brown;
+    justify-items: center;
+}
+
+.element{
+    flex: 1 0 90%;
+    position: relative;
+    width: 100px;
+    text-align: center;
+}
+
+.element > img{
+    width: 50%;
+}
+
+
+
+
+
+
+-----------------------------/*  */----------------------------
+/* Calendar */
+
+#calendrier{
+    width: 80%;
+    margin: auto;
+    
+}
+

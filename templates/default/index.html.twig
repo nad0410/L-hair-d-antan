@@ -1,24 +1,158 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!
+{% block title %}Accueil 
 {% endblock %}
 
 {% block body %}
 	{% include "partials/_header.html.twig" %}
-	<main>
+	<main class="container">   {# Début  partie Main  #}
+
 		{# Section Presentation du salon #}
 		<section class="presentation_section">
-        
-			<div class="presentation_div">
-				<div class="presentaiton_p_div">
+			<div class="row">
+				<h2> Présentation </h2>
+			</div>
+			<div class="presentation_div ">
+				<div class="presentaiton_p_div column">
 					<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, veniam fugiat ut maxime necessitatibus labore consequuntur ex explicabo itaque beatae id tempora ad non repellat. Repudiandae minima iure similique consequuntur veniam. Unde sed reiciendis quas quos possimus asperiores quam incidunt eius assumenda? Distinctio accusantium nesciunt officiis delectus sequi vel!</p>
 				</div>
 				<img src="{{ asset("images/logo.jpg") }}" alt="Logo du site">
 			</div>
 		</section>
 
+		{# Section Presentation des categories #}
+		<section class="presentation_section">
+			<div class="row">
+				<h2> Categories </h2>
+			</div>
+			<div class="categorys row">
+				<div class="category">Prestations</div>
+				<br>
+				<div class="category">Produits</div>
+				<br>
+				<div class="category">Bijoux</div>
+				<br>
+				<div class="category">Contact</div>
+			</div>			
+		</section>	
 
-	</main>
+		{# Section Presentation de nos équipes #}
+		<section class="presentation_section">
+			<div class="row">
+				<h2> Notre équipe de Coiffeurs(euses)</h2>
+			</div>
+			<div class="categorys row">
+				<div class="coiffeur column">      {# coiffeur n°1 #}       
+					<div></div>  {# nom, prenom et descriptif #}
+					<div></div>   {# photo #}
+				</div>
+				<div class="coiffeur column">         {# coiffeur n°2 #}
+					<div></div>	 {# nom, prenom et descriptif #}
+					<div></div>    {# photo #}
+				</div>
+				<div class="coiffeur column">         {# coiffeur n°3 #}
+					<div></div>	 {# nom, prenom et descriptif #}
+					<div></div>    {# photo #}
+				</div>
+				<div class="coiffeur column">         {# coiffeur n°4 #}
+					<div></div>	 {# nom, prenom et descriptif #}
+					<div></div>    {# photo #}
+				</div>
+			</div>			
+		</section>
+
+ {# ------------------------------------------------MODIFIER LES LIENS PHOTO------------------------------------------------ #}
+	{# Section Presentation des modèles de coupes #}
+		<section class="presentation_section">
+			<div class="row">
+				<h2> Différents modèles a la mode en ce moment</h2>
+			</div>
+			<div class="categorys row">
+				{# carrousel de modèles femme #}
+				<div class="face column">  
+				    <div class="center">   
+						<h3> Femmes </h3>
+					</div>
+					<!-- Conteneur principal de tout le diaporama -->
+        			<div class="diapo">
+            			<!-- Conteneur des "diapos" -->
+            			<div class="elements">
+                			<!-- Première diapo -->
+                			<div class="element active">
+                    			<img src="{{ asset("images/1femme.jpg") }}" alt="Image 1" width="200">
+                            </div>
+                			<!-- Deuxième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/2femme.jpg") }}" alt="Image 2" width="200">
+                			</div>
+                			<!-- Troisième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/3femme.jpg") }}" alt="Image 3" width="200">
+                			</div>
+                			<!-- Quatrième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/4femme.jpg") }}" alt="Image 4" width="200">
+                			</div>
+            			</div>
+            			<!-- Flèches de navigation -->
+            			<button id="nav-gauche" class="gg-arrow-long-left-e"></button>
+            			<button id="nav-droite" class="gg-arrow-long-right-e"></button>
+        			</div>
+				</div>
+
+				{# carrousel de modèles homme #}
+				<div class="face column"> 
+					<div class="center">       
+						<h3> Hommes </h3>
+					</div>
+					<!-- Conteneur principal de tout le diaporama -->
+        			<div class="diapo">
+            			<!-- Conteneur des "diapos" -->
+            			<div class="elements">
+                			<!-- Première diapo -->
+                			<div class="element active">
+                    			<img src="{{ asset("images/1homme.jpg") }}" alt="Image 1">                    				
+                			</div>
+                			<!-- Deuxième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/2homme.jpg") }}" alt="Image 2">                    				
+                			</div>
+                			<!-- Troisième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/3homme.jpg") }}" alt="Image 3">                   				
+                			</div>
+                			<!-- Quatrième diapo -->
+                			<div class="element">
+                    			<img src="{{ asset("images/4homme.jpg") }}" alt="Image 4">                    				
+                			</div>
+            			</div>
+            				<!-- Flèches de navigation -->
+            				<i class="nav-gauche" class="las la-chevron-left"></i>
+            				<i class="nav-droite" class="las la-chevron-right"></i>
+        			</div>
+				</div>
+			</div>			
+		</section>
+
+
+
+
+		{# Section Pub #}
+		<section class="presentation_section">
+        
+			<div class="presentation_div">
+				
+				<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, veniam fugiat ut maxime necessitatibus labore consequuntur
+				         ex explicabo itaque beatae id tempora ad non repellat. Repudiandae minima iure similique consequuntur veniam. Unde sed reiciendis quas quos possimus asperiores
+						 quam incidunt eius assumenda? Distinctio accusantium nesciunt officiis delectus sequi vel!</p>
+			
+				<a href="http://">Lien page resérvation</a>
+
+				<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			</div>
+		</section>
+	</main>     {#  Fin partie Main  #}
+
 
 
 {% endblock %}
