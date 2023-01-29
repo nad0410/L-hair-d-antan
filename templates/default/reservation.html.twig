@@ -15,7 +15,6 @@
 			{{form_start(form)}}
 
 			<div class="reservation-div-input">
-
 				{{form_label(form.nom)}}
 				{{form_widget(form.nom)}}
 				{{form_errors(form.nom)}}
@@ -48,14 +47,20 @@
 			<div class="reservation-div-input" id="form_prestations">
 				{{form_label(form.prestation)}}
 				{{form_widget(form.prestation)}}
+				{# Prestations qui sont de base display none  #}
 
-				{{form_label(form.prestation2, "Prestation 2" , {'label_attr': {'class': 'hidden_label'}})}}
-				{{form_widget(form.prestation2)}}
-
-				{{form_label(form.prestation3, "Prestation 3" , {'label_attr': {'class': 'hidden_label'}}
-				)}}
+				<div class="hidden-div">
+					{{form_label(form.prestation2, "Prestation 2" , {'label_attr':{'class': 'hidden_label'}})}}
+					{{form_widget(form.prestation2)}}
+				</div>
+				<div class="hidden-div">
+					{{form_label(form.prestation3, "Prestation 3" , {'label_attr': {'class': 'hidden_label'}}
+					)}}
+				</div>
 				{{form_widget(form.prestation3)}}
 				<button id="ajout_prestation">+</button>
+				{# ------------------- #}
+
 			</div>
 
 			<div class="reservation-div-input">
@@ -75,12 +80,15 @@
 				{{form_row(form.captcha)}}
 				{{form_errors(form.captcha)}}
 			</div>
-			<div class="reservation-div-input">
-				{{form_label(form.submit)}}
-				{{form_widget(form.submit)}}
-			</div>
-
+			{# <div class="reservation-div-input">
+								{{form_label(form.submit)}}
+								{{form_widget(form.submit)}}
+							</div> #}
+			<button class="button_valide_reservation" type="submit">
+				<p>Valider</p>
+			</button>
 			{{form_end(form)}}
 		</div>
 	</main>
+	{% include "partials/_footer.html.twig" %}
 {% endblock %}
