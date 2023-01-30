@@ -55,7 +55,12 @@ if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les page
 
         document.querySelector(".hidden-div").classList.add("reservation-div-input")
         document.querySelector(".hidden-div").classList.remove("hidden-div")
-        
+
         document.querySelector(".hidden_label").classList.remove("hidden_label")
     });
+}
+if (window.screen.width < 768) {
+    document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
+
+    console.log("logo");
 }

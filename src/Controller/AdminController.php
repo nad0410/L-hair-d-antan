@@ -123,7 +123,6 @@ class AdminController extends AbstractController
                 'empty_data' => '0',
                 'mapped' => false,
             ]);
-
         }
 
         $form->handleRequest($request);

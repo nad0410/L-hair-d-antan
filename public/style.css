@@ -705,9 +705,20 @@ a {
 }
 
 /* ===================================== FOOTER ===================================== */
-header {
-    width: 100%;
-    height: 215px;
+.footer-main-div {
+    background-color: var(--violet-fonce);
+}
+.fb-cgu {
+    display: flex;
+}
+.fb-cgu img {
+   margin-left: 15px;
+   
+}
+.footer-cgu-link {
+margin: auto;
+    font-size: 20px;
+    color: var(--text_col);
 }
 
 /* ===================================== RESPONSIVE TABLET ===================================== */
