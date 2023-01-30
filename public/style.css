@@ -266,47 +266,9 @@ a {
     margin-left: auto;
     margin-right: auto;
     font-weight: 700;
-
-    font-size: 45px;
-    font-family: 'Dancing Script', cursive;
-    padding-top: 15px;
-    margin-bottom: 5px;
-}
-/* ------------------------------------------------------------------------------ */
-=======
-/* MAIN */
-.container {
-    padding: 95px;
-    height: 100%;
-    background-color: var(--arrier-plan);
-    width: 100% ;
-} 
-.presentation_section {
-    background-color: var(--violet-fonce);
-    justify-content: space-between;
-    width: 100%;
-    align-content: center;
-    padding: 40px;
-    margin-top: 50px;
-    height: 500px;
-    border: 1px solid rgb(68, 7, 77);
-    /* display: flex; */    
-}
-.row h2 {
-    text-align: center;
-    width: 95%;
-    height: 70px;
-}
-.presentation_div {
-    display: flex;
-    justify-content: center;
-}
-.presentation_div img {
-    width: 30%;
-    object-fit: contain;
-}
-.presentaiton_p_div {
-    width: 600px;
+    font-size: 40px;
+    padding-top: 20px;
+    margin-bottom: 10px;
 }
 
 
