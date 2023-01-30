@@ -648,61 +648,31 @@ a {
     margin-left: 90px;
 }
 
-------------------------
+
 
 /* carrousel */
----------------------- h3 {
-    width: 15px;
-    height: 5px;
 
+
+
+
+/* page CGU */
+.cgu {
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    background-color: var(--violet-fonce);
 }
-
-.center h3 {
+.cgu h2,h3{
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
-    width: 800px;
 }
-
-.diapo {
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-}
-
-#nav-droite,
-#nav-gauche {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-100%);
-    color: black;
-    font-size: 2em;
-}
-
-#nav-droite {
-    right: 50px;
-}
-
-#nav-gauche {
-    left: 50px;
-}
-
-.elements {
-    display: flex;
-    transition: 1s linear;
-    width: 500px;
-    background-color: brown;
-    justify-items: center;
-}
-
-.element {
-    flex: 1 0 90%;
-    position: relative;
-    width: 100px;
+.cgu p {
+    padding: 10px;
     text-align: center;
 }
 
-.element img {
-    width: 50%;
-}
+
 
 /* ===================================== FOOTER ===================================== */
 .footer-main-div {
@@ -720,6 +690,20 @@ margin: auto;
     font-size: 20px;
     color: var(--text_col);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------RESPONSIVE--------------------------------------- */
 
 /* ===================================== RESPONSIVE TABLET ===================================== */
 @media only screen and (min-device-width : 767px) {
@@ -761,7 +745,7 @@ margin: auto;
     .div-card-produits img {
         width: 180px;
     }
-
+    }
 
     /* ===================================== HEADER ===================================== */
     header {
@@ -903,7 +887,7 @@ margin: auto;
         font-size: 20px;
         padding-left: 5px;
     }
-}
+
 
 /* =============================== RESPONSIVE DESKTOP ============================= */
 @media only screen and (min-device-width : 1685px) {

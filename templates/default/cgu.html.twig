@@ -1,22 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!
+{% block title %}Conditions Générales d'utilisation
 {% endblock %}
 
 {% block body %}
 	{% include "partials/_header.html.twig" %}
-	<div>
+
+<main class="container">
+
+    <div class="cgu">
 
     <h2>Conditions Générales d'utilisation</h2>
 
-        <p>Ce site est édité par la société  {nom_société}.</p>
+        <h3>Ce site est édité par la société  {nom_société}.</h3>
 
         <p>Siège social : {nom_société} {nom_adresse}</p>
         <p>Capital social : XXXXX euros</p>
         <p>Téléphone : +33 (0)4.74.00.00.00</p>
 
 {# ------------------------- #}
-        <p>Responsable de la rédaction :</p>
+        <h3>Responsable de la rédaction :</h3>
 
         <p>Développement, hébergement :</p>
         <p></p>
@@ -24,7 +27,7 @@
         <p>Tél : </p>
 
 {# ------------------------------ #}
-        <p>Informatique et liberté</p>
+        <h3>Informatique et liberté</h3>
 
         <p>Aucune information personnelle n'est collectée à votre insu. Les informations que vous nous communiquez lors d’une demande de devis, de renseignements ou
             d’inscription à la newsletter par courrier, par téléphone, par e-mail ou par formulaire sont uniquement destinées au traitement administratif et commercial
@@ -34,7 +37,7 @@
             aux données personnelles vous concernant. Pour l'exercer, il suffit de nous en faire la demande par écrit aux coordonnées suivantes : ________, _________adresse__________, France.</p>
         
 {# ----------------------------------- #}
-        <p>Droit d'auteur / copyright</p>
+        <h3>Droit d'auteur / copyright</h3>
 
         <p>L'ensemble du contenu du présent site Internet, y compris nom de domaine, marques, logo, texte… est la propriété de la société ___________,
             il est protégé par les lois en vigueur de la législation française sur la propriété intellectuelle.</p>
@@ -43,7 +46,7 @@
             sans constituer un acte de contrefaçon au sens des articles L 335-2 et suivants du code de la propriété intellectuelle.</p> 
 
 {# -------------------------------- #}
-        <p>Accès au site</p>
+        <h3>Accès au site</h3>
 
         <p>L'utilisateur de ce site reconnaît disposer de la compétence et des moyens nécessaires pour accéder et utiliser ce site.
             ___________ ne saurait être tenu responsable des éléments en dehors de son contrôle et des dommages qui pourraient éventuellement 
@@ -54,7 +57,7 @@
             d'introduire ou de modifier frauduleusement des données dans un système informatique constitue des délits passibles de sanctions pénales.</p>
         
 {#  ------------------------------------------- #}
-        <p>Limitation de responsabilité</p>
+        <h3>Limitation de responsabilité</h3>
 
         <p>{nom_société} s'attache à transmettre des informations régulièrement mises à jour, notamment sur les actualités ainsi que sur le contenu des articles. 
             Toutefois des informations erronées ou des omissions peuvent être constatées, suite notamment à des erreurs de saisie ou de mise en page. 
@@ -69,5 +72,6 @@
             décline toute responsabilité quant à leur contenu et à leur utilisation.</p>
 
 
-</div>
+    </div>
+</main>
 {% endblock %}
