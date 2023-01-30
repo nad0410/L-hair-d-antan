@@ -81,12 +81,9 @@ class RDVType extends AbstractType
                 'mapped' => false,
             ])
 
-            ->add("captcha", ReCaptchaType::class)
+            ->add("captcha", ReCaptchaType::class, ["type" => "invisible"])
 
-            ->add("submit", SubmitType::class, [
-                'label' => "Valider",
-                'attr' => ['class' => "button_valide_reservation"],
-            ]);
+;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

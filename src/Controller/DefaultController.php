@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\RDV;
 use App\Form\RDVType;
 use App\Repository\CategoryProduitsRepository;
+use App\Repository\PrestationsRepository;
 use App\Repository\ProduitsRepository;
 use App\Repository\RDVRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -62,31 +63,51 @@ class DefaultController extends AbstractController
     #[Route('/produits', name: 'produits')]
     public function produits(ProduitsRepository $produitsRepository, CategoryProduitsRepository $CTGProduitsRepository): Response
     {
-        $produits = $produitsRepository->findAll();
-        $categories = $CTGProduitsRepository->findAll();
+        $produits = $produitsRepository->findAll(); // On recupère tous les produits depuis la base de données
+        $categories = $CTGProduitsRepository->findAll(); // On recupère tous les categories_Produits qui servira à créer un selecteur pour pouvoir afficher que les produits 
 
-        return $this->render('produits/index.html.twig', [
-            'produits' => $produits,
-            'categories' => $categories,
+        return $this->render('default/produits/index.html.twig', [ // On fais un rendu vers la vue spécifier
+            'produits' => $produits,  // On envoie les informations récupérer avec $produitsRepository->findAll() vers la vue twig avec comme variable "produits"
+            'categories' => $categories, // On envoie les informations récupérer avec $CTGProduitsRepository->findAll() vers la vue twig avec comme variable "catégories"
         ]);
     }
 
     #[Route('/produits/category/{id}', name: 'produits_category')]
     public function produits_category($id, ProduitsRepository $produitsRepository, CategoryProduitsRepository $CTGProduitsRepository): Response
     {
-        $produits = $produitsRepository->findBy(['category' => $id]);
-        $categories = $CTGProduitsRepository->findAll();
-        return $this->render('produits/index.html.twig', [
-            'produits' => $produits,
-            'categories' => $categories,
+        $produits = $produitsRepository->findBy(['category' => $id]); // On recupère tous les produits ayant comme category l'id {id} 
+        $categories = $CTGProduitsRepository->findAll(); // On recupère tous les categories_Produits qui servira à créer un selecteur pour pouvoir afficher que les produits
+
+        return $this->render('default/produits/index.html.twig', [ // On fais un rendu vers la vue spécifier
+            'produits' => $produits,  // On envoie les informations récupérer avec $produitsRepository->findAll() vers la vue twig avec comme variable "produits"
+            'categories' => $categories, // On envoie les informations récupérer avec $CTGProduitsRepository->findAll() vers la vue twig avec comme variable "catégories"
         ]);
     }
+
+
+    #[Route('/prestations', name: 'prestations')]
+    public function prestations(PrestationsRepository $prestationsRepository): Response
+    {
+        $prestations = $prestationsRepository->findAll(); // On recupère tous les produits depuis la base de données
+
+        return $this->render('default/prestations/index.html.twig', [ // On fais un rendu vers la vue spécifier
+            'prestations' => $prestations,  // On envoie les informations récupérer avec $prestationsRepository->findAll() vers la vue twig avec comme variable "produits"
+        ]);
+    }
+
 
     #[Route('/contact', name: 'contact')]
     public function contact(): Response
     {
         return $this->render('default/contact.html.twig', [
             'controller_name' => 'DefaultController',
+        ]);
+    }
+
+    #[Route('/cgu', name: 'cgu')]
+    public function cgu(): Response
+    {
+        return $this->render('default/cgu.html.twig', [
         ]);
     }
 }

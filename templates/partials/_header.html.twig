@@ -1,22 +1,64 @@
 <header>
-    <div class="header">
-        <div class="logo row">
-            <img class="img_url" src="{{ asset("images/logo.jpg") }}" alt="">
-            <div class="text_div column">
-                <h1>L'hair d'antan</h1>
-            </div>
-        </div>
-    </div>
 
-    <nav class="nav column">
-        <ul class="row">
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Prestations</a></li>
-            <li><a href="{{asset("produits")}}">Produits</a></li>
-            <li><a href="">Bijoux</a></li>
-            <li><a href="{{asset("reservation")}}">Reservation</a></li>
-            <li><a href="{{asset("contact")}}">Contact</a></li>
-        </ul>
-    </nav>
+	{# Menu burger #}
+	<div class="div-burger hidden-burger column">
+		<h2>Navigation</h2>
+		<nav class="nav_burger flex column">
+			<ul class="row">
+				<li>
+					<a href="{{path("home")}}">Accueil</a>
+				</li>
+				<li>
+					<a href="{{path("prestations")}}">Prestations</a>
+				</li>
+				<li>
+					<a href="{{path("produits")}}">Produits</a>
+				</li>
+				<li>
+					<a href="">Bijoux</a>
+				</li>
+				<li>
+					<a href="{{path("reservation")}}">Reservation</a>
+				</li>
+				<li>
+					<a href="{{path("contact")}}">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="header">
+		<div class="logo row">
+			<img class="img_url" src="{{ asset("images/logo.png") }}" alt="">
+			<div class="text_div flex">
+				<h1 class="titre_header">L'hair d'antan</h1>
+				<div class="div-logo-burger"><img class="logo-menu-burger" src="https://img.icons8.com/ios/100/000000/menu-squared-2.png"/></div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="nav column">
+		<ul class="row">
+			<li>
+				<a href="{{path("home")}}">Accueil</a>
+			</li>
+			<li>
+				<a href="{{path("prestations")}}">Prestations</a>
+			</li>
+			<li>
+				<a href="{{path("produits")}}">Produits</a>
+			</li>
+			<li>
+				<a href="">Bijoux</a>
+			</li>
+			<li>
+				<a href="{{path("reservation")}}">Reservation</a>
+			</li>
+			<li>
+				<a href="{{path("contact")}}">Contact</a>
+			</li>
+		</ul>
+	</nav>
+
+
 </header>
-
