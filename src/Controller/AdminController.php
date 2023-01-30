@@ -76,12 +76,7 @@ class AdminController extends AbstractController
         $rdv = $rdvRepository->findOneBy(['id' => $id]);
 
         $result = $connection->fetchAllAssociative('SELECT * FROM rdv_prestations WHERE rdv_id =' . $id);
-        // if (count($result) > 1) {
-        //     $result_prestation = $connection->fetchAllAssociative('SELECT * FROM prestations WHERE id =' . $result[1]["prestations_id"]);
 
-        // }
-
-        // dd($result_prestation); 
         $form = $this->createFormBuilder($rdv)
             ->add('nom', TextType::class, [
                 'attr' => [
@@ -128,7 +123,6 @@ class AdminController extends AbstractController
                 'empty_data' => '0',
                 'mapped' => false,
             ]);
-
         }
 
         $form->handleRequest($request);
