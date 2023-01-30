@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\RDV;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\From;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,19 +38,6 @@ class RDVRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
-    }
-
-    public function removeRdvPrestation(int $rdv, $table): array
-    {
-        $query = $this->createQueryBuilder('t')
-        ->where('t.rdv_id = :rdv')
-        ->setParameter('rdv', $rdv)
-        ->from($table, "t")
-        ->delete()
-        ->getQuery();
-
-        return $query->execute();
-
     }
 
 //    /**

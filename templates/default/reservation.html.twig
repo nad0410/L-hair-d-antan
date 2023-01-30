@@ -4,8 +4,91 @@
 {% endblock %}
 
 {% block body %}
+	{% for message in app.flashes("error") %}
+		<div class="error_message">
+			<p>{{message}}</p>
+		</div>
+	{% endfor %}
 	{% include "partials/_header.html.twig" %}
-	{{form_start(form)}}
-	{{form_rest(form)}}
-	{{form_end(form)}}
+	<main class="main-reservation">
+		<div class="div-reservation">
+			{{form_start(form)}}
+
+			<div class="reservation-div-input">
+				{{form_label(form.nom)}}
+				{{form_widget(form.nom)}}
+				{{form_errors(form.nom)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.prenom)}}
+				{{form_widget(form.prenom)}}
+				{{form_errors(form.prenom)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.email)}}
+				{{form_widget(form.email)}}
+				{{form_errors(form.email)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.tel)}}
+				{{form_widget(form.tel)}}
+				{{form_errors(form.tel)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.user)}}
+				{{form_widget(form.user)}}
+				{{form_errors(form.user)}}
+			</div>
+
+			<div class="reservation-div-input" id="form_prestations">
+				{{form_label(form.prestation)}}
+				{{form_widget(form.prestation)}}
+				{# Prestations qui sont de base display none  #}
+
+				<div class="hidden-div">
+					{{form_label(form.prestation2, "Prestation 2" , {'label_attr':{'class': 'hidden_label'}})}}
+					{{form_widget(form.prestation2)}}
+				</div>
+				<div class="hidden-div">
+					{{form_label(form.prestation3, "Prestation 3" , {'label_attr': {'class': 'hidden_label'}}
+					)}}
+				</div>
+				{{form_widget(form.prestation3)}}
+				<button id="ajout_prestation">+</button>
+				{# ------------------- #}
+
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.date_time)}}
+				{{form_widget(form.date_time)}}
+				{{form_errors(form.date_time)}}
+			</div>
+
+			<div class="reservation-div-checkbox-cgu">
+				{{form_widget(form.check_cgu)}}
+				{{form_label(form.check_cgu, " ")}}
+				<p>J'accepte les
+					<a href="">CGU</a>
+				</p>
+			</div>
+			<div class="div_recaptcha">
+				{{form_row(form.captcha)}}
+				{{form_errors(form.captcha)}}
+			</div>
+			{# <div class="reservation-div-input">
+								{{form_label(form.submit)}}
+								{{form_widget(form.submit)}}
+							</div> #}
+			<button class="button_valide_reservation" type="submit">
+				<p>Valider</p>
+			</button>
+			{{form_end(form)}}
+		</div>
+	</main>
+	{% include "partials/_footer.html.twig" %}
 {% endblock %}

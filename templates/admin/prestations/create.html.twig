@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendrier{% endblock %}
+{% block title %}Crée une Prestations{% endblock %}
 
 {% block body %}
+{% include "partials/_left-panel-admin.html.twig" %}
 	{{form_start(form)}}
 	{{form_rest(form)}}
 	{{form_end(form)}}

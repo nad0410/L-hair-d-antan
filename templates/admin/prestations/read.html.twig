@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestation{% endblock %}
+
+{% block body %}
+<div>
+    {% for prestation in prestations %}
+        <div>{{prestation.title}}</div>
+    {% endfor %}
+
+    <a class="create_prestation" href="{{path("admin_create_prestations")}}"> Créer une nouvelle prestation</a>
+
+</div>
+{# {% include "partials/_left-panel-admin.html.twig" %} #}
+{% endblock %}
