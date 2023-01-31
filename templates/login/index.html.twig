@@ -4,14 +4,16 @@
 {% endblock %}
 
 {% block body %}
+<div class="container">
 	<form action="{{ path("login") }}" method="post">
 		<label for="_username">Votre Email</label>
 		<input type="text" name="_username" id="username">
 		<label for="_username">Votre Mot de Passe</label>
 		<input type="password" name="_password" id="password">
 
-		<button type="submit">Se Connecter</button>
+		<button type="submit" class="form-submit-button">Se Connecter</button>
 
 	</form>
+</div>
 
 {% endblock %}

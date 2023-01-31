@@ -172,7 +172,7 @@ a {
     flex-direction: column;
     border: 1.5px solid darkgray;
     width: 10%;
-    height: 900px;
+    height: 958px;
     background-color: rgb(75, 75, 75);
     padding: 10px;
 }
@@ -191,8 +191,37 @@ a {
     list-style: none;
 }
 
+.form-submit-button {
+
+    background: #0066A2;   
+    color: white;    
+    border-style: outset;    
+    border-color: #0066A2;    
+    height: 50px;    
+    width: 130px;    
+    font: bold 15px arial, sans-serif;    
+    text-shadow:none;    
+}
+
 
 /* ===================================== ADMIN PRESTATIONS ===================================== */
+
+/* admin create new prestation */
+.new_prestation {
+    position: absolute;
+    top: 0;
+    left: 190px;
+    right: auto;
+}
+.new_prestation
+.center {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    margin-left: 200px;
+
+}
+          /* -------------------- */
 
 .a_button_submit {
     margin-top: 10px;
@@ -200,7 +229,7 @@ a {
     border: 1px solid black;
     border-radius: 4px;
     padding: 2px;
-    width: 13%;
+    width: 13%; 
 }
 
 .ADMIN_main_produits {
@@ -379,7 +408,6 @@ a {
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
-    width: 100%;
     border-radius: 16px;
     background-color: var(--violet-claire);
 }
@@ -387,7 +415,6 @@ a {
 .div-prestations-card p {
     width: fit-content;
     font-size: 30px;
-    margin: 5px;
 }
 
 .div-prestations-card:hover {
@@ -401,6 +428,13 @@ a {
     height: 100%;
     background-color: var(--arrier-plan);
     width: 100%;
+}
+.container2 {
+    padding: 95px;
+    height: 100%;
+    background-color: var(--arrier-plan);
+    width: 90%;
+    height: 960px;
 }
 
 .presentation_section {
