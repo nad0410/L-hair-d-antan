@@ -438,23 +438,31 @@ a {
 /* ===================================== PAGE CONTACT ================================== */
 .main-contact {
     background-color: var(--arrier-plan);
-    padding: 15px;
+    padding: 40px 80px;
+    width: 100%;
+
 }
 
 .main-contact p {
-    margin-top: 9px;
+    margin-top: 4px;
+
 }
 
 .div-contact-info {
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
+    background-color: var(--violet-fonce);
 }
 
-.div-contact-adress {
-    margin-top: 2px;
-    margin-left: 20px;
+.div-contact-adress, .div-contact-horaires {   
+    margin-right: 50px;
     font-size: 20px;
+    width: 500px;
+    background-color: var(--violet-claire);
+}
+.iframe {
+    margin: center;
+    height: 600px;
 }
 
 /* ===================================== PAGE RESERVATION ===================================== */
