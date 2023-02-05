@@ -266,19 +266,23 @@ a {
     border: 1px solid black;
     border-radius: 8px;
 }
+
 /* ===================================== ADMIN BIJOUX ===================================== */
 .admin-panel-bijoux-main {
     background-color: var(--arrier-plan);
     height: 100vh;
 }
+
 .admin-panel-bijoux-main-div-for-div {
     width: 80%;
     border: 2px solid var(--violet-fonce);
 }
+
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
     background-color: var(--arrier-plan);
     padding-bottom: 15px;
+    min-height: 100vh;
 }
 
 .div-selector-category {
@@ -324,15 +328,17 @@ a {
     padding-top: 15px;
     margin-bottom: 5px;
 }
+
 /* ------------------------------------------------------------------------------ */
-=======
+
 /* MAIN */
 .container {
     padding: 95px;
     height: 100%;
     background-color: var(--arrier-plan);
-    width: 100% ;
-} 
+    width: 100%;
+}
+
 .presentation_section {
     background-color: var(--violet-fonce);
     justify-content: space-between;
@@ -342,25 +348,28 @@ a {
     margin-top: 50px;
     height: 500px;
     border: 1px solid rgb(68, 7, 77);
-    /* display: flex; */    
+    /* display: flex; */
 }
+
 .row h2 {
     text-align: center;
     width: 95%;
     height: 70px;
 }
+
 .presentation_div {
     display: flex;
     justify-content: center;
 }
+
 .presentation_div img {
     width: 30%;
     object-fit: contain;
 }
+
 .presentaiton_p_div {
     width: 600px;
 }
-
 
 .back-div-produits {
     border: 1px solid black;
@@ -579,10 +588,17 @@ a {
     font-size: 20px;
 }
 
-
 .contact-form-general {
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.contact-form-general h2 {
+    width: 60%;
+}
+
 
 .contact-form-general label {
     font-size: 20px;
@@ -742,13 +758,15 @@ a {
 }
 
 .button_valide_reservation {
-    width: fit-content;
+    margin-top: 15px;
+    width: 35%;
+    height: 90px;
     padding: 10px 25px 10px 25px;
     border: 0px;
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    font-size: large;
+    font-size: 35px;
     background-color: var(--violet-fonce);
     border: 2px solid #3b2455;
     text-align: center;
@@ -757,6 +775,7 @@ a {
 .button_valide_reservation p {
     width: fit-content;
     height: fit-content;
+    margin: auto;
     padding-top: 4px;
     padding-left: 4px;
 }
@@ -1184,6 +1203,7 @@ a {
     /* ===================================== PAGE PRODUITS ===================================== */
     .main-produits {
         background-color: var(--arrier-plan);
+
     }
 
     /* ===================================== PAGE PRESTATIONS ===================================== */

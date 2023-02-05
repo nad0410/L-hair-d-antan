@@ -129,7 +129,7 @@ class DefaultController extends AbstractController
                 'attr' => ['class' => "contact-form-text-area"],
             ])
             ->getForm();
-
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contact->setVue(false);
             $entityManagerInterface->persist($contact);
