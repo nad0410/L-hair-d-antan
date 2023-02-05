@@ -9,7 +9,7 @@ document.querySelectorAll('#comf_delete').forEach(item => {
 })
 
 select_category_produits = document.querySelector("#choice_category");
-if (select_category_produits != null) { // Evite l'incompatibilité entre les page
+if (select_category_produits != null) { // Evite l'incompatibilité entre les pages
     // Fait en sorte que quand tu changes d'option dans le sélecteur afin de choisir la catégorie que tu veux ça change de page en rajoutant /category/[id de la category]
     select_category_produits.addEventListener('change', event => {
         if (select_category_produits.options[select_category_produits.selectedIndex].value != 0) {
@@ -28,20 +28,19 @@ if (slug.length > 0) {
 };
 
 menu_burger = document.querySelector(".div-logo-burger")
-if (menu_burger != null) { // Evite l'incompatibilité entre les page
+if (menu_burger != null) { // Evite l'incompatibilité entre les pages
     menu_burger.addEventListener('click', event => {
-
-        if (document.querySelector(".div-burger").classList.contains("hidden")) {
-            document.querySelector(".div-burger").classList.remove("hidden")
+        if (document.querySelector(".div-burger").classList.contains("hidden-burger")) {
+            document.querySelector(".div-burger").classList.remove("hidden-burger")
         } else {
-            document.querySelector(".div-burger").classList.add("hidden")
+            document.querySelector(".div-burger").classList.add("hidden-burger")
         }
 
     });
 }
 
 btn_ajout_prestation = document.querySelector("#ajout_prestation");
-if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les page
+if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les pages
     // Fait en sorte que quand tu appuies sur le + en dessous de prestation cela rajoute un input afin de pouvoir mettre une autre prestations dans le même RDV ( max 3)
     btn_ajout_prestation.addEventListener('click', button => {
         button.preventDefault();
@@ -60,7 +59,7 @@ if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les page
     });
 }
 if (window.screen.width < 768) {
-    document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
-
-    console.log("logo");
+    if (document.getElementById("footer-logo_fb-img")) {
+        document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
+    }
 }
