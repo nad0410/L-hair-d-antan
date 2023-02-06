@@ -7,6 +7,7 @@ use App\Entity\RDV;
 use App\Entity\User;
 use App\Form\RDVType;
 use App\Entity\Bijoux;
+use App\Entity\CategoryPrestation;
 use App\Entity\Produits;
 use App\Form\BijouxType;
 use App\Form\ProduitsType;
@@ -15,6 +16,7 @@ use App\Form\CTGProduitsType;
 use App\Form\PrestationsType;
 use Doctrine\DBAL\Connection;
 use App\Entity\CategoryProduits;
+use App\Form\CategoryPrestationType;
 use App\Repository\RDVRepository;
 use App\Repository\BijouxRepository;
 use App\Repository\CategoryPrestationRepository;
@@ -46,16 +48,35 @@ class AdminController extends AbstractController
         ]);
     }
 
-        // Création de la route "Category Prestation"
-        #[Route('/admin/category_prestations', name: 'admin_category_prestations')]
-        public function category_prestations(CategoryPrestationRepository $ctgRepository): Response
-        {
-            $category_prestations = $ctgRepository->findAll();
-    
-            return $this->render('admin/prestations/category/read.html.twig', [
-                'category_prestations' => $category_prestations
-            ]);
+    // Création de la route "Category Prestation"
+    #[Route('/admin/category_prestations', name: 'admin_category_prestations')]
+    public function category_prestations(CategoryPrestationRepository $ctgRepository): Response
+    {
+        $category_prestations = $ctgRepository->findAll();
+
+        return $this->render('admin/prestations/category/read.html.twig', [
+            'category_prestations' => $category_prestations
+        ]);
+    }
+
+    // Création de la route "Création des Category Produits"
+    #[Route('/admin/category_prestations/new', name: 'admin_create_category_prestations')]
+    public function new_category_prestations(EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $ctg_prestations = new CategoryPrestation();
+        $form = $this->createForm(CategoryPrestationType::class, $ctg_prestations);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManagerInterface->persist($ctg_prestations);
+            $entityManagerInterface->flush();
         }
+
+        return $this->render('admin/produits/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 
     // Création de la route "Prestations"
     #[Route('/admin/prestations', name: 'admin_prestations')]
