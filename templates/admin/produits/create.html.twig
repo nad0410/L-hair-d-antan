@@ -3,8 +3,15 @@
 {% block title %}Crée un Produits{% endblock %}
 
 {% block body %}
-{# {% include "partials/_left-panel-admin.html.twig" %} #}
+{% include "partials/_left-panel-admin.html.twig" %}
+
+<div class="container2 new_prestation">
+	<div class="center">
+	<h2> Entrer un produit</h2>
+
 	{{form_start(form)}}
 	{{form_rest(form)}}
 	{{form_end(form)}}
+	</div>
+</div>
 {% endblock %}

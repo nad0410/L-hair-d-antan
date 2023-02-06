@@ -785,7 +785,35 @@ a {
     width: fit-content;
     margin: auto;
 }
+/* ===================================== PAGE CONTACT ================================== */
+.main-contact {
+    background-color: var(--arrier-plan);
+    padding: 40px 80px;
+    width: 100%;
 
+}
+
+.main-contact p {
+    margin-top: 4px;
+
+}
+
+.div-contact-info {
+    display: flex;
+    justify-content: center;
+    background-color: var(--violet-fonce);
+}
+
+.div-contact-adress, .div-contact-horaires {
+    margin-right: 50px;
+    font-size: 20px;
+    width: 500px;
+    background-color: var(--violet-claire);
+}
+.iframe {
+    margin: center;
+    height: 600px;
+}
 /* ===================================== GESTION ERROR ===================================== */
 
 .error_message {

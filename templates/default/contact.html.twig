@@ -4,54 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	{% include "partials/_header.html.twig" %}
-	<main class="main-contact">
-		<div class="div-contact-info">
-			<div class="div-contact-adress">
-				<h2>Adresse du salon</h2>
-				<p>L'Hair d'Antan</p>
-				<p>7 rue du Pierregot</p>
-				<p>80260 Rainneville</p>
-				<p>Tél : 03.22.93.31.12</p>
-			</div>
-			<div>
-				<h2>Horaires et jours d'ouvertures</h2>
-				<div class="div-contact-horaires">
-					<p>Lundi: Fermé</p>
-					<p>Mardi: 08h30 - 12h00 / 14h00 - 19h00</p>
-					<p>Mercredi: 08h30 - 12h00 / 14h00 - 19h00</p>
-					<p>Jeudi: 08h30 - 12h00 / 14h00 - 19h00</p>
-					<p>Vendredi: 08h30 - 12h00 / 14h00 - 19h00</p>
-					<p>Samedi: 07h30 - 17h00</p>
-					<p>Dimanche: Fermé</p>
-				</div>
-			</div>
-		</div>
+    {% include "partials/_header.html.twig" %}
+    <main class="main-contact container">
+        <div class="div-contact-info container">
+            <div class="div-contact-adress container">
+            <h2>Adresse du salon</h2>
+                <p>L'Hair d'Antan</p>
+                <p>7 rue du Pierregot</p>
+                <p>80260 Rainneville</p>
+                <p>Tél : 03.22.93.31.12</p>
+            </div>
+            <div>
 
-		<div class="contact-map-div flex">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.9700999989705!2d2.3538389514637132!3d49.97441927931162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e787e81e054219%3A0xbfea49971a842df8!2sL&#39;Hair%20d&#39;Antan!5e0!3m2!1sfr!2sfr!4v1673877878782!5m2!1sfr!2sfr" width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="div-contact-horaires container">
+                <h2>Horaires et jours d'ouvertures</h2>
+                    <p>Lundi: Fermé</p>
+                    <p>Mardi: 08h30 - 12h00 / 14h00 - 19h00</p>
+                    <p>Mercredi: 08h30 - 12h00 / 14h00 - 19h00</p>
+                    <p>Jeudi: 08h30 - 12h00 / 14h00 - 19h00</p>
+                    <p>Vendredi: 08h30 - 12h00 / 14h00 - 19h00</p>
+                    <p>Samedi: 07h30 - 17h00</p>
+                    <p>Dimanche: Fermé</p>
+                </div>
+            </div>
 
-			<div class="contact-form-general">
-				<h2>Si vous voulez nous contacter vous pouvez passer par ce panel ou vous pouvez me joindre par téléphone</h2>
-				{{form_start(form)}}
-
-				<div class="contact-email-div flex column">
-					{{form_label(form.email)}}
-					{{form_widget(form.email)}}
-					{{form_errors(form.email)}}
-				</div>
-				<div class="contact-message-div flex column">
-					{{form_label(form.message)}}
-					{{form_widget(form.message)}}
-					{{form_errors(form.message)}}
-				</div>
-
-				<button class="button_valide_reservation" type="submit">
-					<p>Valider</p>
-				</button>
-				{{form_end(form)}}
-			</div>
-		</div>
-
-	</main>
+        </div>
+        <iframe class="iframe container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.9700999989705!2d2.3538389514637132!3d49.97441927931162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e787e81e054219%3A0xbfea49971a842df8!2sL&#39;Hair%20d&#39;Antan!5e0!3m2!1sfr!2sfr!4v1673877878782!5m2!1sfr!2sfr" width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </main>
 {% endblock %}
