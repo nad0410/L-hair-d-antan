@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestation
+{% endblock %}
+
+{% block body %}
+	<div>
+		{% for category_prestation in category_prestations %}
+			<div>{{category_prestation.title}}</div>
+		{% endfor %}
+
+		<a class="create_prestation" href="{{path("admin_create_prestations")}}">
+			Créer une category prestation</a>
+
+	</div>
+	{# {% include "partials/_left-panel-admin.html.twig" %} #}
+{% endblock %}
