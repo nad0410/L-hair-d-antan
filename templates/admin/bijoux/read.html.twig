@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Panel Bijoux
+{% endblock %}
+
+{% block body %}
+	<main class="admin-panel-bijoux-main">
+		<div class="admin-panel-bijoux-main-div">
+			{% for bijou in bijoux %}
+				<div class="admin-panel-bijoux-main-div-for-div">{{bijou.prix}}
+					€
+				</div>
+			{% endfor %}
+
+			<a class="create_bijoux" href="{{path("admin_create_bijoux")}}">
+				Créer un nouveau bijoux
+			</a>
+		</div>
+	</main>
+{% endblock %}

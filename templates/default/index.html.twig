@@ -1,77 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil 
+{% block title %}Accueil
 {% endblock %}
 
 {% block body %}
 	{% include "partials/_header.html.twig" %}
-	<main class="container">   {# Début  partie Main  #}
-
-		{# Section Presentation du salon #}
-		<section class="presentation_section">
-			<div class="row">
-				<h2> Présentation </h2>
-			</div>
-			<div class="presentation_div row ">
-				<div class="presentaiton_p_div column">
-					<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, veniam fugiat ut maxime necessitatibus labore consequuntur ex explicabo itaque beatae id tempora ad non repellat. Repudiandae minima iure similique consequuntur veniam. Unde sed reiciendis quas quos possimus asperiores quam incidunt eius assumenda? Distinctio accusantium nesciunt officiis delectus sequi vel!</p>
+	<main class="accueil-main">
+		<section class="accueil-main-section">
+			<h2>Presentation</h2>
+			{# <div> #}
+			<p>L'Hair d'Antan est un salon de coiffure qui se concentre sur les styles et les tendances de coiffure des années passées. Il propose une gamme de services de coiffure pour hommes et femmes, y compris des coupes de cheveux classiques, des coupes de barbe, des teintures et des coiffures de mariage. Le salon se caractérise par une atmosphère décontractée et accueillante, avec des décorations rétro et une ambiance musicale appropriée pour créer une expérience de coiffure unique et mémorable. Les coiffeurs qualifiés et talentueux utilisent des techniques de coiffure traditionnelles pour donner à chaque client une coiffure qui reflète leur personnalité et leur style.</p>
+			{# </div> #}
+		</section>
+		<section class="accueil-main-section">
+			<h2>Categories</h2>
+			<div class="accueil-main-section-frame">
+				<div>
+					<a href="{{ path('prestations')}}">
+						<img src="{{asset('images/image_prestation.jpg')}}" alt="category prestations">
+						<h3>Prestations</h3>
+					</a>
 				</div>
-				<img src="{{ asset("images/logo.png") }}" alt="Logo du site">
+				<div>
+					<a href="{{ path('produits')}}">
+						<img src="{{asset('images/image_produits.jpg')}}" alt="category produits">
+						<h3>Produits</h3>
+					</a>
+				</div>
+				<div>
+					<a href="">
+						<img src="{{asset('images/image_bijoux.jpg')}}" alt="category bijoux">
+						<h3>Bijoux</h3>
+					</a>
+				</div>
+				<div>
+					<a href="{{ path('contact')}}">
+						<img src="{{asset('images/image_devanture-contact.jpg')}}" alt="category contact">
+						<h3>Contact</h3>
+					</a>
+				</div>
 			</div>
 		</section>
-
-		{# Section Presentation des categories #}
-		<section class="presentation_section">
-			<div class="row">
-				<h2> Categories </h2>
-			</div>
-			<div class="categorys row">
-				<div class="category">Prestations</div>
-				<br>
-				<div class="category">Produits</div>
-				<br>
-				<div class="category">Bijoux</div>
-				<br>
-				<div class="category">Contact</div>
-			</div>			
-		</section>	
-
-		{# Section Presentation de nos équipes #}
-		<section class="presentation_section">
-			<div class="row">
-				<h2> Notre équipe de Coiffeurs(euses)</h2>
-			</div>
-			<div class="categorys row">
-				<div class="coiffeur column">      {# coiffeur n°1 #}       
-					<div></div>  {# nom, prenom et descriptif #}
-					<div></div>   {# photo #}
-				</div>
-				<div class="coiffeur column">         {# coiffeur n°2 #}
-					<div></div>	 {# nom, prenom et descriptif #}
-					<div></div>    {# photo #}
-				</div>
-			</div>			
-		</section>
-
- {# ------------------------------------------------MODIFIER LES LIENS PHOTO------------------------------------------------ #}
-	{# Section Presentation des modèles de coupes #}
-
-		{# Section Pub #}
-		<section class="presentation_section">
-        
-			<div class="presentation_div">
-				
-				<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto, veniam fugiat ut maxime necessitatibus labore consequuntur
-				         ex explicabo itaque beatae id tempora ad non repellat. Repudiandae minima iure similique consequuntur veniam. Unde sed reiciendis quas quos possimus asperiores
-						 quam incidunt eius assumenda? Distinctio accusantium nesciunt officiis delectus sequi vel!</p>
-			
-				<a href="http://">Lien page resérvation</a>
-
-				<p class="presentation_p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			</div>
-		</section>
-	</main>     {#  Fin partie Main  #}
-
-
-
+		<section class="accueil-main-section"></section>
+		<section class="accueil-main-section"></section>
+	</main>
+	{#  Fin partie Main  #}
 {% endblock %}

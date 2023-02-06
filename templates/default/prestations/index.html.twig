@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Préstations
+{% block title %}Prestations
 {% endblock %}
 {#  #}
 {% block body %}
-	{# On inclut les partials _header qui contiennent l'Header qui sera sur toutes les pages #}
+	{# On inclut le partial _header qui contient l'header qui sera sur toutes les pages #}
 	{% include "partials/_header.html.twig" %}
-	{# Balise sémantique qui servira de base pour les autres balise #}
+	{# Balise sémantique qui servira de base pour les autres balises #}
 	<main class="main-prestation">
 		<h2 class="titre-h2-prestations">Prestations</h2>
 		<div class="back-prestation">
@@ -16,7 +16,7 @@
 						<p>Titre</p>
 						<p>{{prestation.title}}</p>
 					</div>
-					<div>
+					<div class="">
 						<p>Temps</p>
 						<p>{{prestation.time}}
 							min</p>

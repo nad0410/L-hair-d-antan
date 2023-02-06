@@ -28,6 +28,9 @@ class Prestations
     #[ORM\ManyToMany(targetEntity: RDV::class, mappedBy: 'rdv_prestation')]
     private Collection $rDVs;
 
+    #[ORM\ManyToOne(inversedBy: 'prestations')]
+    private ?CategoryPrestation $category = null;
+
     public function __construct()
     {
         $this->rDVs = new ArrayCollection();
@@ -97,6 +100,18 @@ class Prestations
         if ($this->rDVs->removeElement($rDV)) {
             $rDV->removeRdvPrestation($this);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?CategoryPrestation
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?CategoryPrestation $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

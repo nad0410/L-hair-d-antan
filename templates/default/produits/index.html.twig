@@ -4,11 +4,11 @@
 {% endblock %}
 {#  #}
 {% block body %}
-	{# On inclut les partials _header qui contiennent l'Header qui sera sur toutes les pages #}
+	{# On inclut le partial _header qui contient l'header qui sera sur toutes les pages #}
 	{% include "partials/_header.html.twig" %}
-		{# Balise sémantique qui servira de base pour les autres balise #}
+		{# Balise sémantique qui servira de base pour les autres balises #}
 	<main class="main-produits">
-		{# Le code suivant gère la selection de categories #}
+		{# Le code suivant gère la sélection de catégories #}
 			<div class="div-selector-category"> <label class="choice_category_label" for="choice_category">
 				<h3>Categories</h3>
 			</label>
@@ -25,7 +25,7 @@
 		<div class="main-div-produits">
 			<div class="back-div-produits">
 				{% for produit in produits %} {# Cette balise fait une boucle sur les informations envoyer depuis la route #}
-					{# Le code ci-dessous fais en sorte que ça créé une carte à chaque information obtenue #}
+					{# Le code ci-dessous  en sorte que ça crée une carte à chaque information obtenue #}
 						<div class="div-card-produits"> <img src="{{asset('images/produits/')}}{{produit.imgProduits}}" alt="Image Produits">
 						<h2>{{produit.name}} {# On récupère le nom du produit #} </h2>
 

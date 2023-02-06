@@ -12,6 +12,9 @@
 	{% include "partials/_header.html.twig" %}
 	<main class="main-reservation">
 		<div class="div-reservation">
+			<div class="titre_page-reservation-div">
+				<p>Formulaire de Réservation</p>
+			</div>
 			{{form_start(form)}}
 
 			<div class="reservation-div-input">
@@ -80,10 +83,7 @@
 				{{form_row(form.captcha)}}
 				{{form_errors(form.captcha)}}
 			</div>
-			{# <div class="reservation-div-input">
-								{{form_label(form.submit)}}
-								{{form_widget(form.submit)}}
-							</div> #}
+
 			<button class="button_valide_reservation" type="submit">
 				<p>Valider</p>
 			</button>
