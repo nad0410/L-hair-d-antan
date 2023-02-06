@@ -44,6 +44,9 @@
     display: none;
 }
 
+.no-wrap {
+    flex-wrap: nowrap;
+}
 
 /* ===================================== HEADER ===================================== */
 header {
@@ -74,7 +77,6 @@ a {
     width: 250px;
     height: 200px;
     object-fit: scale-down;
-    margin-top: auto;
     margin-bottom: auto;
     background-color: var(--violet-claire);
     border-radius: 8px 0px 0px 8px;
@@ -83,8 +85,6 @@ a {
 }
 
 .text_div {
-    margin-top: auto;
-    margin-bottom: auto;
     background-color: var(--violet-claire);
     height: 200px;
     width: 900px;
@@ -165,6 +165,50 @@ a {
     margin: auto;
 }
 
+/* ===================================== LOGIN ===================================== */
+.login-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+}
+
+.login-main form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.login-main form div {
+    margin: 10px;
+}
+
+.login-main form div input {
+    height: 120px;
+    font-size: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 13px -7px var(--violet-fonce),
+        5px 5px 15px 5px rgba(224, 221, 226, 0);
+    background-color: var(--violet-fonce);
+    border: 2px solid #3b2455;
+}
+
+.login-main form div label {
+    margin: auto;
+    padding-top: 15px;
+    font-size: 45px;
+}
+
+.login-connect-button {
+    height: 100px;
+    width: 80%;
+    font-size: 35px;
+    background-color: var(--violet-fonce);
+    border: 2px solid #3b2455;
+    border-radius: 16px;
+    margin: auto;
+    margin-top: 30px;
+}
+
 /* ===================================== ADMIN PANEL ===================================== */
 
 .nav-admin-panel {
@@ -172,7 +216,7 @@ a {
     flex-direction: column;
     border: 1.5px solid darkgray;
     width: 10%;
-    height: 958px;
+    height: 900px;
     background-color: rgb(75, 75, 75);
     padding: 10px;
 }
@@ -191,37 +235,8 @@ a {
     list-style: none;
 }
 
-.form-submit-button {
-
-    background: #0066A2;   
-    color: white;    
-    border-style: outset;    
-    border-color: #0066A2;    
-    height: 50px;    
-    width: 130px;    
-    font: bold 15px arial, sans-serif;    
-    text-shadow:none;    
-}
-
 
 /* ===================================== ADMIN PRESTATIONS ===================================== */
-
-/* admin create new prestation */
-.new_prestation {
-    position: absolute;
-    top: 0;
-    left: 190px;
-    right: auto;
-}
-.new_prestation
-.center {
-    width: 600px;
-    height: 300px;
-    display: flex;
-    margin-left: 200px;
-
-}
-          /* -------------------- */
 
 .a_button_submit {
     margin-top: 10px;
@@ -229,7 +244,7 @@ a {
     border: 1px solid black;
     border-radius: 4px;
     padding: 2px;
-    width: 13%; 
+    width: 13%;
 }
 
 .ADMIN_main_produits {
@@ -252,10 +267,22 @@ a {
     border-radius: 8px;
 }
 
+/* ===================================== ADMIN BIJOUX ===================================== */
+.admin-panel-bijoux-main {
+    background-color: var(--arrier-plan);
+    height: 100vh;
+}
+
+.admin-panel-bijoux-main-div-for-div {
+    width: 80%;
+    border: 2px solid var(--violet-fonce);
+}
+
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
     background-color: var(--arrier-plan);
     padding-bottom: 15px;
+    min-height: 100vh;
 }
 
 .div-selector-category {
@@ -280,7 +307,7 @@ a {
     width: 600px;
     height: 50px;
     margin-bottom: 15px;
-    background-color: #8244A7;
+    background-color: var(--violet-fonce);
     font-size: 30px;
     font-weight: 700;
 }
@@ -295,11 +322,54 @@ a {
     margin-left: auto;
     margin-right: auto;
     font-weight: 700;
-    font-size: 40px;
-    padding-top: 20px;
-    margin-bottom: 10px;
+
+    font-size: 45px;
+    font-family: 'Dancing Script', cursive;
+    padding-top: 15px;
+    margin-bottom: 5px;
 }
 
+/* ------------------------------------------------------------------------------ */
+
+/* MAIN */
+.container {
+    padding: 95px;
+    height: 100%;
+    background-color: var(--arrier-plan);
+    width: 100%;
+}
+
+.presentation_section {
+    background-color: var(--violet-fonce);
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    padding: 40px;
+    margin-top: 50px;
+    height: 500px;
+    border: 1px solid rgb(68, 7, 77);
+    /* display: flex; */
+}
+
+.row h2 {
+    text-align: center;
+    width: 95%;
+    height: 70px;
+}
+
+.presentation_div {
+    display: flex;
+    justify-content: center;
+}
+
+.presentation_div img {
+    width: 30%;
+    object-fit: contain;
+}
+
+.presentaiton_p_div {
+    width: 600px;
+}
 
 .back-div-produits {
     border: 1px solid black;
@@ -408,6 +478,7 @@ a {
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
+    width: 100%;
     border-radius: 16px;
     background-color: var(--violet-claire);
 }
@@ -415,6 +486,7 @@ a {
 .div-prestations-card p {
     width: fit-content;
     font-size: 30px;
+    margin: 5px;
 }
 
 .div-prestations-card:hover {
@@ -423,83 +495,133 @@ a {
 }
 
 /* ===================================== MAIN ===================================== */
-.container {
-    padding: 95px;
-    height: 100%;
+.accueil-main {
     background-color: var(--arrier-plan);
-    width: 100%;
-}
-.container2 {
-    padding: 95px;
-    height: 100%;
-    background-color: var(--arrier-plan);
-    width: 90%;
-    height: 960px;
+    min-height: 100vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.presentation_section {
-    background-color: var(--violet-fonce);
-    /* justify-content: space-between; */
-    width: 100%;
-    align-content: center;
-    padding: 40px;
-    margin-top: 25px;
-    height: 450px;
-    border: 1px solid rgb(68, 7, 77);
-    /* display: flex; */
-}
-
-.row h2 {
-    text-align: center;
-    width: 95%;
-    height: 70px;
-}
-
-.presentation_div {
+.accueil-main-section {
     display: flex;
-    justify-content: center;
-    background-color: var(--violet-claire);
-    width: 1000px;
-    margin-left: 300px;
+    flex-direction: column;
+    background-color: var(--violet-fonce);
+    width: 90%;
+    margin: auto;
+    min-height: 580px;
+    margin-bottom: 35px;
+    border-radius: 12px;
 }
 
-.presentation_div img {
-    width: 20%;
-    object-fit: contain;
+.accueil-main-section-frame {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    flex-wrap: wrap;
 }
 
-.presentaiton_p_div {
+.accueil-main-section h2 {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    font-size: 40px;
+}
+
+.accueil-main-section p {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    max-height: 600px;
+    padding: 15px;
+}
+
+.accueil-main-section-frame div {
+    padding-bottom: 15px;
+}
+
+.accueil-main-section-frame div img {
+    margin-left: 15px;
+    margin-right: 15px;
     width: 400px;
+    height: 350px;
+    border-radius: 12px;
+}
+
+.accueil-main-section-frame div h3 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.accueil-main-section-pitch-div-button_a {
+    display: block;
+    font-size: 35px;
+    width: 90%;
+    margin: auto;
+    border: 5px solid #3b2455;
+    border-radius: 12px;
+    color: var(--text_col);
 }
 
 /* ===================================== PAGE CONTACT ================================== */
 .main-contact {
     background-color: var(--arrier-plan);
-    padding: 40px 80px;
-    width: 100%;
-
+    padding: 15px;
 }
 
 .main-contact p {
-    margin-top: 4px;
-
+    margin-top: 9px;
 }
 
 .div-contact-info {
     display: flex;
-    justify-content: center;
-    background-color: var(--violet-fonce);
+    justify-content: space-between;
+
 }
 
-.div-contact-adress, .div-contact-horaires {   
-    margin-right: 50px;
+.div-contact-adress {
+    margin-top: 2px;
+    margin-left: 20px;
     font-size: 20px;
-    width: 500px;
-    background-color: var(--violet-claire);
 }
-.iframe {
-    margin: center;
-    height: 600px;
+
+.contact-form-general {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form-general h2 {
+    width: 60%;
+}
+
+
+.contact-form-general label {
+    font-size: 20px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.contact-form-email {
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    border-radius: 8px;
+    border: 2px solid var(--violet-fonce);
+}
+
+.contact-form-text-area {
+    width: 850px;
+    height: 150px;
+    border-radius: 16px;
+    border: 2px solid var(--violet-fonce);
+    margin-bottom: 15px;
 }
 
 /* ===================================== PAGE RESERVATION ===================================== */
@@ -516,6 +638,22 @@ a {
     align-items: center;
     width: 95%;
 
+}
+
+.titre_page-reservation-div {
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    font-size: 32px;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.titre_page-reservation-div p {
+    width: fit-content;
+    margin: auto;
 }
 
 .div-reservation form {
@@ -620,13 +758,15 @@ a {
 }
 
 .button_valide_reservation {
-    width: fit-content;
+    margin-top: 15px;
+    width: 35%;
+    height: 90px;
     padding: 10px 25px 10px 25px;
     border: 0px;
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    font-size: large;
+    font-size: 35px;
     background-color: var(--violet-fonce);
     border: 2px solid #3b2455;
     text-align: center;
@@ -635,6 +775,7 @@ a {
 .button_valide_reservation p {
     width: fit-content;
     height: fit-content;
+    margin: auto;
     padding-top: 4px;
     padding-left: 4px;
 }
@@ -644,7 +785,35 @@ a {
     width: fit-content;
     margin: auto;
 }
+/* ===================================== PAGE CONTACT ================================== */
+.main-contact {
+    background-color: var(--arrier-plan);
+    padding: 40px 80px;
+    width: 100%;
 
+}
+
+.main-contact p {
+    margin-top: 4px;
+
+}
+
+.div-contact-info {
+    display: flex;
+    justify-content: center;
+    background-color: var(--violet-fonce);
+}
+
+.div-contact-adress, .div-contact-horaires {
+    margin-right: 50px;
+    font-size: 20px;
+    width: 500px;
+    background-color: var(--violet-claire);
+}
+.iframe {
+    margin: center;
+    height: 600px;
+}
 /* ===================================== GESTION ERROR ===================================== */
 
 .error_message {
@@ -667,7 +836,7 @@ a {
 
 
 .categorys {
-    width: %;
+    width: 100%;
     height: 450px;
     display: flex;
 }
@@ -675,8 +844,7 @@ a {
 .category {
     width: 300px;
     height: 300px;
-    background-color: var(--violet-claire);
-    /* background-color: blue; */
+    background-color: aqua;
     margin-top: 20px;
     padding-left: 50px;
     margin-left: 90px;
@@ -687,70 +855,91 @@ a {
 .coiffeur {
     width: 300px;
     height: 300px;
-    background-color: var(--violet-claire);
-    /* background-color: blue; */
+    background-color: rgb(94, 60, 22);
     margin-top: 20px;
-    margin-left: 340px;
+    margin-left: 50px;
+    padding-left: 50px;
+    margin-left: 90px;
 }
 
-
+------------------------
 
 /* carrousel */
+---------------------- h3 {
+    width: 15px;
+    height: 5px;
 
-
-
-
-/* page CGU */
-.cgu {
-    width: 1200px;
-    height: auto;
-    margin: auto;
-    background-color: var(--violet-fonce);
 }
-.cgu h2,h3{
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+.center h3 {
+    text-align: center;
+    width: 800px;
+}
+
+.diapo {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+}
+
+#nav-droite,
+#nav-gauche {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    color: black;
+    font-size: 2em;
+}
+
+#nav-droite {
+    right: 50px;
+}
+
+#nav-gauche {
+    left: 50px;
+}
+
+.elements {
+    display: flex;
+    transition: 1s linear;
+    width: 500px;
+    background-color: brown;
+    justify-items: center;
+}
+
+.element {
+    flex: 1 0 90%;
+    position: relative;
+    width: 100px;
     text-align: center;
 }
-.cgu p {
-    padding: 10px;
-    text-align: center;
+
+.element img {
+    width: 50%;
 }
-
-
 
 /* ===================================== FOOTER ===================================== */
 .footer-main-div {
     background-color: var(--violet-fonce);
 }
+
 .fb-cgu {
     display: flex;
 }
+
 .fb-cgu img {
-   margin-left: 15px;
-   
+    margin-left: 15px;
+
 }
+
 .footer-cgu-link {
-margin: auto;
+    margin: auto;
     font-size: 20px;
     color: var(--text_col);
 }
 
+/* =============================================================== RESPONSIVE TABLET ====================================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-/*----------------------------------------------RESPONSIVE--------------------------------------- */
-
-/* ===================================== RESPONSIVE TABLET ===================================== */
 @media only screen and (min-device-width : 767px) {
 
     /* ===================================== PAGE PRODUITS ===================================== */
@@ -790,7 +979,7 @@ margin: auto;
     .div-card-produits img {
         width: 180px;
     }
-    }
+
 
     /* ===================================== HEADER ===================================== */
     header {
@@ -884,6 +1073,63 @@ margin: auto;
         background-color: rgba(39, 38, 39, 0.473);
     }
 
+    /* ===================================== LOGIN ===================================== */
+    .login-main {
+        display: flex;
+    }
+
+    .login-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    .login-main form {
+        width: 60%;
+    }
+
+    .login-main form div input {
+        padding: 10px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .login-connect-button {
+        height: 60px;
+        width: 60%;
+        font-size: 25px;
+    }
+
+    .login-main form div label {
+        font-size: 25px;
+        margin-top: auto;
+        margin-bottom: 5px;
+    }
+
+    /* ===================================== PAGE MAIN ===================================== */
+    .accueil-main-section {
+        width: 85%;
+        min-height: 500px;
+    }
+
+    .accueil-main-section h2 {
+        font-size: 30px;
+    }
+
+    .accueil-main-section p {
+        font-size: 22px;
+    }
+
+    .accueil-main-section-frame div img {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 350px;
+        height: 300px;
+        border-radius: 12px;
+    }
+
     /* ===================================== PAGE PRESTATIONS ===================================== */
     .div-prestations-card p {
         font-size: 20px;
@@ -892,6 +1138,10 @@ margin: auto;
     /* ===================================== PAGE RESERVATION ===================================== */
     .div-reservation {
         width: 70%;
+    }
+
+    .titre_page-reservation-div {
+        font-size: 30px;
     }
 
     .reservation-div-input label {
@@ -932,10 +1182,19 @@ margin: auto;
         font-size: 20px;
         padding-left: 5px;
     }
+}
 
+/* =============================================================== RESPONSIVE DESKTOP ====================================================== */
 
-/* =============================== RESPONSIVE DESKTOP ============================= */
 @media only screen and (min-device-width : 1685px) {
+
+    /* ===================================== LOGIN ===================================== */
+
+
+    .login-main form label {
+        margin: auto;
+        padding-top: 15px;
+    }
 
     /* ===================================== NAV DU HEADER ===================================== */
     .nav ul li a {
@@ -946,8 +1205,33 @@ margin: auto;
         transition: all .2s;
     }
 
+    /* ===================================== PAGE MAIN ===================================== */
+    .accueil-main-section {
+        width: 80%;
+        min-height: 200px;
+    }
+
+    .accueil-main-section h2 {
+        font-size: 25px;
+    }
+
+    .accueil-main-section p {
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .accueil-main-section-frame div img {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 320px;
+        height: 280px;
+        border-radius: 12px;
+    }
+
+    /* ===================================== PAGE PRODUITS ===================================== */
     .main-produits {
         background-color: var(--arrier-plan);
+
     }
 
     /* ===================================== PAGE PRESTATIONS ===================================== */

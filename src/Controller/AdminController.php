@@ -6,7 +6,9 @@ use DateTime;
 use App\Entity\RDV;
 use App\Entity\User;
 use App\Form\RDVType;
+use App\Entity\Bijoux;
 use App\Entity\Produits;
+use App\Form\BijouxType;
 use App\Form\ProduitsType;
 use App\Entity\Prestations;
 use App\Form\CTGProduitsType;
@@ -14,6 +16,8 @@ use App\Form\PrestationsType;
 use Doctrine\DBAL\Connection;
 use App\Entity\CategoryProduits;
 use App\Repository\RDVRepository;
+use App\Repository\BijouxRepository;
+use App\Repository\CategoryPrestationRepository;
 use App\Repository\ProduitsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\PrestationsRepository;
@@ -37,106 +41,21 @@ class AdminController extends AbstractController
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
-
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);
     }
 
-    #[Route('/admin/calendar', name: 'admin_calendar')]
-    public function calendar(RDVRepository $rDVRepository): Response
-    {
-        $events = $rDVRepository->findAll();
-        $rdvs = [];
-        foreach ($events as $event) {
-            $fin_rdv = $event->getDateTime();
-            $time = $event->getDateTime()->format('Y-m-d H:i:s');
-            $dt = new DateTime($time);
-            $dt->modify('+ 120 minutes');
-            $rdvs[] = [
-                'title' =>  "Nom: " . $event->getNom() . " Prenom: " . $event->getPrenom() . " Tel: " . $event->getTel(),
-                'id' => $event->getId(),
-                'start' => $event->getDateTime()->format('Y-m-d H:i:s'),
-                'end' => $dt->format('Y-m-d H:i:s'),
-                'user_id' => $event->getUser()->getName(),
-                'nom' => $event->getNom(),
-                'prenom' => $event->getPrenom(),
-                'email' => $event->getEmail(),
-                'tel' => $event->getTel(),
-            ];
-        }
-        $data = json_encode($rdvs);
-        return $this->render('admin/calendar.html.twig', compact('data'));
-    }
-
-    #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
-    public function majEvent($id, PrestationsRepository $prestationsRepository, Connection $connection, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
-    {
-
-        $rdv = $rdvRepository->findOneBy(['id' => $id]);
-
-        $result = $connection->fetchAllAssociative('SELECT * FROM rdv_prestations WHERE rdv_id =' . $id);
-
-        $form = $this->createFormBuilder($rdv)
-            ->add('nom', TextType::class, [
-                'attr' => [
-                    'placeholder' => ' Votre nom'
-                ]
-            ])
-            ->add('prenom', TextType::class, [
-                'attr' => [
-                    'placeholder' => ' Votre prenom'
-                ]
-            ])
-            ->add('email', EmailType::class, [
-                'attr' => [
-                    'placeholder' => ' Votre email'
-                ]
-            ])
-            ->add('tel', TelType::class, [
-                'attr' => [
-                    'placeholder' => ' Votre numero de téléphone'
-                ]
-            ])
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'name',
-                'label' => "Nom du Coiffeur "
-            ])
-
-            ->add('date_time', DateTimeType::class, [
-                'label' => "Date du rendez-vous",
-                'widget' => "single_text"
-            ])
-
-            ->add("submit", SubmitType::class, [
-                'label' => "Valider",
-                'attr' => ['class' => "button_valide_reservation"],
-            ])
-
-            ->getForm();
-
-        for ($i = 0; $i < count($result); $i++) {
-            $form->add("prestation$i", EntityType::class, [
-                "class" => Prestations::class,
-                'choice_label' => 'title',
-                'empty_data' => '0',
-                'mapped' => false,
+        // Création de la route "Category Prestation"
+        #[Route('/admin/category_prestations', name: 'admin_category_prestations')]
+        public function category_prestations(CategoryPrestationRepository $ctgRepository): Response
+        {
+            $category_prestations = $ctgRepository->findAll();
+    
+            return $this->render('admin/prestations/category/read.html.twig', [
+                'category_prestations' => $category_prestations
             ]);
         }
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-
-            $entityManagerInterface->persist($rdv);
-            $entityManagerInterface->flush();
-        }
-        return $this->render('admin/modifiy_reservation.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
 
     // Création de la route "Prestations"
     #[Route('/admin/prestations', name: 'admin_prestations')]
@@ -169,6 +88,8 @@ class AdminController extends AbstractController
         ]);
     }
 
+    // =======================PRODUITS=================================
+
     // Création de la route "Category Produits"
     #[Route('/admin/category_produits', name: 'admin_category_produits')]
     public function category_produits(CategoryProduitsRepository $ctgRepository): Response
@@ -184,7 +105,6 @@ class AdminController extends AbstractController
     #[Route('/admin/category_produits/new', name: 'admin_create_category_produits')]
     public function new_category_produits(EntityManagerInterface $entityManagerInterface, Request $request): Response
     {
-
         $ctg_produits = new CategoryProduits();
         $form = $this->createForm(CTGProduitsType::class, $ctg_produits);
 
@@ -284,12 +204,152 @@ class AdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-    // Création de la route "Produits"
+    // Création de la route "Produits" pour supprimer
     #[Route('/admin/produits/{id}/delete', name: 'admin_produits_delete')]
     public function delete_produits($id, ProduitsRepository $produitsRepository): Response
     {
         $produits = $produitsRepository->findOneBy(['id' => $id]);
         $produitsRepository->remove($produits, true);
         return $this->redirectToRoute("admin_produits");
+    }
+
+    #[Route('/admin/calendar', name: 'admin_calendar')]
+    public function calendar(RDVRepository $rDVRepository): Response
+    {
+        $events = $rDVRepository->findAll();
+        $rdvs = [];
+        foreach ($events as $event) {
+            $fin_rdv = $event->getDateTime();
+            $time = $event->getDateTime()->format('Y-m-d H:i:s');
+            $dt = new DateTime($time);
+            $dt->modify('+ 120 minutes');
+            $rdvs[] = [
+                'title' =>  "Nom: " . $event->getNom() . " Prenom: " . $event->getPrenom() . " Tel: " . $event->getTel(),
+                'id' => $event->getId(),
+                'start' => $event->getDateTime()->format('Y-m-d H:i:s'),
+                'end' => $dt->format('Y-m-d H:i:s'),
+                'user_id' => $event->getUser()->getName(),
+                'nom' => $event->getNom(),
+                'prenom' => $event->getPrenom(),
+                'email' => $event->getEmail(),
+                'tel' => $event->getTel(),
+            ];
+        }
+        $data = json_encode($rdvs);
+        return $this->render('admin/calendar.html.twig', compact('data'));
+    }
+    // =========================== BIJOUX ===========================
+    // Création de la route "Produits"
+    #[Route('/admin/bijoux', name: 'admin_produits')]
+    public function bijoux(BijouxRepository $bijouxRepository): Response
+    {
+        $bijoux = $bijouxRepository->findAll();
+
+        return $this->render('admin/bijoux/read.html.twig', [
+            'bijoux' => $bijoux
+        ]);
+    }
+
+    // Création de la route "Création de bijoux"
+    #[Route('/admin/bijoux/new', name: 'admin_create_bijoux')]
+    public function new_bijoux(EntityManagerInterface $entityManagerInterface, Request $request, SluggerInterface $slugger): Response
+    {
+
+        $bijoux = new Bijoux();
+        $form = $this->createForm(BijouxType::class, $bijoux);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère l'image donner et on lui met une variable 
+            $bijouxfile = $form->get('url_image')->getData();
+
+            if ($bijouxfile) {
+                $originalFileName = pathinfo($bijouxfile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFileName);
+                $newFilename = $safeFilename . "-" . uniqid() . "." . $bijouxfile->guessExtension();
+            }
+            try {
+                $bijouxfile->move(
+                    $this->getParameter("image_bijoux_directory"),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+            }
+
+            $bijoux->setUrlImage($newFilename);
+
+            $entityManagerInterface->persist($bijoux);
+            $entityManagerInterface->flush();
+        }
+
+        return $this->render('admin/produits/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
+    public function majEvent($id, PrestationsRepository $prestationsRepository, Connection $connection, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    {
+
+        $rdv = $rdvRepository->findOneBy(['id' => $id]);
+
+        $result = $connection->fetchAllAssociative('SELECT * FROM rdv_prestations WHERE rdv_id =' . $id);
+
+        $form = $this->createFormBuilder($rdv)
+            ->add('nom', TextType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre nom'
+                ]
+            ])
+            ->add('prenom', TextType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre prenom'
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre email'
+                ]
+            ])
+            ->add('tel', TelType::class, [
+                'attr' => [
+                    'placeholder' => ' Votre numero de téléphone'
+                ]
+            ])
+            ->add('user', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'name',
+                'label' => "Nom du Coiffeur "
+            ])
+
+            ->add('date_time', DateTimeType::class, [
+                'label' => "Date du rendez-vous",
+                'widget' => "single_text"
+            ])
+
+            ->add("submit", SubmitType::class, [
+                'label' => "Valider",
+                'attr' => ['class' => "button_valide_reservation"],
+            ])
+
+            ->getForm();
+
+        for ($i = 0; $i < count($result); $i++) {
+            $form->add("prestation$i", EntityType::class, [
+                "class" => Prestations::class,
+                'choice_label' => 'title',
+                'empty_data' => '0',
+                'mapped' => false,
+            ]);
+        }
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($rdv);
+            $entityManagerInterface->flush();
+        }
+        return $this->render('admin/modifiy_reservation.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
