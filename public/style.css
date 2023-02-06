@@ -581,67 +581,7 @@ a {
     color: var(--text_col);
 }
 
-/* ===================================== PAGE CONTACT ================================== */
-.main-contact {
-    background-color: var(--arrier-plan);
-    padding: 15px;
-}
 
-.main-contact p {
-    margin-top: 9px;
-}
-
-.div-contact-info {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.div-contact-adress {
-    height: 400px;
-}
-.div-contact-adress, .div-contact-horaires {   
-    margin-right: 50px;
-    font-size: 20px;
-    width: 800px;
-    background-color: var(--violet-claire);
-}
-
-.contact-form-general {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-form-general h2 {
-    width: 60%;
-}
-
-
-.contact-form-general label {
-    font-size: 20px;
-    width: fit-content;
-    margin: auto;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
-.contact-form-email {
-    width: 70%;
-    height: 40px;
-    margin: auto;
-    border-radius: 8px;
-    border: 2px solid var(--violet-fonce);
-}
-
-.contact-form-text-area {
-    width: 850px;
-    height: 150px;
-    border-radius: 16px;
-    border: 2px solid var(--violet-fonce);
-    margin-bottom: 15px;
-}
 
 /* ===================================== PAGE RESERVATION ===================================== */
 .main-reservation {
@@ -809,7 +749,6 @@ a {
     background-color: var(--arrier-plan);
     padding: 40px 80px;
     width: 100%;
-
 }
 
 .main-contact p {
@@ -822,11 +761,13 @@ a {
     justify-content: center;
     background-color: var(--violet-fonce);
 }
-
+.div-contact-adress{
+    height: 500px;
+}
 .div-contact-adress, .div-contact-horaires {
     margin-right: 50px;
     font-size: 20px;
-    width: 500px;
+    width: 800px;
     background-color: var(--violet-claire);
 }
 .iframe {
