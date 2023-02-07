@@ -2,7 +2,7 @@
 
 
 :root {
-    --violet-claire: #8244A7;
+    --violet-claire: #a354d1;
     --violet-fonce: #7244A7;
     --arrier-plan: #9467cc;
     --text_col: #C6D1EC;
@@ -247,11 +247,6 @@ a {
     width: 13%;
 }
 
-.ADMIN_main_produits {
-    display: flex;
-    flex-direction: column;
-}
-
 .prestation_div {
     display: flex;
 }
@@ -265,6 +260,83 @@ a {
     padding: 2px 5px 2px 5px;
     border: 1px solid black;
     border-radius: 8px;
+}
+
+/* ===================================== ADMIN PRODUITS ===================================== */
+.admin-produits-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 15px;
+    display: flex;
+}
+.admin-main-all-div-produits {
+    width: 85%;
+    margin: auto;
+    padding-bottom: 15px;
+    background-color: var(--violet-fonce);
+    border-radius: 15px;
+}
+.admin-produits-main-div {
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--violet-claire);
+    align-items: center;
+}
+
+.admin-main-all-div-produits h2 {
+    font-size: 40px;
+    width: fit-content;
+    overflow: hidden;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-produits-main-img {
+    width: 300px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.admin-main-button-action {
+    width: fit-content;
+    margin: auto;
+}
+
+.admin-main-produits-info-prix {
+    font-size: 40px;
+}
+
+.admin-main-button-action a {
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.admin-main-produits-info-prix {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.admin-produits-ajout-button {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin: auto;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 /* ===================================== ADMIN BIJOUX ===================================== */
@@ -785,6 +857,7 @@ a {
     width: fit-content;
     margin: auto;
 }
+
 /* ===================================== PAGE CONTACT ================================== */
 .main-contact {
     background-color: var(--arrier-plan);
@@ -804,16 +877,19 @@ a {
     background-color: var(--violet-fonce);
 }
 
-.div-contact-adress, .div-contact-horaires {
+.div-contact-adress,
+.div-contact-horaires {
     margin-right: 50px;
     font-size: 20px;
     width: 500px;
     background-color: var(--violet-claire);
 }
+
 .iframe {
     margin: center;
     height: 600px;
 }
+
 /* ===================================== GESTION ERROR ===================================== */
 
 .error_message {
@@ -942,6 +1018,23 @@ a {
 
 @media only screen and (min-device-width : 767px) {
 
+    /* ===================================== ADMIN PRODUITS===================================== */
+    .admin-main-all-div-produits {
+        width: 65%;
+    }
+    .admin-main-all-div-produits h2, .admin-main-produits-info-prix {
+        font-size: 30px;
+    }
+    .admin-produits-main-img {
+        width: 250px;
+        margin: auto;
+    }
+    .admin-main-button-action a, .admin-produits-ajout-button {
+        padding: 10px;
+        font-size: 25px;
+    }
+
+    
     /* ===================================== PAGE PRODUITS ===================================== */
     .back-div-produits {
         padding: 0;

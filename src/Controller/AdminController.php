@@ -73,7 +73,7 @@ class AdminController extends AbstractController
             $entityManagerInterface->flush();
         }
 
-        return $this->render('admin/produits/create.html.twig', [
+        return $this->render('admin/prestation/category/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -109,7 +109,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    // =======================PRODUITS=================================
+    // ================================PRODUITS=================================
 
     // Création de la route "Category Produits"
     #[Route('/admin/category_produits', name: 'admin_category_produits')]
@@ -143,12 +143,13 @@ class AdminController extends AbstractController
 
     // Création de la route "Produits"
     #[Route('/admin/produits', name: 'admin_produits')]
-    public function produits(ProduitsRepository $produitsRepository): Response
+    public function produits(ProduitsRepository $produitsRepository, CategoryProduitsRepository $CTGProduitsRepository): Response
     {
         $produits = $produitsRepository->findAll();
-
+        $categories = $CTGProduitsRepository->findAll(); // On recupère tous les categories_Produits qui servira à créer un selecteur pour pouvoir afficher que les produits 
         return $this->render('admin/produits/read.html.twig', [
-            'produits' => $produits
+            'produits' => $produits,
+            'categories' => $categories, // On envoie les informations récupérer avec $CTGProduitsRepository->findAll() vers la vue twig avec comme variable "catégories"
         ]);
     }
 
@@ -233,7 +234,8 @@ class AdminController extends AbstractController
         $produitsRepository->remove($produits, true);
         return $this->redirectToRoute("admin_produits");
     }
-
+    
+// ==================================Calendar=======================================================
     #[Route('/admin/calendar', name: 'admin_calendar')]
     public function calendar(RDVRepository $rDVRepository): Response
     {
@@ -260,8 +262,8 @@ class AdminController extends AbstractController
         return $this->render('admin/calendar.html.twig', compact('data'));
     }
     // =========================== BIJOUX ===========================
-    // Création de la route "Produits"
-    #[Route('/admin/bijoux', name: 'admin_produits')]
+    // Création de la route "Bijoux"
+    #[Route('/admin/bijoux', name: 'admin_bijoux')]
     public function bijoux(BijouxRepository $bijouxRepository): Response
     {
         $bijoux = $bijouxRepository->findAll();
