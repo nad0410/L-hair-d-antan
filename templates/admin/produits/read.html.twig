@@ -15,18 +15,18 @@
 					<div>
 						<img class="admin-produits-main-img" src="{{asset('images/produits/')}}{{produit.imgProduits}}" alt="Image Produits">
 					</div>
-						<h2>{{produit.name}}</h2>
+					<h2>{{produit.name}}</h2>
 					<div>
 						<p class="admin-main-produits-info-prix">{{produit.prix}}
 							€</p>
 					</div>
 					<div class="admin-main-button-action flex">
 						<a href="{{ path('admin_produits_edit', {'id': produit.id }) }}">Modifier</a>
-						<a href="{{ path('admin_produits_delete', {'id': produit.id }) }}">Supprimer</a>
+						<a id="#comf_delete" href="{{ path('admin_produits_delete', {'id': produit.id }) }}">Supprimer</a>
 					</div>
 				</div>
 			{% endfor %}
-		<a class="admin-produits-ajout-button" href="{{path("admin_create_produits")}}">Ajouter un produits</a>
+			<a class="admin-produits-ajout-button" href="{{path("admin_create_produits")}}">Ajouter un produits</a>
 		</div>
 	</main>
 {% endblock %}

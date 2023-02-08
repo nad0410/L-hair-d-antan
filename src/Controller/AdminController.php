@@ -259,7 +259,7 @@ class AdminController extends AbstractController
             ];
         }
         $data = json_encode($rdvs);
-        return $this->render('admin/calendar.html.twig', compact('data'));
+        return $this->render('admin/reservation/calendar.html.twig', compact('data'));
     }
     // =========================== BIJOUX ===========================
     // Création de la route "Bijoux"

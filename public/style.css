@@ -209,33 +209,6 @@ a {
     margin-top: 30px;
 }
 
-/* ===================================== ADMIN PANEL ===================================== */
-
-.nav-admin-panel {
-    display: flex;
-    flex-direction: column;
-    border: 1.5px solid darkgray;
-    width: 10%;
-    height: 900px;
-    background-color: rgb(75, 75, 75);
-    padding: 10px;
-}
-
-.div-admin-panel {
-    width: 100%;
-    height: 900px;
-    padding: 10px;
-}
-
-.div-admin-panel ul {
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-
-    list-style: none;
-}
-
-
 /* ===================================== ADMIN PRESTATIONS ===================================== */
 
 .a_button_submit {
@@ -269,22 +242,25 @@ a {
     padding-top: 15px;
     display: flex;
 }
+
 .admin-main-all-div-produits {
     width: 85%;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     padding-bottom: 15px;
     background-color: var(--violet-fonce);
     border-radius: 15px;
 }
+
 .admin-produits-main-div {
-    border: 1px solid red;
     border-radius: 8px;
     padding: 15px;
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: 2px solid var(--text_col);
     background-color: var(--violet-claire);
     align-items: center;
 }
@@ -298,6 +274,14 @@ a {
     margin-right: auto;
 }
 
+.admin-produits-main-description {
+    padding-bottom: 15px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
 .admin-produits-main-img {
     width: 300px;
     margin: auto;
@@ -310,7 +294,7 @@ a {
 }
 
 .admin-main-produits-info-prix {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .admin-main-button-action a {
@@ -340,15 +324,84 @@ a {
 }
 
 /* ===================================== ADMIN BIJOUX ===================================== */
-.admin-panel-bijoux-main {
+.admin-bijoux-main {
     background-color: var(--arrier-plan);
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 15px;
+    display: flex;
 }
 
-.admin-panel-bijoux-main-div-for-div {
-    width: 80%;
-    border: 2px solid var(--violet-fonce);
+.admin-main-all-div-bijoux {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 15px;
+    background-color: var(--violet-fonce);
+    border-radius: 15px;
 }
+
+.admin-bijoux-main-div {
+    min-height: 500px;
+    border-radius: 8px;
+    padding: 15px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid var(--text_col);
+    background-color: var(--violet-claire);
+    align-items: center;
+}
+
+.admin-main-all-div-bijoux h2 {
+    font-size: 35px;
+    width: fit-content;
+    overflow: hidden;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-bijoux-main-img {
+    width: 400px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.admin-main-button-action {
+    width: fit-content;
+    margin: auto;
+}
+
+.admin-main-button-action a {
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.admin-main-bijoux-info-prix {
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+
+.admin-bijoux-ajout-button {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin: auto;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
@@ -401,9 +454,73 @@ a {
     margin-bottom: 5px;
 }
 
-/* ------------------------------------------------------------------------------ */
+/* ===================================== PAGE BIJOUX ===================================== */
+.bijoux-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 30px;
+}
 
-/* MAIN */
+.bijoux-main-div {
+    width: 90%;
+    min-height: 75vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--violet-fonce);
+    display: flex;
+    flex-direction: column;
+}
+
+.bijoux-main-for-div {
+    background-color: var(--violet-claire);
+    margin: 15px;
+    border-radius: 8px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+}
+
+.bijoux-main-for-image {
+    width: 300px;
+    border-radius: 12px;
+    margin-left: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bijoux-main-for-div-info {
+    width: 100%;
+}
+
+.bijoux-main-for-div h2 {
+    width: fit-content;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+.bijou-main-for-p-description {
+    max-width: 80%;
+    min-height: 100px;
+    max-height: 150px;
+    overflow: scroll;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Desactivation du visuelle de la scroll bar */
+.bijou-main-for-p-description::-webkit-scrollbar {
+    display: none;
+}
+.bijoux-main-for-p-prix {
+    font-size: 20px;
+    width: 120px;
+    margin-left: auto;
+}
+/* ===================================== PAGE MAIN ===================================== */
 .container {
     padding: 95px;
     height: 100%;
@@ -478,7 +595,7 @@ a {
 .div-card-produits h2 {
     font-size: 45px;
     margin-top: 20px;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     max-width: 400px;
     text-align: center;
     overflow-x: hidden;
@@ -496,9 +613,9 @@ a {
 }
 
 .div-card-produits p {
-    font-size: 50px;
-    max-width: 80%;
-    max-height: 50%;
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 .div-card-produits img {
@@ -1020,21 +1137,29 @@ a {
 
     /* ===================================== ADMIN PRODUITS===================================== */
     .admin-main-all-div-produits {
-        width: 65%;
+        width: 55%;
     }
-    .admin-main-all-div-produits h2, .admin-main-produits-info-prix {
+
+    .admin-main-all-div-produits h2,
+    .admin-main-produits-info-prix {
         font-size: 30px;
     }
+
     .admin-produits-main-img {
         width: 250px;
         margin: auto;
     }
-    .admin-main-button-action a, .admin-produits-ajout-button {
+
+    .admin-main-button-action a,
+    .admin-produits-ajout-button {
         padding: 10px;
-        font-size: 25px;
+        font-size: 20px;
     }
 
-    
+    .admin-main-produits-info-prix {
+        font-size: 23px;
+    }
+
     /* ===================================== PAGE PRODUITS ===================================== */
     .back-div-produits {
         padding: 0;
@@ -1056,12 +1181,19 @@ a {
     .div-card-produits {
         width: 350px;
         padding: 35px;
+        padding-bottom: 15px;
     }
 
     .div-card-produits h2 {
         font-size: 25px;
         max-width: 300px;
         max-height: 100px;
+    }
+
+    .div-card-produits p {
+        font-size: 20px;
+        padding-bottom: 20px;
+        text-align: center;
     }
 
     .div-card-produits h3 {
@@ -1073,11 +1205,20 @@ a {
         width: 180px;
     }
 
+    /* ===================================== ADMIN BIJOUX===================================== */
+
+    .admin-main-all-div-bijoux h2 {
+        font-size: 25px;
+    }
+
+    .admin-main-bijoux-info-prix {
+        font-size: 25px;
+    }
 
     /* ===================================== HEADER ===================================== */
     header {
         width: 100%;
-        height: 360px;
+        height: 250px;
     }
 
     a {
@@ -1086,7 +1227,7 @@ a {
     }
 
     .logo {
-        height: 300px;
+        height: 200px;
         display: flex;
         justify-content: center;
         padding: 5px;
@@ -1133,7 +1274,7 @@ a {
         border: 1px solid rgb(68, 7, 77);
         background-color: var(--violet-fonce);
         width: 100%;
-        height: 60px;
+        height: 50px;
     }
 
     .nav ul {
@@ -1147,7 +1288,7 @@ a {
     .nav ul li {
         margin-right: 5px;
         list-style: none;
-        margin-top: 8px;
+        margin-top: 2px;
     }
 
     .nav ul li a {

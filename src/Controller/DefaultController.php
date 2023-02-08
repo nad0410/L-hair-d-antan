@@ -73,9 +73,8 @@ class DefaultController extends AbstractController
     public function bijoux(BijouxRepository $bijouxRepository): Response
     {
         $bijoux = $bijouxRepository->findAll(); // On recupère tous les bijoux depuis la base de données
-        dd($bijoux);
 
-        return $this->render('default/produits/index.html.twig', [ // On fais un rendu vers la vue spécifier
+        return $this->render('default/bijoux/index.html.twig', [ // On fais un rendu vers la vue spécifier
             'bijoux' => $bijoux,  // On envoie les informations récupérer avec $bijouxRepository->findAll() vers la vue twig avec comme variable "bijoux"
         ]);
     }

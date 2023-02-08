@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Bijoux
+{% endblock %}
+{#  #}
+{% block body %}
+	{# On inclut le partial _header qui contient l'header qui sera sur toutes les pages #}
+	{% include "partials/_header.html.twig" %}
+	<main class="bijoux-main">
+		<div class="bijoux-main-div">
+			{% for bijou in bijoux %}
+				<div class="bijoux-main-for-div">
+					<img class="bijoux-main-for-image" src="{{asset('images/bijoux/')}}{{bijou.urlImage}}" alt="Image du bijoux">
+					<div class="bijoux-main-for-div-info">
+						<div>
+							<h2>Nom:
+								{{bijou.name}}</h2>
+							<p class="bijou-main-for-p-description">{{bijou.description}}</p>
+							<p class="bijoux-main-for-p-prix">Prix:
+								{{bijou.prix}}
+								€</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
+{% endblock %}

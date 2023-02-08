@@ -1,20 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin Panel Bijoux
+{% block title %}Bijoux
 {% endblock %}
 
 {% block body %}
-	<main class="admin-panel-bijoux-main">
-		<div class="admin-panel-bijoux-main-div">
+	{% include "partials/_admin_header.html.twig" %}
+	{# Balise sémantique qui servira de base pour les autres balises #}
+	<main
+		class="admin-bijoux-main">
+		{# Le code suivant gère l'affichage des bijoux #}
+		<div class="admin-main-all-div-bijoux flex column">
 			{% for bijou in bijoux %}
-				<div class="admin-panel-bijoux-main-div-for-div">{{bijou.prix}}
-					€
+				<div class="admin-bijoux-main-div flex column">
+					<div>
+						<img class="admin-bijoux-main-img" src="{{asset('images/bijoux/')}}{{bijou.urlImage}}" alt="Image Bijoux">
+					</div>
+						<h2>{{bijou.description}}</h2>
+					<div>
+						<p class="admin-main-bijoux-info-prix">{{bijou.prix}}
+							€</p>
+					</div>
+					<div class="admin-main-button-action flex">
+						<a href="{#{{ path('admin_bijoux_edit', {'id': bijou.id }) }} #}">Modifier</a>
+						<a href="{#{{ path('admin_bijoux_delete', {'id': bijou.id }) }}#}">Supprimer</a>
+					</div>
 				</div>
 			{% endfor %}
-
-			<a class="create_bijoux" href="{{path("admin_create_bijoux")}}">
-				Créer un nouveau bijoux
-			</a>
+		<a class="admin-bijoux-ajout-button" href="{{path("admin_create_bijoux")}}">Ajouter un Bijoux</a>
 		</div>
 	</main>
 {% endblock %}
