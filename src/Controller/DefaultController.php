@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use App\Entity\RDV;
 use App\Form\RDVType;
 use App\Repository\BijouxRepository;
+use App\Repository\CategoryPrestationRepository;
 use App\Repository\CategoryProduitsRepository;
 use App\Repository\PrestationsRepository;
 use App\Repository\ProduitsRepository;
@@ -30,16 +31,17 @@ class DefaultController extends AbstractController
         ]);
     }
     // ===========================PAGE PRESTATIONS===========================
-    #[Route('/prestations', name: 'prestations')]
-    public function prestations(PrestationsRepository $prestationsRepository): Response
+    #[Route('/prestations/{id}', name: 'prestations')]
+    public function prestation_category($id, PrestationsRepository $prestationsRepository, CategoryPrestationRepository $CTGPrestationsRepo): Response
     {
-        $prestations = $prestationsRepository->findAll(); // On recupère tous les produits depuis la base de données
+        $prestations = $prestationsRepository->findBy(['category' => $id]); // On recupère tous les produits ayant comme category l'id {id} 
+        $categories = $CTGPrestationsRepo->findAll(); // On recupère tous les categories de prestation qui servira à créer un selecteur pour pouvoir afficher que certaine prestation
 
         return $this->render('default/prestations/index.html.twig', [ // On fais un rendu vers la vue spécifier
             'prestations' => $prestations,  // On envoie les informations récupérer avec $prestationsRepository->findAll() vers la vue twig avec comme variable "produits"
+            'categories' => $categories, // On envoie les informations récupérer avec $CTGPrestationsRepo->findAll() vers la vue twig avec comme variable "catégories"
         ]);
     }
-
     // ===========================PAGE PRODUITS===========================
 
     #[Route('/produits', name: 'produits')]
@@ -58,7 +60,7 @@ class DefaultController extends AbstractController
     public function produits_category($id, ProduitsRepository $produitsRepository, CategoryProduitsRepository $CTGProduitsRepository): Response
     {
         $produits = $produitsRepository->findBy(['category' => $id]); // On recupère tous les produits ayant comme category l'id {id} 
-        $categories = $CTGProduitsRepository->findAll(); // On recupère tous les categories_Produits qui servira à créer un selecteur pour pouvoir afficher que les produits
+        $categories = $CTGProduitsRepository->findAll(); // On recupère tous les categories_Produits qui servira à créer un selecteur pour pouvoir afficher que certain produits
 
         return $this->render('default/produits/index.html.twig', [ // On fais un rendu vers la vue spécifier
             'produits' => $produits,  // On envoie les informations récupérer avec $produitsRepository->findAll() vers la vue twig avec comme variable "produits"

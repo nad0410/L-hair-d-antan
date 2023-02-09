@@ -21,11 +21,28 @@ if (select_category_produits != null) { // Evite l'incompatibilité entre les pa
     });
 }
 
-let slug = location.pathname.split('category/').slice(1);
-
-if (slug.length > 0) {
-    select_category_produits.value = slug;
+let slug_produits = location.pathname.split('category/').slice(1);
+if (slug_produits.length > 0) {
+    select_category_produits.value = slug_produits;
 };
+
+select_category_prestation = document.querySelector("#choice_category_prestations");
+if (select_category_prestation != null) { // Evite l'incompatibilité entre les pages
+    // Fait en sorte que quand tu changes d'option dans le sélecteur afin de choisir la catégorie que tu veux ça change de page en rajoutant /category/[id de la category]
+    select_category_prestation.addEventListener('change', event => {
+        if (select_category_prestation.options[select_category_prestation.selectedIndex].value != 0) {
+
+            window.location.href = "/prestations/" + select_category_prestation.options[select_category_prestation.selectedIndex].value
+        } else {
+            window.location.href = "/prestations/0"
+        }
+    });
+}
+let slug_prestations = location.pathname.split('prestations/').slice(1);
+if (slug_prestations.length > 0) {
+    select_category_prestation.value = slug_prestations;
+};
+
 
 menu_burger = document.querySelector(".div-logo-burger")
 if (menu_burger != null) { // Evite l'incompatibilité entre les pages

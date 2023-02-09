@@ -402,6 +402,153 @@ a {
     margin-bottom: 15px;
 }
 
+/* ===================================== PAGE MAIN ===================================== */
+.accueil-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.accueil-main-section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--violet-fonce);
+    width: 90%;
+    margin: auto;
+    min-height: 580px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+}
+
+.accueil-main-section-frame {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.accueil-main-section h2 {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    font-size: 40px;
+}
+
+.accueil-main-section p {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    max-height: 600px;
+    padding: 15px;
+}
+
+.accueil-main-section-frame div {
+    padding-bottom: 15px;
+}
+
+.accueil-main-section-frame div img {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 400px;
+    height: 350px;
+    border-radius: 12px;
+}
+
+.accueil-main-section-frame div h3 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.accueil-main-section-pitch-div-button_a {
+    display: block;
+    font-size: 35px;
+    width: 90%;
+    margin: auto;
+    border: 5px solid #3b2455;
+    border-radius: 12px;
+    color: var(--text_col);
+}
+
+/* ===================================== PAGE PRESTATIONS ===================================== */
+.main-prestation {
+    background-color: var(--arrier-plan);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 100vh;
+}
+
+#choice_category_prestations {
+    width: 100%;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    background-color: var(--violet-fonce);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#choice_category_prestations option {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.titre-h2-prestations {
+    width: fit-content;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 50px;
+}
+
+.back-prestation {
+    border: 1px solid black;
+    background-color: var(--violet-fonce);
+    width: 95%;
+    min-height: 60vh;
+    display: flex;
+    padding: 30px;
+    padding-bottom: 45px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-prestation ul {
+    list-style: none;
+    width: 90%;
+}
+
+.prestations-main-for-li-div {
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    font-size: 40px;
+    margin-top: 30px;
+    border: 2px solid var(--text_col);
+    min-height: 60px;
+    padding: 15px;
+}
+
+.prestation-main-for-div img {
+    margin-top: 15px;
+    max-height: 30px;
+}
+
+.prestations-main-for-li-div-title {
+    max-width: 80%;
+}
+
+.prestations-main-for-li-div-prix {
+    margin-left: 15px;
+}
 
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
@@ -411,7 +558,7 @@ a {
 }
 
 .div-selector-category {
-    width: fit-content;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
@@ -429,8 +576,8 @@ a {
 }
 
 #choice_category {
-    width: 600px;
-    height: 50px;
+    width: 100%;
+    height: 60px;
     margin-bottom: 15px;
     background-color: var(--violet-fonce);
     font-size: 30px;
@@ -515,303 +662,14 @@ a {
 .bijou-main-for-p-description::-webkit-scrollbar {
     display: none;
 }
+
 .bijoux-main-for-p-prix {
     font-size: 20px;
     width: 120px;
     margin-left: auto;
 }
-/* ===================================== PAGE MAIN ===================================== */
-.container {
-    padding: 95px;
-    height: 100%;
-    background-color: var(--arrier-plan);
-    width: 100%;
-}
-
-.presentation_section {
-    background-color: var(--violet-fonce);
-    justify-content: space-between;
-    width: 100%;
-    align-content: center;
-    padding: 40px;
-    margin-top: 50px;
-    height: 500px;
-    border: 1px solid rgb(68, 7, 77);
-    /* display: flex; */
-}
-
-.row h2 {
-    text-align: center;
-    width: 95%;
-    height: 70px;
-}
-
-.presentation_div {
-    display: flex;
-    justify-content: center;
-}
-
-.presentation_div img {
-    width: 30%;
-    object-fit: contain;
-}
-
-.presentaiton_p_div {
-    width: 600px;
-}
-
-.back-div-produits {
-    border: 1px solid black;
-    background-color: var(--violet-fonce);
-    min-width: 80%;
-    max-width: 80%;
-    display: flex;
-    padding: 30px;
-    padding-bottom: 15px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 16px;
-}
-
-.div-card-produits {
-    width: 100%;
-    border-radius: 8px;
-    border: 2px solid var(--text_col);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    padding-bottom: 25px;
-    margin: 15px;
-    margin-top: 5px;
-    transition: all .2s;
-}
-
-.div-card-produits:hover {
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(130, 68, 167, 0);
-    transition: all .2s;
-}
-
-.div-card-produits h2 {
-    font-size: 45px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    max-width: 400px;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-/* Desactivation du visuelle de la scroll bar */
-.div-card-produits h2::-webkit-scrollbar {
-    display: none;
-}
-
-.div-card-produits h3 {
-    font-size: 40px;
-    height: fit-content;
-    padding: 0;
-}
-
-.div-card-produits p {
-    font-size: 30px;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.div-card-produits img {
-    width: 500px;
-}
-
-.div-info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* ===================================== PAGE PRESTATIONS ===================================== */
-.main-prestation {
-    background-color: var(--arrier-plan);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    height: 100vh;
-}
-
-.titre-h2-prestations {
-    width: fit-content;
-    margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 50px;
-}
-
-.back-prestation {
-    border: 1px solid black;
-    background-color: var(--violet-fonce);
-    min-width: 90%;
-    max-width: 90%;
-    min-height: 95%;
-    display: flex;
-    padding: 30px;
-    padding-bottom: 15px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 16px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.div-prestations-card {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid var(--text_col);
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    width: 100%;
-    border-radius: 16px;
-    background-color: var(--violet-claire);
-}
-
-.div-prestations-card p {
-    width: fit-content;
-    font-size: 30px;
-    margin: 5px;
-}
-
-.div-prestations-card:hover {
-    box-shadow: 0px 10px 13px -7px #00000059, 5px 5px 15px 5px rgba(130, 68, 167, 0);
-    transition: all .2s;
-}
-
-/* ===================================== MAIN ===================================== */
-.accueil-main {
-    background-color: var(--arrier-plan);
-    min-height: 100vh;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.accueil-main-section {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--violet-fonce);
-    width: 90%;
-    margin: auto;
-    min-height: 580px;
-    margin-bottom: 35px;
-    border-radius: 12px;
-}
-
-.accueil-main-section-frame {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 35px;
-    flex-wrap: wrap;
-}
-
-.accueil-main-section h2 {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 15px;
-    font-size: 40px;
-}
-
-.accueil-main-section p {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 28px;
-    max-height: 600px;
-    padding: 15px;
-}
-
-.accueil-main-section-frame div {
-    padding-bottom: 15px;
-}
-
-.accueil-main-section-frame div img {
-    margin-left: 15px;
-    margin-right: 15px;
-    width: 400px;
-    height: 350px;
-    border-radius: 12px;
-}
-
-.accueil-main-section-frame div h3 {
-    width: fit-content;
-    margin: auto;
-    margin-top: 15px;
-    font-size: 25px;
-}
-
-.accueil-main-section-pitch-div-button_a {
-    display: block;
-    font-size: 35px;
-    width: 90%;
-    margin: auto;
-    border: 5px solid #3b2455;
-    border-radius: 12px;
-    color: var(--text_col);
-}
-
-/* ===================================== PAGE CONTACT ================================== */
-.main-contact {
-    background-color: var(--arrier-plan);
-    padding: 15px;
-}
-
-.main-contact p {
-    margin-top: 9px;
-}
-
-.div-contact-info {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.div-contact-adress {
-    margin-top: 2px;
-    margin-left: 20px;
-    font-size: 20px;
-}
-
-.contact-form-general {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-form-general h2 {
-    width: 60%;
-}
 
 
-.contact-form-general label {
-    font-size: 20px;
-    width: fit-content;
-    margin: auto;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
-.contact-form-email {
-    width: 70%;
-    height: 40px;
-    margin: auto;
-    border-radius: 8px;
-    border: 2px solid var(--violet-fonce);
-}
-
-.contact-form-text-area {
-    width: 850px;
-    height: 150px;
-    border-radius: 16px;
-    border: 2px solid var(--violet-fonce);
-    margin-bottom: 15px;
-}
 
 /* ===================================== PAGE RESERVATION ===================================== */
 .main-reservation {
@@ -1159,7 +1017,31 @@ a {
     .admin-main-produits-info-prix {
         font-size: 23px;
     }
+    /* ===================================== PAGE PRESTATION ===================================== */
+    .div-selector-category {
+        width: 60%;
+    }
 
+    #choice_category {
+        height: 50px;
+    }
+
+    .titre-h2-prestations {
+        font-size: 30px;
+    }
+
+    .back-prestation {
+        width: 65%;
+    }
+
+    .prestations-main-for-li-div {
+        display: flex;
+        justify-content: space-between;
+        text-align: start;
+        font-size: 25px;
+        border: 2px solid var(--text_col);
+        padding: 15px;
+    }
     /* ===================================== PAGE PRODUITS ===================================== */
     .back-div-produits {
         padding: 0;

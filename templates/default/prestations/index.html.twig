@@ -7,27 +7,33 @@
 	{# On inclut le partial _header qui contient l'header qui sera sur toutes les pages #}
 	{% include "partials/_header.html.twig" %}
 	{# Balise sémantique qui servira de base pour les autres balises #}
-	<main class="main-prestation">
+	<main
+		class="main-prestation">
+		{# Le code suivant gère la sélection de catégories #}
+		<div class="div-selector-category">
+			<label class="choice_category_label" for="choice_category_prestations">
+				<h3>Categories</h3>
+			</label>
+
+			<select name="choice_category_prestations" id="choice_category_prestations">
+				{% for categorie in categories %}
+					<option value="{{categorie.id}}">{{categorie.title}}</option>
+				{% endfor %}
+			</select>
+		</div>
 		<h2 class="titre-h2-prestations">Prestations</h2>
 		<div class="back-prestation">
-			{% for prestation in prestations %}
-				<div class="div-prestations-card">
-					<div>
-						<p>Titre</p>
-						<p>{{prestation.title}}</p>
-					</div>
-					<div class="">
-						<p>Temps</p>
-						<p>{{prestation.time}}
-							min</p>
-					</div>
-					<div>
-						<p>Prix</p>
-						<p>{{prestation.prix}}
-							€</p>
-					</div>
-				</div>
-			{% endfor %}
+			<ul>
+				{% for prestation in prestations %}
+					<li class="prestations-main-for-li">
+						<div class="prestations-main-for-li-div">
+							<p class="prestations-main-for-li-div-title">{{prestation.title}}</p> 
+							
+							<p class="prestations-main-for-li-div-prix">{{prestation.prix}} €</p>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
 		</div>
 	</main>
 {% endblock %}

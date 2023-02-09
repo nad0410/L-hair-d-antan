@@ -79,13 +79,15 @@ class AdminController extends AbstractController
     }
 
     // Création de la route "Prestations"
-    #[Route('/admin/prestations', name: 'admin_prestations')]
-    public function prestations(PrestationsRepository $prestationsRepository): Response
+    #[Route('/admin/prestations/{id}', name: 'admin_prestations')]
+    public function prestations($id, PrestationsRepository $prestationsRepository, CategoryPrestationRepository $CTGPrestationsRepo): Response
     {
-        $prestation = $prestationsRepository->findAll();
+        $prestations = $prestationsRepository->findBy(['category' => $id]); // On recupère tous les produits ayant comme category l'id {id} 
+        $categories = $CTGPrestationsRepo->findAll(); // On recupère tous les categories de prestation qui servira à créer un selecteur pour pouvoir afficher que certaine prestation
 
         return $this->render('admin/prestations/read.html.twig', [
-            'prestations' => $prestation
+            'prestations' => $prestations,
+            "categories" => $categories
         ]);
     }
 
@@ -93,7 +95,6 @@ class AdminController extends AbstractController
     #[Route('/admin/prestations/new', name: 'admin_create_prestations')]
     public function new_prestations(PrestationsRepository $prestationsRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
     {
-
         $prestation = new Prestations();
         $form = $this->createForm(PrestationsType::class, $prestation);
 
@@ -107,6 +108,31 @@ class AdminController extends AbstractController
         return $this->render('admin/prestations/create.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    #[Route('/admin/prestation/{id}/edit', name: 'admin__prestation_edit')]
+    public function edit_prestation($id, PrestationsRepository $_prestationRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $bijoux = $_prestationRepository->findOneBy(['id' => $id]);
+        $form = $this->createForm(PrestationsType::class, $bijoux);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($bijoux);
+            $entityManagerInterface->flush();
+        }
+
+        return $this->render('admin/prestations/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    // Création de la route "prestation" pour supprimer
+    #[Route('/admin/prestation/{id}/delete', name: 'admin_prestation_delete')]
+    public function delete_prestation($id, PrestationsRepository $prestationRepository): Response
+    {
+        $prestation = $prestationRepository->findOneBy(['id' => $id]);
+        $prestationRepository->remove($prestation, true);
+        return $this->redirectToRoute("admin_prestations");
     }
 
     // ================================PRODUITS=================================
@@ -234,8 +260,8 @@ class AdminController extends AbstractController
         $produitsRepository->remove($produits, true);
         return $this->redirectToRoute("admin_produits");
     }
-    
-// ==================================Calendar=======================================================
+
+    // ==================================Calendar=======================================================
     #[Route('/admin/calendar', name: 'admin_calendar')]
     public function calendar(RDVRepository $rDVRepository): Response
     {
@@ -260,54 +286,6 @@ class AdminController extends AbstractController
         }
         $data = json_encode($rdvs);
         return $this->render('admin/reservation/calendar.html.twig', compact('data'));
-    }
-    // =========================== BIJOUX ===========================
-    // Création de la route "Bijoux"
-    #[Route('/admin/bijoux', name: 'admin_bijoux')]
-    public function bijoux(BijouxRepository $bijouxRepository): Response
-    {
-        $bijoux = $bijouxRepository->findAll();
-
-        return $this->render('admin/bijoux/read.html.twig', [
-            'bijoux' => $bijoux
-        ]);
-    }
-
-    // Création de la route "Création de bijoux"
-    #[Route('/admin/bijoux/new', name: 'admin_create_bijoux')]
-    public function new_bijoux(EntityManagerInterface $entityManagerInterface, Request $request, SluggerInterface $slugger): Response
-    {
-
-        $bijoux = new Bijoux();
-        $form = $this->createForm(BijouxType::class, $bijoux);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // On récupère l'image donner et on lui met une variable 
-            $bijouxfile = $form->get('url_image')->getData();
-
-            if ($bijouxfile) {
-                $originalFileName = pathinfo($bijouxfile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFileName);
-                $newFilename = $safeFilename . "-" . uniqid() . "." . $bijouxfile->guessExtension();
-            }
-            try {
-                $bijouxfile->move(
-                    $this->getParameter("image_bijoux_directory"),
-                    $newFilename
-                );
-            } catch (FileException $e) {
-            }
-
-            $bijoux->setUrlImage($newFilename);
-
-            $entityManagerInterface->persist($bijoux);
-            $entityManagerInterface->flush();
-        }
-
-        return $this->render('admin/produits/create.html.twig', [
-            'form' => $form->createView()
-        ]);
     }
     #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
     public function majEvent($id, PrestationsRepository $prestationsRepository, Connection $connection, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
@@ -375,4 +353,95 @@ class AdminController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    // =========================== BIJOUX ===========================
+    // Création de la route "Bijoux"
+    #[Route('/admin/bijoux', name: 'admin_bijoux')]
+    public function bijoux(BijouxRepository $bijouxRepository): Response
+    {
+        $bijoux = $bijouxRepository->findAll();
+
+        return $this->render('admin/bijoux/read.html.twig', [
+            'bijoux' => $bijoux
+        ]);
+    }
+
+    // Création de la route "Création de bijoux"
+    #[Route('/admin/bijoux/new', name: 'admin_create_bijoux')]
+    public function new_bijoux(EntityManagerInterface $entityManagerInterface, Request $request, SluggerInterface $slugger): Response
+    {
+
+        $bijoux = new Bijoux();
+        $form = $this->createForm(BijouxType::class, $bijoux);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère l'image donner et on lui met une variable 
+            $bijouxfile = $form->get('url_image')->getData();
+
+            if ($bijouxfile) {
+                $originalFileName = pathinfo($bijouxfile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFileName);
+                $newFilename = $safeFilename . "-" . uniqid() . "." . $bijouxfile->guessExtension();
+            }
+            try {
+                $bijouxfile->move(
+                    $this->getParameter("image_bijoux_directory"),
+                    $newFilename
+                );
+            } catch (FileException $e) {
+            }
+
+            $bijoux->setUrlImage($newFilename);
+
+            $entityManagerInterface->persist($bijoux);
+            $entityManagerInterface->flush();
+        }
+
+        return $this->render('admin/bijoux/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    #[Route('/admin/bijoux/{id}/edit', name: 'admin_bijoux_edit')]
+    public function edit_bijoux($id, BijouxRepository $bijouxRepository, EntityManagerInterface $entityManagerInterface, Request $request, SluggerInterface $slugger): Response
+    {
+        $bijoux = $bijouxRepository->findOneBy(['id' => $id]);
+        $form = $this->createForm(BijouxType::class, $bijoux);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $bijouxfile = $form->get('url_image')->getData();
+            // dd($produitsfile);
+            if ($bijouxfile) {
+                $originalFileName = pathinfo($bijouxfile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFileName);
+                $newFilename = $safeFilename . "-" . uniqid() . "." . $bijouxfile->guessExtension();
+
+                try {
+                    $bijouxfile->move(
+                        $this->getParameter("image_bijoux_directory"),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                }
+                $bijoux->setUrlImage($newFilename);
+            }
+
+            $entityManagerInterface->persist($bijoux);
+            $entityManagerInterface->flush();
+        }
+
+        return $this->render('admin/bijoux/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    // Création de la route "Bijoux" pour supprimer
+    #[Route('/admin/bijoux/{id}/delete', name: 'admin_bijoux_delete')]
+    public function delete_bijoux($id, BijouxRepository $bijouxRepository): Response
+    {
+        $bijoux = $bijouxRepository->findOneBy(['id' => $id]);
+        $bijouxRepository->remove($bijoux, true);
+        return $this->redirectToRoute("admin_bijoux");
+    }
+    // ============================RESERVATION=====================================
+
 }

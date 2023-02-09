@@ -12,6 +12,7 @@
 		<div class="admin-main-all-div-bijoux flex column">
 			{% for bijou in bijoux %}
 				<div class="admin-bijoux-main-div flex column">
+				<h2>{{bijou.name}}</h2>
 					<div>
 						<img class="admin-bijoux-main-img" src="{{asset('images/bijoux/')}}{{bijou.urlImage}}" alt="Image Bijoux">
 					</div>
@@ -21,8 +22,8 @@
 							€</p>
 					</div>
 					<div class="admin-main-button-action flex">
-						<a href="{#{{ path('admin_bijoux_edit', {'id': bijou.id }) }} #}">Modifier</a>
-						<a href="{#{{ path('admin_bijoux_delete', {'id': bijou.id }) }}#}">Supprimer</a>
+						<a href="{{ path('admin_bijoux_edit', {'id': bijou.id }) }} ">Modifier</a>
+						<a href="{{ path('admin_bijoux_delete', {'id': bijou.id }) }}">Supprimer</a>
 					</div>
 				</div>
 			{% endfor %}

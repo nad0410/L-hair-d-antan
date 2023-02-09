@@ -9,13 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BijouxType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('prix', NumberType::class)
+            ->add('name', TextType::class, [
+                'label' => "Nom du bijoux "
+            ])
             ->add('description')
             ->add('url_image', FileType::class, [
                 'label' => 'Image Produits',
@@ -24,6 +27,7 @@ class BijouxType extends AbstractType
 
                 'required' => false,
             ])
+            ->add('prix', NumberType::class)
             ->add('submit', SubmitType::class);;
     }
 
