@@ -56,7 +56,7 @@ header {
 
 a {
     text-decoration: none;
-    color: black;
+    color: text;
 }
 
 .logo {
@@ -209,6 +209,21 @@ a {
     margin-top: 30px;
 }
 
+/* ===================================== ADMIN ACCUEIL ===================================== */
+
+.admin-accueil-main-section{
+    width: 50%;
+}
+
+.admin-accueil-main-section p {
+    width: 95%;
+    font-size: 25px;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
 /* ===================================== ADMIN PRESTATIONS ===================================== */
 
 .a_button_submit {
@@ -235,6 +250,15 @@ a {
     border-radius: 8px;
 }
 
+.admin-create-prestation-a {
+    font-size: 40px;
+    margin-top: 10px;
+    color: var(--text_col);
+    text-decoration: underline;
+}
+.admin-logo-edit {
+    width: 85px;
+}
 /* ===================================== ADMIN PRODUITS ===================================== */
 .admin-produits-main {
     background-color: var(--arrier-plan);
@@ -410,13 +434,13 @@ a {
     padding-bottom: 15px;
 }
 
-.accueil-main-section {
+.accueil-main-section, .admin-accueil-main-section {
     display: flex;
     flex-direction: column;
     background-color: var(--violet-fonce);
     width: 90%;
     margin: auto;
-    min-height: 580px;
+    min-height: 500px;
     margin-bottom: 35px;
     border-radius: 12px;
 }
@@ -428,7 +452,7 @@ a {
     flex-wrap: wrap;
 }
 
-.accueil-main-section h2 {
+.accueil-main-section h2, .admin-accueil-main-section h2 {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -533,13 +557,14 @@ a {
     font-size: 40px;
     margin-top: 30px;
     border: 2px solid var(--text_col);
+    border-radius: 8px;
     min-height: 60px;
     padding: 15px;
 }
 
 .prestation-main-for-div img {
     margin-top: 15px;
-    max-height: 30px;
+
 }
 
 .prestations-main-for-li-div-title {
@@ -549,7 +574,10 @@ a {
 .prestations-main-for-li-div-prix {
     margin-left: 15px;
 }
-
+.admin-prestation-logo-div {
+    display: flex;
+    justify-content: space-between;
+}
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
     background-color: var(--arrier-plan);
@@ -599,6 +627,74 @@ a {
     font-family: 'Dancing Script', cursive;
     padding-top: 15px;
     margin-bottom: 5px;
+}
+
+.back-div-produits {
+    border: 1px solid black;
+    background-color: var(--violet-fonce);
+    min-width: 80%;
+    max-width: 80%;
+    display: flex;
+    padding: 30px;
+    padding-bottom: 15px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.div-card-produits {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid var(--text_col);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    padding-bottom: 25px;
+    margin: 15px;
+    margin-top: 5px;
+    transition: all .2s;
+}
+
+.div-card-produits:hover {
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(130, 68, 167, 0);
+    transition: all .2s;
+}
+
+.div-card-produits h2 {
+    font-size: 45px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    max-width: 400px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Desactivation du visuelle de la scroll bar */
+.div-card-produits h2::-webkit-scrollbar {
+    display: none;
+}
+
+.div-card-produits h3 {
+    font-size: 40px;
+    height: fit-content;
+    padding: 0;
+}
+
+.div-card-produits p {
+    font-size: 50px;
+    max-width: 80%;
+    max-height: 50%;
+}
+
+.div-card-produits img {
+    width: 500px;
+}
+
+.div-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ===================================== PAGE BIJOUX ===================================== */
@@ -739,11 +835,19 @@ a {
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #3b2455;
+    text-align: center;
 }
 
 .reservation-div-input input::placeholder {
     color: var(--text_col);
     font-size: 35px;
+    text-align: center;
+}
+
+.reservation-div-input textarea {
+    background-color: var(--violet-fonce);
+    height: 150px;
+    border: 2px solid #3b2455;
 }
 
 .reservation-div-input select {
@@ -755,6 +859,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #3b2455;
+    text-align: center;
 }
 
 .reservation-div-input option {
@@ -993,6 +1098,12 @@ a {
 
 @media only screen and (min-device-width : 767px) {
 
+
+    /* ===================================== ADMIN PRESTATION===================================== */
+    .admin-create-prestation-a {
+        font-size: 28px;
+    }
+
     /* ===================================== ADMIN PRODUITS===================================== */
     .admin-main-all-div-produits {
         width: 55%;
@@ -1017,31 +1128,7 @@ a {
     .admin-main-produits-info-prix {
         font-size: 23px;
     }
-    /* ===================================== PAGE PRESTATION ===================================== */
-    .div-selector-category {
-        width: 60%;
-    }
 
-    #choice_category {
-        height: 50px;
-    }
-
-    .titre-h2-prestations {
-        font-size: 30px;
-    }
-
-    .back-prestation {
-        width: 65%;
-    }
-
-    .prestations-main-for-li-div {
-        display: flex;
-        justify-content: space-between;
-        text-align: start;
-        font-size: 25px;
-        border: 2px solid var(--text_col);
-        padding: 15px;
-    }
     /* ===================================== PAGE PRODUITS ===================================== */
     .back-div-produits {
         padding: 0;
@@ -1063,19 +1150,12 @@ a {
     .div-card-produits {
         width: 350px;
         padding: 35px;
-        padding-bottom: 15px;
     }
 
     .div-card-produits h2 {
         font-size: 25px;
         max-width: 300px;
         max-height: 100px;
-    }
-
-    .div-card-produits p {
-        font-size: 20px;
-        padding-bottom: 20px;
-        text-align: center;
     }
 
     .div-card-produits h3 {
@@ -1086,6 +1166,7 @@ a {
     .div-card-produits img {
         width: 180px;
     }
+
 
     /* ===================================== ADMIN BIJOUX===================================== */
 
@@ -1225,16 +1306,16 @@ a {
     }
 
     /* ===================================== PAGE MAIN ===================================== */
-    .accueil-main-section {
+    .accueil-main-section,.admin-accueil-main-section {
         width: 85%;
         min-height: 500px;
     }
 
-    .accueil-main-section h2 {
+    .accueil-main-section h2,.admin-accueil-main-section h2 {
         font-size: 30px;
     }
 
-    .accueil-main-section p {
+    .accueil-main-section p,.admin-accueil-main-section p {
         font-size: 22px;
     }
 
@@ -1247,13 +1328,39 @@ a {
     }
 
     /* ===================================== PAGE PRESTATIONS ===================================== */
-    .div-prestations-card p {
-        font-size: 20px;
+    .titre-h2-prestations {
+        font-size: 35px;
     }
+
+    #choice_category_prestations {
+        width: 100%;
+        height: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        background-color: var(--violet-fonce);
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .back-prestation {
+        width: 65%;
+        min-height: 60vh;
+
+    }
+
+    .div-selector-category {
+        width: 50%;
+    }
+
+    .prestations-main-for-li-div {
+        font-size: 25px;
+    }
+
 
     /* ===================================== PAGE RESERVATION ===================================== */
     .div-reservation {
-        width: 70%;
+        width: 90%;
     }
 
     .titre_page-reservation-div {
@@ -1268,7 +1375,7 @@ a {
 
     .reservation-div-input input {
         height: 70px;
-        font-size: 15px;
+        font-size: 25px;
     }
 
     .reservation-div-input input::placeholder,
@@ -1279,7 +1386,7 @@ a {
 
     .reservation-div-input select {
         height: 70px;
-        font-size: 15px;
+        font-size: 25px;
     }
 
     #ajout_prestation {
@@ -1304,9 +1411,12 @@ a {
 
 @media only screen and (min-device-width : 1685px) {
 
+    /* ===================================== ADMIN PRESTATION===================================== */
+    .admin-create-prestation-a {
+        font-size: 15px;
+    }
+
     /* ===================================== LOGIN ===================================== */
-
-
     .login-main form label {
         margin: auto;
         padding-top: 15px;
@@ -1322,16 +1432,16 @@ a {
     }
 
     /* ===================================== PAGE MAIN ===================================== */
-    .accueil-main-section {
+    .accueil-main-section,.admin-accueil-main-section {
         width: 80%;
         min-height: 200px;
     }
 
-    .accueil-main-section h2 {
+    .accueil-main-section h2,.admin-accueil-main-section h2 {
         font-size: 25px;
     }
 
-    .accueil-main-section p {
+    .accueil-main-section p,.admin-accueil-main-section p {
         font-size: 19px;
         text-align: center;
     }
@@ -1360,7 +1470,34 @@ a {
         width: 55%;
     }
 
+    .titre_page-reservation-div {
+        font-size: 25px;
+
+    }
+
     .reservation-div-input label {
         font-size: 30px;
     }
+
+    .reservation-div-input input {
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .reservation-div-input label {
+        font-size: 23px;
+
+    }
+
+    .reservation-div-input select {
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .button_valide_reservation {
+        width: 25%;
+        height: 50px;
+        font-size: 20px;
+    }
+
 }

@@ -27,13 +27,14 @@
 				{% for prestation in prestations %}
 					<li class="prestations-main-for-li">
 						<div class="prestations-main-for-li-div">
-							<p class="prestations-main-for-li-div-title">{{prestation.title}}</p> 
-							
-							<p class="prestations-main-for-li-div-prix">{{prestation.prix}} €</p>
+							<p class="prestations-main-for-li-div-title">{{prestation.title}}</p>
+							<p class="prestations-main-for-li-div-prix">{{prestation.prix}}
+								€</p>
 						</div>
 					</li>
 				{% endfor %}
 			</ul>
 		</div>
 	</main>
+	{% include "partials/_footer.html.twig" %}
 {% endblock %}

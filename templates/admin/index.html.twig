@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Admin Panel
+{% endblock %}
 
 {% block body %}
-
+	{% include "partials/_admin_header.html.twig" %}
+	<main class="accueil-main">
+		<section class="admin-accueil-main-section">
+			<h2>Accueil Admin Panel</h2>
+			<p>Bienvenue sur le panel d'administration ici vous pouvez modifier les prestations, produits, bijoux ainsi que gérer les rendez-vous, il vous suffit de cliquer sur les boutons en haut du page pour accéder aux différentes pages</p>
+		</section>
+	</main>
 {% endblock %}

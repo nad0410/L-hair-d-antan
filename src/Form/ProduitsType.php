@@ -32,8 +32,7 @@ class ProduitsType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => CategoryProduits::class,
                 "choice_label" => "name"
-            ])
-            ->add('submit', SubmitType::class);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

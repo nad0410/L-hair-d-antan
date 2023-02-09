@@ -79,4 +79,21 @@ if (window.screen.width < 768) {
     if (document.getElementById("footer-logo_fb-img")) {
         document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
     }
+    if (document.getElementById("footer-logo_fb-img")) {
+        document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
+    }
+    if (document.querySelector("#admin-prestation-logo-edit")) {
+        console.log("il y a ");
+        document.querySelectorAll('#admin-prestation-logo-edit').forEach(item => {
+            item.src = "https://img.icons8.com/ios-glyphs/90/null/edit-property.png"
+                    console.log("tedqz");
+        })
+    }
+    if (document.querySelector("#admin-prestation-logo-suppr")) {
+        console.log("il y a ");
+        document.querySelectorAll('#admin-prestation-logo-suppr').forEach(item => {
+            item.src = "https://img.icons8.com/ios-glyphs/90/null/delete-property.png"
+                    console.log("tedqz");
+        })
+    }
 }

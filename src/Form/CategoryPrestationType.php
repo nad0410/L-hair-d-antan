@@ -15,9 +15,6 @@ class CategoryPrestationType extends AbstractType
     {
         $builder
             ->add('title',TextType::class)
-            ->add('Submit',SubmitType::class, [
-                "label" => "Valider"
-            ])
         ;
     }
 

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Category Produits
+{% endblock %}
+
+{% block body %}
+	{% include "partials/_admin_header.html.twig" %}
+	<main class="main-prestation">
+		<h2 class="titre-h2-prestations">Category Produits</h2>
+		<div class="back-prestation">
+			<ul>
+				{% for ctg_produit in ctg_produits %}
+					<li class="prestations-main-for-li">
+						<div class="prestations-main-for-li-div">
+							<p class="prestations-main-for-li-div-title">{{ctg_produit.name}}</p>
+						</div>
+					</li>
+					<div>
+						<a href="{{path('admin__category_produits_edit',{'id': ctg_produit.id })}}"><img  src="https://img.icons8.com/metro/26/null/edit-property.png"/></a>
+						<a href="{{path('admin_category_produits_delete',{'id': ctg_produit.id })}}"><img id="admin-prestation-logo-suppr" src="https://img.icons8.com/ios-glyphs/30/null/delete-property.png"/></a>
+					</div>
+				{% endfor %}
+			</ul>
+		</div>
+	</main>
+{% endblock %}

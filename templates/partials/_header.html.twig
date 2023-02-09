@@ -23,6 +23,11 @@
 				<li>
 					<a href="{{path("contact")}}">Contact</a>
 				</li>
+				{% if app.user %}
+					<li>
+						<a href="{{path("app_admin")}}">Admin Panel</a>
+					</li>
+				{% endif %}
 			</ul>
 		</nav>
 	</div>
@@ -57,6 +62,7 @@
 			<li>
 				<a href="{{path("contact")}}">Contact</a>
 			</li>
+
 		</ul>
 	</nav>
 

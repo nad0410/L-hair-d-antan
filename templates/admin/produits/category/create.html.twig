@@ -7,14 +7,14 @@
 	<main class="main-reservation">
 		<div class="div-reservation">
 			<div class="titre_page-reservation-div">
-				<p>Créer une category pour prestations</p>
+				<p>Créer une category pour produits</p>
 			</div>
 			{{form_start(form)}}
 
 			<div class="reservation-div-input">
-				{{form_label(form.title)}}
-				{{form_widget(form.title)}}
-				{{form_errors(form.title)}}
+				{{form_label(form.name)}}
+				{{form_widget(form.name)}}
+				{{form_errors(form.name)}}
 			</div>
 
 			<button class="button_valide_reservation" type="submit">

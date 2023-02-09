@@ -5,6 +5,10 @@
 				<img id="footer-logo_fb-img" src="https://img.icons8.com/fluency/48/000000/facebook-new.png"/></a>
 
 			<a class="footer-cgu-link" href="{{path('cgu')}}">Conditions Generales d'Utilisation</a>
+			{% if app.user %}
+				<a href="{{path("app_admin")}}"><img src="https://img.icons8.com/bubbles/50/null/system-administrator-female.png"/></a>
+
+			{% endif %}
 		</div>
 	</div>
 </footer>

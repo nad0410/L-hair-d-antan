@@ -5,7 +5,7 @@
 
 {% block body %}
 	{# On inclut le partial _header qui contient l'header qui sera sur toutes les pages #}
-	{% include "partials/_header.html.twig" %}
+	{% include "partials/_admin_header.html.twig" %}
 	{# Balise sémantique qui servira de base pour les autres balises #}
 	<main
 		class="main-prestation">
@@ -33,9 +33,9 @@
 									€</p>
 							</div>
 						</li>
-						<div>
-							<a href="{{path('admin__prestation_edit',{'id': prestation.id })}}"><img src="https://img.icons8.com/metro/26/null/edit-property.png"/></a>
-							<a href="{{path('admin_prestation_delete',{'id': prestation.id })}}"><img src="https://img.icons8.com/ios-glyphs/50/null/delete-property.png"/></a>
+						<div class"admin-prestation-logo-div">
+							<a href="{{path('admin__prestation_edit',{'id': prestation.id })}}"><img id="admin-prestation-logo-edit" src="https://img.icons8.com/metro/40/null/edit-property.png"/></a>
+							<a href="{{path('admin_prestation_delete',{'id': prestation.id })}}"><img id="admin-prestation-logo-suppr" src="https://img.icons8.com/ios-glyphs/40/null/delete-property.png"/></a>
 						</div>
 					</div>
 				{% endfor %}

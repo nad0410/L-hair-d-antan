@@ -71,9 +71,10 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($ctg_prestations);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_category_prestations');
         }
 
-        return $this->render('admin/prestation/category/create.html.twig', [
+        return $this->render('admin/prestations/category/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -103,6 +104,7 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($prestation);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_prestations', ['id' => 1]);
         }
 
         return $this->render('admin/prestations/create.html.twig', [
@@ -120,6 +122,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManagerInterface->persist($bijoux);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_prestations', ['id' => 1]);
         }
 
         return $this->render('admin/prestations/create.html.twig', [
@@ -132,10 +135,10 @@ class AdminController extends AbstractController
     {
         $prestation = $prestationRepository->findOneBy(['id' => $id]);
         $prestationRepository->remove($prestation, true);
-        return $this->redirectToRoute("admin_prestations");
+        return $this->redirectToRoute('admin_prestations', ['id' => 1]);
     }
 
-    // ================================PRODUITS=================================
+    // ====================================================Category Produits=========================================================================
 
     // Création de la route "Category Produits"
     #[Route('/admin/category_produits', name: 'admin_category_produits')]
@@ -143,7 +146,7 @@ class AdminController extends AbstractController
     {
         $ctg_produits = $ctgRepository->findAll();
 
-        return $this->render('admin/produits/read.html.twig', [
+        return $this->render('admin/produits/category/read.html.twig', [
             'ctg_produits' => $ctg_produits
         ]);
     }
@@ -160,12 +163,41 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($ctg_produits);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_category_produits');
         }
 
-        return $this->render('admin/produits/create.html.twig', [
+        return $this->render('admin/produits/category/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
+
+    #[Route('/admin/category_produits/{id}/edit', name: 'admin__category_produits_edit')]
+    public function edit_category_produits($id, CategoryProduitsRepository $CTGProduitsRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $category_produits = $CTGProduitsRepository->findOneBy(['id' => $id]);
+        $form = $this->createForm(CTGProduitsType::class, $category_produits);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($category_produits);
+            $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_category_produits');
+        }
+
+        return $this->render('admin/produits/category/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    // Création de la route "category produits" pour supprimer
+    #[Route('/admin/category_produits/{id}/delete', name: 'admin_category_produits_delete')]
+    public function delete_category_produits($id, CategoryProduitsRepository $CTGProduitsRepository): Response
+    {
+        $prestation = $CTGProduitsRepository->findOneBy(['id' => $id]);
+        $CTGProduitsRepository->remove($prestation, true);
+        return $this->redirectToRoute('admin_category_produits');
+    }
+
+    // ====================================================PRODUITS=========================================================================
 
     // Création de la route "Produits"
     #[Route('/admin/produits', name: 'admin_produits')]
@@ -210,6 +242,7 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($produits);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_produits');
         }
 
         return $this->render('admin/produits/create.html.twig', [
@@ -246,6 +279,7 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($produits);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_produits');
         }
 
         return $this->render('admin/produits/create.html.twig', [
@@ -348,6 +382,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManagerInterface->persist($rdv);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_calendar');
         }
         return $this->render('admin/modifiy_reservation.html.twig', [
             'form' => $form->createView()
@@ -395,6 +430,7 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($bijoux);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_bijoux');
         }
 
         return $this->render('admin/bijoux/create.html.twig', [
@@ -428,6 +464,7 @@ class AdminController extends AbstractController
 
             $entityManagerInterface->persist($bijoux);
             $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_bijoux');
         }
 
         return $this->render('admin/bijoux/create.html.twig', [

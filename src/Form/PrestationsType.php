@@ -29,9 +29,6 @@ class PrestationsType extends AbstractType
                 'class' => CategoryPrestation::class,
                 'choice_label' => 'title',
                 'label' => "Category du produits "
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => "Valider"
             ]);
     }
 
