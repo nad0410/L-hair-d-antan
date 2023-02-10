@@ -21,7 +21,7 @@ class ProduitsType extends AbstractType
             ->add('name')
             ->add('marque')
             ->add('prix', NumberType::class)
-            ->add('description')
+            // ->add('description')
             ->add('img_produits', FileType::class, [
                 'label' => 'Image Produits',
 

@@ -1,17 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Prestation
+{% block title %}Admin Category Produits
 {% endblock %}
 
 {% block body %}
-	<div>
-		{% for category_prestation in category_prestations %}
-			<div>{{category_prestation.title}}</div>
-		{% endfor %}
-
-		<a class="create_prestation" href="{{path("admin_create_category_prestations")}}">
-			Créer une category prestation</a>
-
-	</div>
-	{# {% include "partials/_left-panel-admin.html.twig" %} #}
+	{% include "partials/_admin_header.html.twig" %}
+	<main class="main-prestation">
+		<h2 class="titre-h2-prestations">Category Prestations</h2>
+		<div class="back-prestation">
+			<ul>
+				{% for category_prestation in category_prestations %}
+					<li class="prestations-main-for-li">
+						<div class="prestations-main-for-li-div">
+							<p class="prestations-main-for-li-div-title">{{category_prestation.title}}</p>
+						</div>
+					</li>
+					<div>
+						<a href="{{path('admin__category_prestations_edit',{'id': category_prestation.id })}}"><img src="https://img.icons8.com/metro/26/null/edit-property.png"/></a>
+						<a href="{{path('admin_category_prestations_delete',{'id': category_prestation.id })}}"><img id="admin-prestation-logo-suppr" src="https://img.icons8.com/ios-glyphs/30/null/delete-property.png"/></a>
+					</div>
+				{% endfor %}
+			</ul>
+			<a class="admin-produits-ajout-button" href="{{path("admin_create_category_prestations")}}">Ajouter une category</a>
+		</div>
+	</main>
 {% endblock %}

@@ -38,11 +38,30 @@ if (select_category_prestation != null) { // Evite l'incompatibilité entre les 
         }
     });
 }
-let slug_prestations = location.pathname.split('prestations/').slice(1);
-if (slug_prestations.length > 0) {
-    select_category_prestation.value = slug_prestations;
-};
+if (select_category_prestation) {
+    let slug_prestations = location.pathname.split('prestations/').slice(1);
+    if (slug_prestations.length > 0) {
+        select_category_prestation.value = slug_prestations;
+    };
 
+}
+
+select_category_prestation_admin = document.querySelector("#choice_category_prestations-admin");
+if (select_category_prestation_admin != null) { // Evite l'incompatibilité entre les pages
+    // Fait en sorte que quand tu changes d'option dans le sélecteur afin de choisir la catégorie que tu veux ça change de page en rajoutant /category/[id de la category]
+    select_category_prestation_admin.addEventListener('change', event => {
+        if (select_category_prestation_admin.options[select_category_prestation_admin.selectedIndex].value != 0) {
+
+            window.location.href = "" + select_category_prestation_admin.options[select_category_prestation_admin.selectedIndex].value
+        } else {
+            window.location.href = "admin/prestations/0"
+        }
+    });
+}
+let slug_prestations_admin = location.pathname.split('admin/prestations/').slice(1);
+if (slug_prestations_admin.length > 0) {
+    select_category_prestation_admin.value = slug_prestations_admin;
+};
 
 menu_burger = document.querySelector(".div-logo-burger")
 if (menu_burger != null) { // Evite l'incompatibilité entre les pages
@@ -83,17 +102,15 @@ if (window.screen.width < 768) {
         document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"
     }
     if (document.querySelector("#admin-prestation-logo-edit")) {
-        console.log("il y a ");
         document.querySelectorAll('#admin-prestation-logo-edit').forEach(item => {
             item.src = "https://img.icons8.com/ios-glyphs/90/null/edit-property.png"
-                    console.log("tedqz");
+            console.log("tedqz");
         })
     }
     if (document.querySelector("#admin-prestation-logo-suppr")) {
-        console.log("il y a ");
         document.querySelectorAll('#admin-prestation-logo-suppr').forEach(item => {
             item.src = "https://img.icons8.com/ios-glyphs/90/null/delete-property.png"
-                    console.log("tedqz");
+            console.log("tedqz");
         })
     }
 }

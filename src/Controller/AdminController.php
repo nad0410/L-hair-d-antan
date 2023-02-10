@@ -47,7 +47,7 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
-
+    // ============================================= CATEGORY PRESTATIONS ==========================================================================
     // Création de la route "Category Prestation"
     #[Route('/admin/category_prestations', name: 'admin_category_prestations')]
     public function category_prestations(CategoryPrestationRepository $ctgRepository): Response
@@ -79,6 +79,33 @@ class AdminController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/category_prestations/{id}/edit', name: 'admin__category_prestations_edit')]
+    public function edit_category_prestations($id, CategoryPrestationRepository $CTGPrestationsRepo, EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        $category_prestations = $CTGPrestationsRepo->findOneBy(['id' => $id]);
+        $form = $this->createForm(CategoryPrestationType::class, $category_prestations);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($category_prestations);
+            $entityManagerInterface->flush();
+            return $this->redirectToRoute('admin_category_prestations');
+        }
+
+        return $this->render('admin/prestations/category/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    // Création de la route "category produits" pour supprimer
+    #[Route('/admin/category_produits/{id}/delete', name: 'admin_category_prestations_delete')]
+    public function delete_category_prestations($id, CategoryPrestationRepository $CTGPrestationsRepo): Response
+    {
+        $prestation = $CTGPrestationsRepo->findOneBy(['id' => $id]);
+        $CTGPrestationsRepo->remove($prestation, true);
+        return $this->redirectToRoute('admin_category_prestations');
+    }
+
+    // ====================================================PRESTATIONS=========================================================================
     // Création de la route "Prestations"
     #[Route('/admin/prestations/{id}', name: 'admin_prestations')]
     public function prestations($id, PrestationsRepository $prestationsRepository, CategoryPrestationRepository $CTGPrestationsRepo): Response
