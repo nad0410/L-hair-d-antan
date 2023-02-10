@@ -114,3 +114,6 @@ if (window.screen.width < 768) {
         })
     }
 }
+document.querySelector("#bijoux_url_image").addEventListener('change',event => {
+console.log("CHANGE !!!!");
+});

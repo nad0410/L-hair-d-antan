@@ -22,10 +22,7 @@ class Produits
 
     #[ORM\Column]
     private ?float $prix = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
-
+    
     #[ORM\ManyToOne(inversedBy: 'produits')]
     private ?CategoryProduits $category = null;
 
@@ -69,18 +66,6 @@ class Produits
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }

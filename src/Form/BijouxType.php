@@ -27,8 +27,7 @@ class BijouxType extends AbstractType
 
                 'required' => false,
             ])
-            ->add('prix', NumberType::class)
-            ->add('submit', SubmitType::class);;
+            ->add('prix', NumberType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
