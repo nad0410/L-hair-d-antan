@@ -87,13 +87,11 @@ class DefaultController extends AbstractController
     public function reservation(RDVRepository $rDVRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
     {
         $rdv = new RDV();
-
         $form = $this->createForm(RDVType::class, $rdv);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('check_cgu')->getData() == true) {
-
 
                 $rdv->addRdvPrestation($form->get('prestation')->getData());
 
@@ -117,6 +115,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    // ===========================PAGE CONTACT===========================
 
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request, EntityManagerInterface $entityManagerInterface): Response

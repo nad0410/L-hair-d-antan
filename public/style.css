@@ -52,11 +52,12 @@
 header {
     width: 100%;
     height: 215px;
+    background-color: var(--violet-claire);
 }
 
 a {
     text-decoration: none;
-    color: text;
+    color: var(--text_col);
 }
 
 .logo {
@@ -65,7 +66,6 @@ a {
     justify-content: center;
     padding: 5px;
     background-color: var(--violet-fonce);
-    width: 100%;
 }
 
 .logo-menu-burger {
@@ -89,25 +89,20 @@ a {
     height: 200px;
     width: 900px;
     padding: 20px;
-    padding-right: 100px;
     border-radius: 0px 8px 8px 0px;
     border: 4px solid rgba(107, 36, 107, 0.2);
     border-left: 0;
 }
 
-
 .titre_header {
     font-size: 60px;
-    padding: 58px;
-    padding-left: 40px;
-    padding-right: 55px;
+    margin: auto;
     height: fit-content;
 }
 
 .div-logo-burger {
     height: fit-content;
     margin: auto;
-    margin-top: 50px;
 }
 
 
@@ -214,10 +209,12 @@ a {
     margin: auto;
     width: fit-content;
 }
+
 .admin-user-main-div p {
     margin-top: 10px;
     width: fit-content;
 }
+
 /* ===================================== ADMIN ACCUEIL ===================================== */
 
 .admin-accueil-main-section {
@@ -364,6 +361,7 @@ a {
     min-height: 100vh;
     padding-top: 15px;
     display: flex;
+    
 }
 
 .admin-main-all-div-bijoux {
@@ -440,10 +438,11 @@ a {
 /* ===================================== PAGE CGU ===================================== */
 
 .main-cgu {
-background-color: var(--arrier-plan);
-padding-top: 15px;
-padding-bottom: 15px;
+    background-color: var(--arrier-plan);
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+
 .main-div-cgu {
     background-color: var(--violet-fonce);
     width: 80%;
@@ -452,26 +451,31 @@ padding-bottom: 15px;
     border-radius: 8px;
     padding-bottom: 35px;
 }
+
 .main-div-cgu h2 {
     font-size: 30px;
 }
+
 .para-cgu {
-margin-top: 15px;
+    margin-top: 15px;
 }
-.para-cgu h3  {
-margin-bottom: 15px;
-border: 2px solid var(--violet-claire);
-width: fit-content;
-padding: 5px;
-border-radius: 12px;
-margin-left: auto;
-margin-right: auto;
+
+.para-cgu h3 {
+    margin-bottom: 15px;
+    border: 2px solid var(--violet-claire);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.para-cgu p ,.main-div-cgu h2 {
-margin-bottom: 15px;
-margin-left: auto;
-margin-right: auto;
-width: fit-content;
+
+.para-cgu p,
+.main-div-cgu h2 {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 /* ===================================== PAGE MAIN ===================================== */
@@ -481,10 +485,12 @@ width: fit-content;
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
 .accueil-main-section-div-p {
     margin: auto;
     margin-top: 10px;
 }
+
 .accueil-main-section,
 .admin-accueil-main-section {
     display: flex;
@@ -500,6 +506,7 @@ width: fit-content;
 .small-box {
     min-height: 200px;
 }
+
 .accueil-main-section-frame {
     display: flex;
     justify-content: space-around;
@@ -556,15 +563,22 @@ width: fit-content;
     border-radius: 12px;
     color: var(--text_col);
 }
+
 .accueil-main-reservation-p {
     margin-top: 20px;
 }
+
 .accueil-main-reservation-lien {
     color: var(--text_col);
     text-decoration: underline;
     margin: auto;
     font-size: 35px;
 }
+
+#user div {
+    margin-bottom: 15px;
+}
+
 /* ===================================== PAGE PRESTATIONS ===================================== */
 .main-prestation {
     background-color: var(--arrier-plan);
@@ -573,7 +587,8 @@ width: fit-content;
     min-height: 100vh;
 }
 
-#choice_category_prestations,#choice_category_prestations-admin {
+#choice_category_prestations,
+#choice_category_prestations-admin {
     width: 100%;
     height: 60px;
     margin-left: auto;
@@ -584,7 +599,8 @@ width: fit-content;
     font-weight: 700;
 }
 
-#choice_category_prestations option ,#choice_category_prestations-admin option {
+#choice_category_prestations option,
+#choice_category_prestations-admin option {
     font-size: 18px;
     font-weight: 700;
 }
@@ -793,6 +809,7 @@ width: fit-content;
 
 .bijoux-main-for-image {
     width: 300px;
+    height: 200px;
     border-radius: 12px;
     margin-left: 18px;
     margin-top: auto;
@@ -882,6 +899,13 @@ width: fit-content;
     width: 100%;
     align-content: space-around;
     margin-top: 15px;
+}
+
+#calendrier {
+    background: whitesmoke;
+    height: 900px;
+    padding: 15px;
+    border-radius: 12px;
 }
 
 .reservation-div-input label {
@@ -1022,21 +1046,25 @@ width: fit-content;
     width: 95%;
     margin: auto;
 }
+
 .div-contact-adress {
     margin-top: 40px;
     font-size: 18px;
     text-align: center;
 }
+
 .div-contact-horaires {
     margin-top: 40px;
     margin-bottom: 15px;
     font-size: 13px;
     text-align: center;
 }
+
 .iframe {
     margin: auto;
     margin-top: 15px;
 }
+
 /* ===================================== GESTION ERROR ===================================== */
 
 .error_message {
@@ -1051,6 +1079,7 @@ width: fit-content;
     padding: 15px;
     margin: auto;
 }
+
 .error_message p {
     width: fit-content;
     margin: auto;
@@ -1061,6 +1090,7 @@ width: fit-content;
     height: 450px;
     display: flex;
 }
+
 .category {
     width: 300px;
     height: 300px;
@@ -1136,6 +1166,7 @@ width: fit-content;
     .admin-main-produits-info-prix {
         font-size: 23px;
     }
+
     .back-div-produits {
         padding: 0;
         flex-direction: row;
@@ -1342,15 +1373,18 @@ width: fit-content;
         height: 200px;
         border-radius: 12px;
     }
+
     .accueil-main-reservation-lien {
         font-size: 25px;
     }
+
     /* ===================================== PAGE PRESTATIONS ===================================== */
     .titre-h2-prestations {
         font-size: 35px;
     }
 
-    #choice_category_prestations,#choice_category_prestations-admin {
+    #choice_category_prestations,
+    #choice_category_prestations-admin {
         width: 100%;
         height: 60px;
         margin-left: auto;
@@ -1399,6 +1433,7 @@ width: fit-content;
         height: 70px;
         font-size: 15px;
     }
+
     .reservation-div-input input::placeholder,
     .reservation-div-input option,
     .reservation-div-checkbox-cgu {
@@ -1433,7 +1468,6 @@ width: fit-content;
         font-size: 20px;
     }
 }
-/* =============================================================== PAGE CONTACT ====================================================== */
 
 /* =============================================================== RESPONSIVE DESKTOP ====================================================== */
 
@@ -1442,6 +1476,15 @@ width: fit-content;
     /* ===================================== ADMIN PRESTATION===================================== */
     .admin-create-prestation-a {
         font-size: 15px;
+    }
+
+    /* ===================================== ADMIN BIJOUX===================================== */
+    .admin-bijoux-main-img {
+        width: 300px;
+    }
+
+    .admin-main-all-div-bijoux {
+        width: 65%;
     }
 
     /* ===================================== LOGIN ===================================== */
@@ -1464,6 +1507,8 @@ width: fit-content;
     .admin-accueil-main-section {
         width: 80%;
         min-height: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
     .accueil-main-section h2,
@@ -1484,13 +1529,14 @@ width: fit-content;
         height: 280px;
         border-radius: 12px;
     }
+
     .accueil-main-reservation-lien {
-        font-size: 15px;
+        font-size: 20px;
     }
+
     /* ===================================== PAGE PRODUITS ===================================== */
     .main-produits {
         background-color: var(--arrier-plan);
-
     }
 
     /* ===================================== PAGE PRESTATIONS ===================================== */

@@ -251,24 +251,44 @@ class AdminController extends AbstractController
 
             $produitsfile = $form->get('img_produits')->getData();
 
+            // this condition is needed because the 'brochure' field is not required
+            // On as besoin de cette condition parceque le champ 'produit' n'est pas requis
+
+            // so the PDF file must be processed only when a file is uploaded
+            // donc l'image doit être traité que lorsque le fichier uploader.
             if ($produitsfile) {
                 $originalFileName = pathinfo($produitsfile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // this is needed to safely include the file name as part of the URL
+                // Cela est nécessaire pour inculure en sécurité le nom du fichier comme une parti de l'URL
                 $safeFilename = $slugger->slug($originalFileName);
                 $newFilename = $safeFilename . "-" . uniqid() . "." . $produitsfile->guessExtension();
             }
-
+            // Move the file to the directory where brochures are stored
+            // Déplacer le fichier dans le repertoire des images stocker
             try {
                 $produitsfile->move(
                     $this->getParameter("image_produits_directory"),
                     $newFilename
                 );
             } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+                // ... récupère les exceptions si quelque chose arriver lors du televersement du fichier ( image )
+
             }
 
+            // updates the 'brochureFilename' property to store the PDF file name
+            // Met a jours la propriété 'url_image' pour stocker le nom du fichier
+
+            // instead of its contents
+            // Au lieu de son contenu
             $produits->setImgProduits($newFilename);
 
+            // ... persist the $product variable or any other work
+            // ... Persister la vartiable $product ou tout autre travail
             $entityManagerInterface->persist($produits);
             $entityManagerInterface->flush();
+
             return $this->redirectToRoute('admin_produits');
         }
 
@@ -323,6 +343,7 @@ class AdminController extends AbstractController
     }
 
     // ==================================Calendar=======================================================
+
     #[Route('/admin/calendar', name: 'admin_calendar')]
     public function calendar(RDVRepository $rDVRepository): Response
     {
@@ -348,6 +369,7 @@ class AdminController extends AbstractController
         $data = json_encode($rdvs);
         return $this->render('admin/reservation/calendar.html.twig', compact('data'));
     }
+
     #[Route('/admin/calendar/{id}/edit', name: 'admin_calendar_edit')]
     public function majEvent($id, PrestationsRepository $prestationsRepository, Connection $connection, RDVRepository $rdvRepository, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
@@ -411,7 +433,7 @@ class AdminController extends AbstractController
             $entityManagerInterface->flush();
             return $this->redirectToRoute('admin_calendar');
         }
-        return $this->render('admin/modifiy_reservation.html.twig', [
+        return $this->render('admin/reservations/modifiy_reservation.html.twig', [
             'form' => $form->createView()
         ]);
     }

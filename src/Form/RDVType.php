@@ -48,9 +48,13 @@ class RDVType extends AbstractType
                 'label' => "Nom du Coiffeur "
             ])
             ->add("prestation", EntityType::class, [
+                // On définit sur quelle Object/Class il doit récupérer les valeurs
                 "class" => Prestations::class,
+                // On définit quelles valeurs il doit afficher dans le sélecteur
                 'choice_label' => 'title',
+                // On definit quelle valeur il auras si rien n'est choisi (par sécurité)
                 'empty_data' => '0',
+                // On demande à Symfony de ne pas le traiter automatiquement
                 'mapped' => false,
             ])
             ->add("prestation2", EntityType::class, [
@@ -69,21 +73,23 @@ class RDVType extends AbstractType
                 'mapped' => false,
                 'attr' => ['class' => "hidden"],
             ])
+
             ->add('date_time', DateTimeType::class, [
+                // On change son label
                 'label' => "Date du rendez-vous",
+                // On lui dit de s'afficher comme un calendrier
                 'widget' => "single_text"
             ])
 
-
             ->add("check_cgu", CheckboxType::class, [
                 'label' => "Valider",
+                // On lui définit une classe
                 'attr' => ['class' => "check_valide_cgu"],
+                // On demande à Symfony de ne pas le traiter car je ne vais rien faire avec cette valeurs
                 'mapped' => false,
             ])
 
-            ->add("captcha", ReCaptchaType::class, ["type" => "invisible"])
-
-;
+            ->add("captcha", ReCaptchaType::class, ["type" => "invisible"]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -80,12 +80,7 @@ if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les pages
     // Fait en sorte que quand tu appuies sur le + en dessous de prestation cela rajoute un input afin de pouvoir mettre une autre prestations dans le même RDV ( max 3)
     btn_ajout_prestation.addEventListener('click', button => {
         button.preventDefault();
-        let presta = 1;
-        console.log(document.querySelector(".hidden"));
-        if (presta == 1) {
-            presta = presta + 1
-            console.log(presta);
-        }
+
         document.querySelector(".hidden").classList.remove("hidden")
 
         document.querySelector(".hidden-div").classList.add("reservation-div-input")
@@ -94,6 +89,8 @@ if (btn_ajout_prestation != null) { // Evite l'incompatibilité entre les pages
         document.querySelector(".hidden_label").classList.remove("hidden_label")
     });
 }
+
+
 if (window.screen.width < 768) {
     if (document.getElementById("footer-logo_fb-img")) {
         document.getElementById("footer-logo_fb-img").src = "https://img.icons8.com/fluency/96/000000/facebook-new.png"

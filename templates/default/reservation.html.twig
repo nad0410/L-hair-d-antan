@@ -9,6 +9,7 @@
 			<p>{{message}}</p>
 		</div>
 	{% endfor %}
+	
 	{% include "partials/_header.html.twig" %}
 	<main class="main-reservation">
 		<div class="div-reservation">
@@ -78,10 +79,6 @@
 				<p>J'accepte les
 					<a href="{{path("cgu")}}">CGU</a>
 				</p>
-			</div>
-			<div class="div_recaptcha">
-				{{form_row(form.captcha)}}
-				{{form_errors(form.captcha)}}
 			</div>
 
 			<button class="button_valide_reservation" type="submit">

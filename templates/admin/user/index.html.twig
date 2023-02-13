@@ -5,16 +5,17 @@
 
 {% block body %}
 	{% include "partials/_admin_header.html.twig" %}
+
 	<main class="main-prestation">
-		<h2 class="titre-h2-prestations">Utilisateur</h2>
+		<h2 class="titre-h2-prestations">Utilisateurs</h2>
 		<div class="back-prestation">
 			<ul>
 				{% for user in users %}
 					<li class="prestations-main-for-li">
 						<div class="prestations-main-for-li-div">
 							<div class="admin-user-main-div">
-								<h6 class="prestations-main-for-li-div-title">Name</h2>
-								<p class="prestations-main-for-li-div-title">{{user.name}}</p>
+								<h6 class="">Name</h2>
+								<p class="">{{user.name}}</p>
 							</div>
 							<div class="admin-user-main-div">
                             <h6 class="prestations-main-for-li-div-title">Email</h6>
@@ -31,4 +32,6 @@
 			<a class="admin-produits-ajout-button" href="{{path("app_user_new")}}">Ajouter un utilisateurs</a>
 		</div>
 	</main>
+
 {% endblock %}
+

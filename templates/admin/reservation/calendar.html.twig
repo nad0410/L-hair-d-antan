@@ -4,9 +4,11 @@
 
 {% block body %}
 	{% include "partials/_admin_header.html.twig" %}
-    <div id="calendrier">
-    </div>
+	<main class="login-main">
+		<div id="calendrier"></div>
+	</main>
 {% endblock %}
+
 
 {% block javascripts %}
 <script>
@@ -21,8 +23,8 @@
                 start: 'prev,next today',
                 center: 'title',
                 end: 'dayGridMonth,timeGridWeek'
-            },
-            events: {{data|raw}},
+        },
+        events: {{data|raw}},
 
        
         eventClick: function(info) {
@@ -30,22 +32,11 @@
             info.jsEvent.preventDefault(); // don't let the browser navigate
 
             
-            window.location.href = "/admin/calendar/" + info.event.id + "/edit";
-            
+            window.location.href = "/admin/calendar/" + info.event.id + "/edit";   
         }
         
-        }
-
-        )
-
-       
+        })
         calendar.render()
     }
-
-
-
-
-
-
 </script>
 {% endblock %}

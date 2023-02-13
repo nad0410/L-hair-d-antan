@@ -18,7 +18,8 @@
 					<h2>{{produit.name}}</h2>
 					<div>
 						<p class="admin-main-produits-info-prix">{{produit.prix}}
-							€</p>
+							€
+						</p>
 					</div>
 					<div class="admin-main-button-action flex">
 						<a href="{{ path('admin_produits_edit', {'id': produit.id }) }}">Modifier</a>
@@ -30,3 +31,4 @@
 		</div>
 	</main>
 {% endblock %}
+

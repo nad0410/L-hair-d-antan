@@ -35,16 +35,14 @@
 				<a class="admin-create-prestation-a" href="{{path("admin_create_category_produits")}}">Ajoute une category de produits</a>
 			</div>
 
-			<div class="reservation-div-input">
-				{{form_label(form.img_produits)}}
+				{{form_label(form.img_produits," ")}}
 				{{form_widget(form.img_produits)}}
 				{{form_errors(form.img_produits)}}
-			</div>
 
 			<button class="button_valide_reservation" type="submit">
 				<p>Valider</p>
 			</button>
 			{{form_end(form)}}
 		</div>
-	</main>
+</main>
 {% endblock %}
