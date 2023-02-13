@@ -2,7 +2,7 @@
 
 
 :root {
-    --violet-claire: #8244A7;
+    --violet-claire: #a354d1;
     --violet-fonce: #7244A7;
     --arrier-plan: #9467cc;
     --text_col: #C6D1EC;
@@ -44,16 +44,20 @@
     display: none;
 }
 
+.no-wrap {
+    flex-wrap: nowrap;
+}
 
 /* ===================================== HEADER ===================================== */
 header {
     width: 100%;
     height: 215px;
+    background-color: var(--violet-claire);
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--text_col);
 }
 
 .logo {
@@ -62,7 +66,6 @@ a {
     justify-content: center;
     padding: 5px;
     background-color: var(--violet-fonce);
-    width: 100%;
 }
 
 .logo-menu-burger {
@@ -74,7 +77,6 @@ a {
     width: 250px;
     height: 200px;
     object-fit: scale-down;
-    margin-top: auto;
     margin-bottom: auto;
     background-color: var(--violet-claire);
     border-radius: 8px 0px 0px 8px;
@@ -83,31 +85,24 @@ a {
 }
 
 .text_div {
-    margin-top: auto;
-    margin-bottom: auto;
     background-color: var(--violet-claire);
     height: 200px;
     width: 900px;
     padding: 20px;
-    padding-right: 100px;
     border-radius: 0px 8px 8px 0px;
     border: 4px solid rgba(107, 36, 107, 0.2);
     border-left: 0;
 }
 
-
 .titre_header {
     font-size: 60px;
-    padding: 58px;
-    padding-left: 40px;
-    padding-right: 55px;
+    margin: auto;
     height: fit-content;
 }
 
 .div-logo-burger {
     height: fit-content;
     margin: auto;
-    margin-top: 50px;
 }
 
 
@@ -165,32 +160,75 @@ a {
     margin: auto;
 }
 
-/* ===================================== ADMIN PANEL ===================================== */
+/* ===================================== LOGIN ===================================== */
+.login-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+}
 
-.nav-admin-panel {
+.login-main form {
+    margin: auto;
     display: flex;
     flex-direction: column;
-    border: 1.5px solid darkgray;
-    width: 10%;
-    height: 900px;
-    background-color: rgb(75, 75, 75);
-    padding: 10px;
+    width: 90%;
 }
 
-.div-admin-panel {
-    width: 100%;
-    height: 900px;
-    padding: 10px;
+.login-main form div {
+    margin: 10px;
 }
 
-.div-admin-panel ul {
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-
-    list-style: none;
+.login-main form div input {
+    height: 120px;
+    font-size: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 10px 13px -7px var(--violet-fonce),
+        5px 5px 15px 5px rgba(224, 221, 226, 0);
+    background-color: var(--violet-fonce);
+    border: 2px solid #3b2455;
 }
 
+.login-main form div label {
+    margin: auto;
+    padding-top: 15px;
+    font-size: 45px;
+}
+
+.login-connect-button {
+    height: 100px;
+    width: 80%;
+    font-size: 35px;
+    background-color: var(--violet-fonce);
+    border: 2px solid #3b2455;
+    border-radius: 16px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+/* ===================================== ADMIN USER ===================================== */
+.admin-user-main-div h6 {
+    margin: auto;
+    width: fit-content;
+}
+
+.admin-user-main-div p {
+    margin-top: 10px;
+    width: fit-content;
+}
+
+/* ===================================== ADMIN ACCUEIL ===================================== */
+
+.admin-accueil-main-section {
+    width: 50%;
+}
+
+.admin-accueil-main-section p {
+    width: 95%;
+    font-size: 25px;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+}
 
 /* ===================================== ADMIN PRESTATIONS ===================================== */
 
@@ -201,11 +239,6 @@ a {
     border-radius: 4px;
     padding: 2px;
     width: 13%;
-}
-
-.ADMIN_main_produits {
-    display: flex;
-    flex-direction: column;
 }
 
 .prestation_div {
@@ -223,14 +256,422 @@ a {
     border-radius: 8px;
 }
 
+.admin-create-prestation-a {
+    font-size: 40px;
+    margin-top: 10px;
+    color: var(--text_col);
+    text-decoration: underline;
+}
+
+.admin-logo-edit {
+    width: 85px;
+}
+
+/* ===================================== ADMIN PRODUITS ===================================== */
+.admin-produits-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 15px;
+    display: flex;
+}
+
+.admin-main-all-div-produits {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 15px;
+    background-color: var(--violet-fonce);
+    border-radius: 15px;
+}
+
+.admin-produits-main-div {
+    border-radius: 8px;
+    padding: 15px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid var(--text_col);
+    background-color: var(--violet-claire);
+    align-items: center;
+}
+
+.admin-main-all-div-produits h2 {
+    font-size: 40px;
+    width: fit-content;
+    overflow: hidden;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-produits-main-description {
+    padding-bottom: 15px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.admin-produits-main-img {
+    width: 300px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.admin-main-button-action {
+    width: fit-content;
+    margin: auto;
+}
+
+.admin-main-produits-info-prix {
+    font-size: 35px;
+}
+
+.admin-main-button-action a {
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.admin-main-produits-info-prix {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.admin-produits-ajout-button {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin: auto;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* ===================================== ADMIN BIJOUX ===================================== */
+.admin-bijoux-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 15px;
+    display: flex;
+    
+}
+
+.admin-main-all-div-bijoux {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 15px;
+    background-color: var(--violet-fonce);
+    border-radius: 15px;
+}
+
+.admin-bijoux-main-div {
+    min-height: 500px;
+    border-radius: 8px;
+    padding: 15px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid var(--text_col);
+    background-color: var(--violet-claire);
+    align-items: center;
+}
+
+.admin-main-all-div-bijoux h2 {
+    font-size: 35px;
+    width: fit-content;
+    overflow: hidden;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-bijoux-main-img {
+    width: 400px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.admin-main-button-action {
+    width: fit-content;
+    margin: auto;
+}
+
+.admin-main-button-action a {
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.admin-main-bijoux-info-prix {
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+
+.admin-bijoux-ajout-button {
+    background-color: var(--violet-claire);
+    padding: 15px;
+    border-radius: 12px;
+    color: var(--text_col);
+    margin: auto;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* ===================================== PAGE CGU ===================================== */
+
+.main-cgu {
+    background-color: var(--arrier-plan);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.main-div-cgu {
+    background-color: var(--violet-fonce);
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    padding-bottom: 35px;
+}
+
+.main-div-cgu h2 {
+    font-size: 30px;
+}
+
+.para-cgu {
+    margin-top: 15px;
+}
+
+.para-cgu h3 {
+    margin-bottom: 15px;
+    border: 2px solid var(--violet-claire);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.para-cgu p,
+.main-div-cgu h2 {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+/* ===================================== PAGE MAIN ===================================== */
+.accueil-main {
+    background-color: var(--arrier-plan);
+    min-height: 100vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.accueil-main-section-div-p {
+    margin: auto;
+    margin-top: 10px;
+}
+
+.accueil-main-section,
+.admin-accueil-main-section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--violet-fonce);
+    width: 90%;
+    margin: auto;
+    min-height: 500px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+}
+
+.small-box {
+    min-height: 200px;
+}
+
+.accueil-main-section-frame {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.accueil-main-section h2,
+.admin-accueil-main-section h2 {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    font-size: 40px;
+}
+
+.accueil-main-section p {
+    width: fit-content;
+    max-width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 35px;
+    max-height: 600px;
+    padding: 15px;
+
+}
+
+.accueil-main-section-frame div {
+    padding-bottom: 15px;
+}
+
+.accueil-main-section-frame div img {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 400px;
+    height: 350px;
+    border-radius: 12px;
+}
+
+.accueil-main-section-frame div h3 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.accueil-main-section-pitch-div-button_a {
+    display: block;
+    font-size: 35px;
+    width: 90%;
+    margin: auto;
+    border: 5px solid #3b2455;
+    border-radius: 12px;
+    color: var(--text_col);
+}
+
+.accueil-main-reservation-p {
+    margin-top: 20px;
+}
+
+.accueil-main-reservation-lien {
+    color: var(--text_col);
+    text-decoration: underline;
+    margin: auto;
+    font-size: 35px;
+}
+
+#user div {
+    margin-bottom: 15px;
+}
+
+/* ===================================== PAGE PRESTATIONS ===================================== */
+.main-prestation {
+    background-color: var(--arrier-plan);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 100vh;
+}
+
+#choice_category_prestations,
+#choice_category_prestations-admin {
+    width: 100%;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    background-color: var(--violet-fonce);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#choice_category_prestations option,
+#choice_category_prestations-admin option {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.titre-h2-prestations {
+    width: fit-content;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 50px;
+}
+
+.back-prestation {
+    border: 1px solid black;
+    background-color: var(--violet-fonce);
+    width: 95%;
+    min-height: 60vh;
+    display: flex;
+    padding: 30px;
+    padding-bottom: 45px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-prestation ul {
+    list-style: none;
+    width: 90%;
+}
+
+.prestations-main-for-li-div {
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    font-size: 40px;
+    margin-top: 30px;
+    border: 2px solid var(--text_col);
+    border-radius: 8px;
+    min-height: 60px;
+    padding: 15px;
+}
+
+.prestation-main-for-div img {
+    margin-top: 15px;
+
+}
+
+.prestations-main-for-li-div-title {
+    max-width: 80%;
+}
+
+.prestations-main-for-li-div-prix {
+    margin-left: 15px;
+}
+
+.admin-prestation-logo-div {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ===================================== PAGE PRODUITS ===================================== */
 .main-produits {
     background-color: var(--arrier-plan);
     padding-bottom: 15px;
+    min-height: 100vh;
 }
 
 .div-selector-category {
-    width: fit-content;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
@@ -248,10 +689,10 @@ a {
 }
 
 #choice_category {
-    width: 600px;
-    height: 50px;
+    width: 100%;
+    height: 60px;
     margin-bottom: 15px;
-    background-color: #8244A7;
+    background-color: var(--violet-fonce);
     font-size: 30px;
     font-weight: 700;
 }
@@ -266,11 +707,11 @@ a {
     margin-left: auto;
     margin-right: auto;
     font-weight: 700;
-    font-size: 40px;
-    padding-top: 20px;
-    margin-bottom: 10px;
+    font-size: 45px;
+    font-family: 'Dancing Script', cursive;
+    padding-top: 15px;
+    margin-bottom: 5px;
 }
-
 
 .back-div-produits {
     border: 1px solid black;
@@ -340,122 +781,77 @@ a {
     justify-content: space-between;
 }
 
-/* ===================================== PAGE PRESTATIONS ===================================== */
-.main-prestation {
+/* ===================================== PAGE BIJOUX ===================================== */
+.bijoux-main {
     background-color: var(--arrier-plan);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 30px;
 }
 
-.titre-h2-prestations {
-    width: fit-content;
-    margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 50px;
-}
-
-.back-prestation {
-    border: 1px solid black;
-    background-color: var(--violet-fonce);
-    min-width: 90%;
-    max-width: 90%;
-    min-height: 95%;
-    display: flex;
-    padding: 30px;
-    padding-bottom: 15px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 16px;
+.bijoux-main-div {
+    width: 90%;
+    min-height: 75vh;
     margin-left: auto;
     margin-right: auto;
-}
-
-.div-prestations-card {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid var(--text_col);
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    width: 100%;
-    border-radius: 16px;
-    background-color: var(--violet-claire);
-}
-
-.div-prestations-card p {
-    width: fit-content;
-    font-size: 30px;
-    margin: 5px;
-}
-
-.div-prestations-card:hover {
-    box-shadow: 0px 10px 13px -7px #00000059, 5px 5px 15px 5px rgba(130, 68, 167, 0);
-    transition: all .2s;
-}
-
-/* ===================================== MAIN ===================================== */
-.container {
-    padding: 95px;
-    height: 100%;
-    background-color: var(--arrier-plan);
-    width: 100%;
-}
-
-.presentation_section {
     background-color: var(--violet-fonce);
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.bijoux-main-for-div {
+    background-color: var(--violet-claire);
+    margin: 15px;
+    border-radius: 8px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+}
+
+.bijoux-main-for-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    margin-left: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.bijoux-main-for-div-info {
     width: 100%;
-    align-content: center;
-    padding: 40px;
-    margin-top: 50px;
-    height: 500px;
-    border: 1px solid rgb(68, 7, 77);
-    /* display: flex; */
 }
 
-.row h2 {
+.bijoux-main-for-div h2 {
+    width: fit-content;
+    max-width: 550px;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+.bijou-main-for-p-description {
+    max-width: 80%;
+    min-height: 100px;
+    max-height: 150px;
+    overflow: scroll;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
-    width: 95%;
-    height: 70px;
 }
 
-.presentation_div {
-    display: flex;
-    justify-content: center;
+/* Desactivation du visuelle de la scroll bar */
+.bijou-main-for-p-description::-webkit-scrollbar {
+    display: none;
 }
 
-.presentation_div img {
-    width: 30%;
-    object-fit: contain;
-}
-
-.presentaiton_p_div {
-    width: 600px;
-}
-
-/* ===================================== PAGE CONTACT ================================== */
-.main-contact {
-    background-color: var(--arrier-plan);
-    padding: 15px;
-}
-
-.main-contact p {
-    margin-top: 9px;
-}
-
-.div-contact-info {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.div-contact-adress {
-    margin-top: 2px;
-    margin-left: 20px;
+.bijoux-main-for-p-prix {
     font-size: 20px;
+    width: 120px;
+    margin-left: auto;
 }
+
+
 
 /* ===================================== PAGE RESERVATION ===================================== */
 .main-reservation {
@@ -473,6 +869,22 @@ a {
 
 }
 
+.titre_page-reservation-div {
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: var(--violet-fonce);
+    padding: 15px;
+    font-size: 32px;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.titre_page-reservation-div p {
+    width: fit-content;
+    margin: auto;
+}
+
 .div-reservation form {
     width: 98%;
     padding-bottom: 30px;
@@ -487,6 +899,13 @@ a {
     width: 100%;
     align-content: space-around;
     margin-top: 15px;
+}
+
+#calendrier {
+    background: whitesmoke;
+    height: 900px;
+    padding: 15px;
+    border-radius: 12px;
 }
 
 .reservation-div-input label {
@@ -509,11 +928,19 @@ a {
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #3b2455;
+    text-align: center;
 }
 
 .reservation-div-input input::placeholder {
     color: var(--text_col);
     font-size: 35px;
+    text-align: center;
+}
+
+.reservation-div-input textarea {
+    background-color: var(--violet-fonce);
+    height: 150px;
+    border: 2px solid #3b2455;
 }
 
 .reservation-div-input select {
@@ -529,6 +956,7 @@ a {
 
 .reservation-div-input option {
     font-size: 10px;
+    text-align: start;
 }
 
 
@@ -575,13 +1003,15 @@ a {
 }
 
 .button_valide_reservation {
-    width: fit-content;
+    margin-top: 15px;
+    width: 35%;
+    height: 90px;
     padding: 10px 25px 10px 25px;
     border: 0px;
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    font-size: large;
+    font-size: 35px;
     background-color: var(--violet-fonce);
     border: 2px solid #3b2455;
     text-align: center;
@@ -590,6 +1020,7 @@ a {
 .button_valide_reservation p {
     width: fit-content;
     height: fit-content;
+    margin: auto;
     padding-top: 4px;
     padding-left: 4px;
 }
@@ -598,6 +1029,40 @@ a {
     width: fit-content;
     width: fit-content;
     margin: auto;
+}
+
+/* ===================================== PAGE CONTACT ================================== */
+.main-contact {
+    background-color: var(--arrier-plan);
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 15px;
+}
+
+.div-contact-info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--violet-fonce);
+    width: 95%;
+    margin: auto;
+}
+
+.div-contact-adress {
+    margin-top: 40px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.div-contact-horaires {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.iframe {
+    margin: auto;
+    margin-top: 15px;
 }
 
 /* ===================================== GESTION ERROR ===================================== */
@@ -619,7 +1084,6 @@ a {
     width: fit-content;
     margin: auto;
 }
-
 
 .categorys {
     width: 100%;
@@ -648,83 +1112,61 @@ a {
     margin-left: 90px;
 }
 
-------------------------
-
-/* carrousel */
----------------------- h3 {
-    width: 15px;
-    height: 5px;
-
-}
-
-.center h3 {
-    text-align: center;
-    width: 800px;
-}
-
-.diapo {
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-}
-
-#nav-droite,
-#nav-gauche {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-100%);
-    color: black;
-    font-size: 2em;
-}
-
-#nav-droite {
-    right: 50px;
-}
-
-#nav-gauche {
-    left: 50px;
-}
-
-.elements {
-    display: flex;
-    transition: 1s linear;
-    width: 500px;
-    background-color: brown;
-    justify-items: center;
-}
-
-.element {
-    flex: 1 0 90%;
-    position: relative;
-    width: 100px;
-    text-align: center;
-}
-
-.element img {
-    width: 50%;
-}
-
 /* ===================================== FOOTER ===================================== */
 .footer-main-div {
     background-color: var(--violet-fonce);
 }
+
 .fb-cgu {
     display: flex;
 }
+
 .fb-cgu img {
-   margin-left: 15px;
-   
+    margin-left: 15px;
+
 }
+
 .footer-cgu-link {
-margin: auto;
+    margin: auto;
     font-size: 20px;
     color: var(--text_col);
 }
 
-/* ===================================== RESPONSIVE TABLET ===================================== */
+/* =============================================================== RESPONSIVE TABLET ====================================================== */
+
 @media only screen and (min-device-width : 767px) {
 
-    /* ===================================== PAGE PRODUITS ===================================== */
+
+    /* ===================================== ADMIN PRESTATION===================================== */
+    .admin-create-prestation-a {
+        font-size: 28px;
+    }
+
+    /* ===================================== ADMIN PRODUITS===================================== */
+    .admin-main-all-div-produits {
+        width: 55%;
+    }
+
+    .admin-main-all-div-produits h2,
+    .admin-main-produits-info-prix {
+        font-size: 30px;
+    }
+
+    .admin-produits-main-img {
+        width: 250px;
+        margin: auto;
+    }
+
+    .admin-main-button-action a,
+    .admin-produits-ajout-button {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .admin-main-produits-info-prix {
+        font-size: 23px;
+    }
+
     .back-div-produits {
         padding: 0;
         flex-direction: row;
@@ -763,10 +1205,26 @@ margin: auto;
     }
 
 
+    /* ===================================== ADMIN BIJOUX===================================== */
+
+    .admin-main-all-div-bijoux h2 {
+        font-size: 25px;
+    }
+
+    .admin-main-bijoux-info-prix {
+        font-size: 25px;
+    }
+
+    .admin-bijoux-url_images {
+        height: 70px;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+
     /* ===================================== HEADER ===================================== */
     header {
         width: 100%;
-        height: 360px;
+        height: 250px;
     }
 
     a {
@@ -775,7 +1233,7 @@ margin: auto;
     }
 
     .logo {
-        height: 300px;
+        height: 200px;
         display: flex;
         justify-content: center;
         padding: 5px;
@@ -822,7 +1280,7 @@ margin: auto;
         border: 1px solid rgb(68, 7, 77);
         background-color: var(--violet-fonce);
         width: 100%;
-        height: 60px;
+        height: 50px;
     }
 
     .nav ul {
@@ -836,7 +1294,7 @@ margin: auto;
     .nav ul li {
         margin-right: 5px;
         list-style: none;
-        margin-top: 8px;
+        margin-top: 2px;
     }
 
     .nav ul li a {
@@ -855,14 +1313,114 @@ margin: auto;
         background-color: rgba(39, 38, 39, 0.473);
     }
 
+    /* ===================================== LOGIN ===================================== */
+    .login-main {
+        display: flex;
+    }
+
+    .login-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    .login-main form {
+        width: 60%;
+    }
+
+    .login-main form div input {
+        padding: 10px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .login-connect-button {
+        height: 60px;
+        width: 60%;
+        font-size: 25px;
+    }
+
+    .login-main form div label {
+        font-size: 25px;
+        margin-top: auto;
+        margin-bottom: 5px;
+    }
+
+    /* ===================================== PAGE MAIN ===================================== */
+    .accueil-main-section,
+    .admin-accueil-main-section {
+        width: 85%;
+        min-height: 380px;
+    }
+
+    .accueil-main-section h2,
+    .admin-accueil-main-section h2 {
+        font-size: 30px;
+    }
+
+    .accueil-main-section p,
+    .admin-accueil-main-section p {
+        font-size: 22px;
+        margin-top: auto;
+    }
+
+    .accueil-main-section-frame div img {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 250px;
+        height: 200px;
+        border-radius: 12px;
+    }
+
+    .accueil-main-reservation-lien {
+        font-size: 25px;
+    }
+
     /* ===================================== PAGE PRESTATIONS ===================================== */
-    .div-prestations-card p {
-        font-size: 20px;
+    .titre-h2-prestations {
+        font-size: 35px;
+    }
+
+    #choice_category_prestations,
+    #choice_category_prestations-admin {
+        width: 100%;
+        height: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        background-color: var(--violet-fonce);
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .back-prestation {
+        width: 65%;
+        min-height: 60vh;
+
+    }
+
+    .div-selector-category {
+        width: 50%;
+    }
+
+    .prestations-main-for-li-div {
+        font-size: 25px;
+    }
+
+    /* ===================================== PAGE BIJOUX ===================================== */
+    .bijoux-main-for-image {
+        width: 250px;
     }
 
     /* ===================================== PAGE RESERVATION ===================================== */
     .div-reservation {
-        width: 70%;
+        width: 90%;
+    }
+
+    .titre_page-reservation-div {
+        font-size: 30px;
     }
 
     .reservation-div-input label {
@@ -884,7 +1442,7 @@ margin: auto;
 
     .reservation-div-input select {
         height: 70px;
-        font-size: 15px;
+        font-size: 25px;
     }
 
     #ajout_prestation {
@@ -903,10 +1461,37 @@ margin: auto;
         font-size: 20px;
         padding-left: 5px;
     }
+
+    .button_valide_reservation {
+        width: 25%;
+        height: 50px;
+        font-size: 20px;
+    }
 }
 
-/* =============================== RESPONSIVE DESKTOP ============================= */
+/* =============================================================== RESPONSIVE DESKTOP ====================================================== */
+
 @media only screen and (min-device-width : 1685px) {
+
+    /* ===================================== ADMIN PRESTATION===================================== */
+    .admin-create-prestation-a {
+        font-size: 15px;
+    }
+
+    /* ===================================== ADMIN BIJOUX===================================== */
+    .admin-bijoux-main-img {
+        width: 300px;
+    }
+
+    .admin-main-all-div-bijoux {
+        width: 65%;
+    }
+
+    /* ===================================== LOGIN ===================================== */
+    .login-main form label {
+        margin: auto;
+        padding-top: 15px;
+    }
 
     /* ===================================== NAV DU HEADER ===================================== */
     .nav ul li a {
@@ -917,6 +1502,39 @@ margin: auto;
         transition: all .2s;
     }
 
+    /* ===================================== PAGE MAIN ===================================== */
+    .accueil-main-section,
+    .admin-accueil-main-section {
+        width: 80%;
+        min-height: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .accueil-main-section h2,
+    .admin-accueil-main-section h2 {
+        font-size: 25px;
+    }
+
+    .accueil-main-section p,
+    .admin-accueil-main-section p {
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .accueil-main-section-frame div img {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 320px;
+        height: 280px;
+        border-radius: 12px;
+    }
+
+    .accueil-main-reservation-lien {
+        font-size: 20px;
+    }
+
+    /* ===================================== PAGE PRODUITS ===================================== */
     .main-produits {
         background-color: var(--arrier-plan);
     }
@@ -931,7 +1549,28 @@ margin: auto;
         width: 55%;
     }
 
+    .titre_page-reservation-div {
+        font-size: 25px;
+
+    }
+
     .reservation-div-input label {
         font-size: 30px;
     }
+
+    .reservation-div-input input {
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .reservation-div-input label {
+        font-size: 23px;
+
+    }
+
+    .reservation-div-input select {
+        height: 70px;
+        font-size: 18px;
+    }
+
 }

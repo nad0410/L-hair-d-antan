@@ -9,13 +9,13 @@
 					<a href="{{path("home")}}">Accueil</a>
 				</li>
 				<li>
-					<a href="{{path("prestations")}}">Prestations</a>
+					<a href="{{ path('prestations', {'id': 1 }) }}">Prestations</a>
 				</li>
 				<li>
 					<a href="{{path("produits")}}">Produits</a>
 				</li>
 				<li>
-					<a href="">Bijoux</a>
+					<a href="{{path("bijoux")}}">Bijoux</a>
 				</li>
 				<li>
 					<a href="{{path("reservation")}}">Reservation</a>
@@ -23,6 +23,11 @@
 				<li>
 					<a href="{{path("contact")}}">Contact</a>
 				</li>
+				{% if app.user %}
+					<li>
+						<a href="{{path("app_admin")}}">Admin Panel</a>
+					</li>
+				{% endif %}
 			</ul>
 		</nav>
 	</div>
@@ -43,13 +48,13 @@
 				<a href="{{path("home")}}">Accueil</a>
 			</li>
 			<li>
-				<a href="{{path("prestations")}}">Prestations</a>
+				<a href="{{ path('prestations', {'id': 1 }) }}">Prestations</a>
 			</li>
 			<li>
 				<a href="{{path("produits")}}">Produits</a>
 			</li>
 			<li>
-				<a href="">Bijoux</a>
+				<a href="{{path("bijoux")}}">Bijoux</a>
 			</li>
 			<li>
 				<a href="{{path("reservation")}}">Reservation</a>
@@ -57,6 +62,7 @@
 			<li>
 				<a href="{{path("contact")}}">Contact</a>
 			</li>
+
 		</ul>
 	</nav>
 

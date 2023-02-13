@@ -1,10 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Crée une Prestations{% endblock %}
+{% block title %}Créer une Prestations
+{% endblock %}
 
 {% block body %}
-{% include "partials/_left-panel-admin.html.twig" %}
-	{{form_start(form)}}
-	{{form_rest(form)}}
-	{{form_end(form)}}
+<main class="main-reservation">
+		<div class="div-reservation">
+			<div class="titre_page-reservation-div">
+				<p>Modification d'une prestation</p>
+			</div>
+			{{form_start(form)}}
+
+			<div class="reservation-div-input">
+				{{form_label(form.title)}}
+				{{form_widget(form.title)}}
+				{{form_errors(form.title)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.Time)}}
+				{{form_widget(form.Time)}}
+				{{form_errors(form.Time)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.prix)}}
+				{{form_widget(form.prix)}}
+				{{form_errors(form.prix)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.category)}}
+				{{form_widget(form.category)}}
+				{{form_errors(form.category)}}
+				<a class="admin-create-prestation-a" href="{{path("admin_create_category_prestations")}}">Ajoute une category de prestations</a>
+			</div>
+
+			<button class="button_valide_reservation" type="submit">
+				<p>Valider</p>
+			</button>
+			{{form_end(form)}}
+		</div>
+	</main>
+
 {% endblock %}

@@ -1,0 +1,24 @@
+
+{% block body %}
+	<main class="main-reservation">
+		<div class="div-reservation">
+			<div class="titre_page-reservation-div">
+				<p>Créer un utilisateur</p>
+			</div>
+			{{form_start(form)}}
+
+			<div class="reservation-div-input">
+				{{form_label(form)}}
+				{{form_widget(form)}}
+				{{form_errors(form)}}
+			</div>
+
+			<button class="button_valide_reservation" type="submit">
+				<p>Valider</p>
+			</button>
+			{{form_end(form)}}
+		</div>
+	</main>
+
+{% endblock %}
+

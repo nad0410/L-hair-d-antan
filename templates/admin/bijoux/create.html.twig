@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crée un Produits{% endblock %}
+
+{% block body %}
+<main class="main-reservation">
+		<div class="div-reservation">
+			<div class="titre_page-reservation-div">
+				<p>Ajouter un produit</p>
+			</div>
+			{{form_start(form)}}
+
+			<div class="reservation-div-input">
+				{{form_label(form.name)}}
+				{{form_widget(form.name)}}
+				{{form_errors(form.name)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.description)}}
+				{{form_widget(form.description)}}
+				{{form_errors(form.description)}}
+			</div>
+
+			<div class="reservation-div-input">
+				{{form_label(form.prix)}}
+				{{form_widget(form.prix)}}
+				{{form_errors(form.prix)}}
+			</div>
+
+			<div class="admin-bijoux-url_images">
+				{{form_label(form.url_image)}}
+				{{form_widget(form.url_image)}}
+				{{form_errors(form.url_image)}}
+			</div>
+
+			<button class="button_valide_reservation" type="submit">
+				<p>Valider</p>
+			</button>
+			{{form_end(form)}}
+		</div>
+	</main>
+{% endblock %}

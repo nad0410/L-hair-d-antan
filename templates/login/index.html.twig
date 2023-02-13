@@ -1,17 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!
+{# On définit le titre de la page #}
+{% block title %}Connexion Admin
 {% endblock %}
 
+{# Ce bloc sert à pouvoir intégrer le code HTML#}
 {% block body %}
-	<form action="{{ path("login") }}" method="post">
-		<label for="_username">Votre Email</label>
-		<input type="text" name="_username" id="username">
-		<label for="_username">Votre Mot de Passe</label>
-		<input type="password" name="_password" id="password">
+	{#j'inclus le Header#}
+	{% include "partials/_header.html.twig" %}
 
-		<button type="submit">Se Connecter</button>
+	{# Balise semantique qui servira de piece central #}
+	<main
+		class="login-main">
+		{# On crée le form du login #}
+		<form action="{{ path("login") }}" method="post">
+			<div class="flex column">
+				<label for="_username">Votre Email</label>
+				{# _username doit être mis OBLIGATOIREMENT dans le name #}
+				<input type="text" name="_username" id="username">
+			</div>
 
-	</form>
-
+			<div class="flex column">
+				<label for="_password">Votre Mot de Passe</label>
+				{# _password doit être mis OBLIGATOIREMENT dans le name #}
+				<input type="password" name="_password" id="password">
+			</div>
+			{# Button pour valider la soumission du formulaire #}
+			<button class="login-connect-button" type="submit">Se Connecter</button>
+		</form>
+	</main>
+	{# j'inclus le Footer #}
+	{% include "partials/_footer.html.twig" %}
 {% endblock %}
+
+

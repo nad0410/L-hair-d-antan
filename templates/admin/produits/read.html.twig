@@ -4,26 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	<div class="admin_main_produits">
-
-		{% for produit in produits %}
-			<div class="prestation_div">
-				<p>{{produit.name}}</p>
-				<p>{{produit.marque}}</p>
-				<p>{{produit.prix}}
-					€</p>
-				<p class="p_pro">
-					{{produit.description}}</p>
-				<p>{{produit.category.name}}</p>
-				<a href="{{path('admin_produits_edit', { 'id': produit.id }) }}">
-					Modifier</a>
-				<a id="comf_delete" href="{{path('admin_produits_delete', { 'id': produit.id }) }}">
-					Supprimer</a>
-			</div>
-		{% endfor %}
-
-		<a class="a_button_submit" href="{{path("admin_create_produits")}}">
-			Créer un nouveau produits</a>
-	</div>
-	{# {% include "partials/_left-panel-admin.html.twig" %} #}
+	{% include "partials/_admin_header.html.twig" %}
+	{# Balise sémantique qui servira de base pour les autres balises #}
+	<main
+		class="admin-produits-main">
+		{# Le code suivant gère l'affichage des produits #}
+		<div class="admin-main-all-div-produits flex column">
+			{% for produit in produits %}
+				<div class="admin-produits-main-div flex column">
+					<div>
+						<img class="admin-produits-main-img" src="{{asset('images/produits/')}}{{produit.imgProduits}}" alt="Image Produits">
+					</div>
+					<h2>{{produit.name}}</h2>
+					<div>
+						<p class="admin-main-produits-info-prix">{{produit.prix}}
+							€
+						</p>
+					</div>
+					<div class="admin-main-button-action flex">
+						<a href="{{ path('admin_produits_edit', {'id': produit.id }) }}">Modifier</a>
+						<a id="#comf_delete" href="{{ path('admin_produits_delete', {'id': produit.id }) }}">Supprimer</a>
+					</div>
+				</div>
+			{% endfor %}
+			<a class="admin-produits-ajout-button" href="{{path("admin_create_produits")}}">Ajouter un produits</a>
+		</div>
+	</main>
 {% endblock %}
+

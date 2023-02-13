@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\CategoryPrestation;
 use App\Entity\Prestations;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,13 +24,12 @@ class PrestationsType extends AbstractType
             ->add('Time', NumberType::class, [
                 'label' => "Temps (en minutes) "
             ])
-            ->add('prix', NumberType::class, [
-
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => "Valider"
-            ])
-        ;
+            ->add('prix', NumberType::class, [])
+            ->add('category', EntityType::class, [
+                'class' => CategoryPrestation::class,
+                'choice_label' => 'title',
+                'label' => "Category du produits "
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
