@@ -80,41 +80,7 @@ class DefaultController extends AbstractController
             'bijoux' => $bijoux,  // On envoie les informations récupérer avec $bijouxRepository->findAll() vers la vue twig avec comme variable "bijoux"
         ]);
     }
-
-    // ===========================PAGE RESERVATION===========================
-
-    #[Route('/reservation', name: 'reservation')]
-    public function reservation(RDVRepository $rDVRepository, EntityManagerInterface $entityManagerInterface, Request $request): Response
-    {
-        $rdv = new RDV();
-        $form = $this->createForm(RDVType::class, $rdv);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($form->get('check_cgu')->getData() == true) {
-
-                $rdv->addRdvPrestation($form->get('prestation')->getData());
-
-                if ($form->get('prestation2')->getData()) {
-                    $rdv->addRdvPrestation($form->get('prestation2')->getData());
-                };
-
-                if ($form->get('prestation3')->getData() and $form->get('prestation3')->getData() != 0) {
-                    $rdv->addRdvPrestation($form->get('prestation3')->getData());
-                };
-
-                $entityManagerInterface->persist($rdv);
-                $entityManagerInterface->flush();
-            } else {
-                $this->addFlash("error", "Merci d'accepter les CGU afin de valider votre réservation");
-            }
-        }
-
-        return $this->render('default/reservation.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-
+    
     // ===========================PAGE CONTACT===========================
 
     #[Route('/contact', name: 'contact')]
