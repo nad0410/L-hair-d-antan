@@ -25,17 +25,11 @@ class Prestations
     #[ORM\Column]
     private ?float $prix = null;
 
-    #[ORM\ManyToMany(targetEntity: RDV::class, mappedBy: 'rdv_prestation')]
-    private Collection $rDVs;
 
     #[ORM\ManyToOne(inversedBy: 'prestations')]
     private ?CategoryPrestation $category = null;
 
-    public function __construct()
-    {
-        $this->rDVs = new ArrayCollection();
-    }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -77,32 +71,6 @@ class Prestations
         return $this;
     }
 
-    /**
-     * @return Collection<int, RDV>
-     */
-    public function getRDVs(): Collection
-    {
-        return $this->rDVs;
-    }
-
-    public function addRDV(RDV $rDV): self
-    {
-        if (!$this->rDVs->contains($rDV)) {
-            $this->rDVs->add($rDV);
-            $rDV->addRdvPrestation($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRDV(RDV $rDV): self
-    {
-        if ($this->rDVs->removeElement($rDV)) {
-            $rDV->removeRdvPrestation($this);
-        }
-
-        return $this;
-    }
 
     public function getCategory(): ?CategoryPrestation
     {

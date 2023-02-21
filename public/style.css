@@ -361,7 +361,7 @@ a {
     min-height: 100vh;
     padding-top: 15px;
     display: flex;
-    
+
 }
 
 .admin-main-all-div-bijoux {
@@ -504,7 +504,7 @@ a {
 }
 
 .small-box {
-    min-height: 200px;
+    min-height: 80px;
 }
 
 .accueil-main-section-frame {
@@ -1378,6 +1378,10 @@ a {
         font-size: 25px;
     }
 
+    .small-box {
+        min-height: 80px;
+    }
+
     /* ===================================== PAGE PRESTATIONS ===================================== */
     .titre-h2-prestations {
         font-size: 35px;
@@ -1509,6 +1513,10 @@ a {
         min-height: 200px;
         padding-top: 15px;
         padding-bottom: 15px;
+    }
+
+    .small-box {
+        min-height: 80px;
     }
 
     .accueil-main-section h2,

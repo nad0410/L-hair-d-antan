@@ -29,16 +29,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: RDV::class)]
-    private Collection $rDVs;
-
     #[ORM\Column(length: 255)]
     private ?string $name = null;
-
-    public function __construct()
-    {
-        $this->rDVs = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -108,36 +100,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return Collection<int, RDV>
-     */
-    public function getRDVs(): Collection
-    {
-        return $this->rDVs;
-    }
-
-    public function addRDV(RDV $rDV): self
-    {
-        if (!$this->rDVs->contains($rDV)) {
-            $this->rDVs->add($rDV);
-            $rDV->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRDV(RDV $rDV): self
-    {
-        if ($this->rDVs->removeElement($rDV)) {
-            // set the owning side to null (unless already changed)
-            if ($rDV->getUser() === $this) {
-                $rDV->setUser(null);
-            }
-        }
-
-        return $this;
     }
 
     public function getName(): ?string
